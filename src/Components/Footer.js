@@ -13,9 +13,9 @@ export const Footer = () => {
           <ListGroup.Item action tolink={"/"} ><Link to="/">H</Link>
 
           </ListGroup.Item>
-          <ListGroup.Item action ><Link to="/">A</Link>
-{/* This one below is the one that works */}
-          </ListGroup.Item>
+          <Link to="/"><span><ListGroup.Item action >H
+
+          </ListGroup.Item></span></Link>
           <Link to="/MedicalData"><span><ListGroup.Item action >H
 
           </ListGroup.Item></span></Link>
