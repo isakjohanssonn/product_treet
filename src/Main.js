@@ -13,7 +13,7 @@ import AddMedData from "./AddMedData";
 
 class Main extends Component {
   render() {
-    return (  
+    return (
       <>
         <React.Fragment>
           <Router>
@@ -32,7 +32,7 @@ class Main extends Component {
             <Footer />
           </Router>
         </React.Fragment>
-       
+
       </>
     );
   }
