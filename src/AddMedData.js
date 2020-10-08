@@ -12,7 +12,7 @@ class AddMedData extends Component {
       showDate: true,
       date: new Date(),
       showMedtype: false,
-      showInput : false,
+      showInput: false,
       medtype: "diabetes",
       showSummary: true,
       input: null,
@@ -23,13 +23,13 @@ class AddMedData extends Component {
   // calendar date update
   onChange = date => this.setState({ date })
   //changes which code will be shown from the render statement
-  secondView = () => this.setState({ showDate: false, showMedtype: true, dateString : this.state.date})
+  secondView = () => this.setState({ showDate: false, showMedtype: true, dateString: this.state.date })
   thirdView = () => this.setState({ showMedtype: false, showInput: true })
-  fourthView = () => this.setState({ showInput: false, showSummary: true})
-  handleChange = event => this.setState({input: event.target.value});
+  fourthView = () => this.setState({ showInput: false, showSummary: true })
+  handleChange = event => this.setState({ input: event.target.value });
 
   render() {
-  
+
     if (this.state.showDate) {
       return (
         <div>
@@ -39,6 +39,8 @@ class AddMedData extends Component {
             showWeekNumbers
             value={this.state.date}
             Date
+            maxDate = {new Date()}
+           
           />
           <Button onClick={this.secondView}>Next</Button>
         </div>
@@ -58,7 +60,7 @@ class AddMedData extends Component {
         <div>
           <h1>{this.state.medtype}</h1>
           <input onChange={this.handleChange} placeholder="fyll i här"></input>
-          <Button onClick ={this.fourthView}>Next</Button>
+          <Button onClick={this.fourthView}>Next</Button>
         </div>
       );
     }
@@ -66,12 +68,12 @@ class AddMedData extends Component {
       return (
         <div>
           <h1>Summary</h1>
-          {<h3>{this.state.date.toString().split(0,14)}</h3>}
+          {<h3>{this.state.date.toString().split(0, 14)}</h3>}
           <h3>{this.state.medtype} : {this.state.input}</h3>
           <Button onClick={this.submit}>submit</Button>
         </div>
-        
-      ); 
+
+      );
     }
   }
 }
