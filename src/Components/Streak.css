@@ -1,0 +1,12 @@
+.mainStreakDiv {
+  margin-top: 1,5rem;
+  border: 5px, black;
+  border-radius: 4px;
+  background-color: lightgrey;
+  align-items: center;
+}
+
+h3 {
+  padding-left: auto;
+
+}

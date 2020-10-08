@@ -1,0 +1,10 @@
+.active {
+  background-color: lightgray;
+}
+a:hover {
+  color : initial;
+  text-decoration-line: none;
+}
+.Link {
+  text-emphasis: Bold;
+}
