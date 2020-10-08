@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button } from "react-bootstrap";
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import PostEHR from "./openEHR/PostEHR"
 
 
 class AddMedData extends Component {
@@ -26,7 +27,6 @@ class AddMedData extends Component {
   thirdView = () => this.setState({ showMedtype: false, showInput: true })
   fourthView = () => this.setState({ showInput: false, showSummary: true})
   handleChange = event => this.setState({input: event.target.value});
-  submit = () => alert("submited");
 
   render() {
   
@@ -68,10 +68,10 @@ class AddMedData extends Component {
           <h1>Summary</h1>
           {<h3>{this.state.date.toString().split(0,14)}</h3>}
           <h3>{this.state.medtype} : {this.state.input}</h3>
-
           <Button onClick={this.submit}>submit</Button>
         </div>
-      );
+        
+      ); 
     }
   }
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Component } from "react";
 import { Button, FormGroup, FormControl } from "react-bootstrap";
 import "./Login.css";
 import { useAuth0 } from "@auth0/auth0-react";

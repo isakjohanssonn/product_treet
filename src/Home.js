@@ -9,33 +9,33 @@ class Home extends Component {
     return (
       <div>
         <Streak />
-            {/* <ListGroup> */}
-              <Link to="/addmeddata">
-                <span className="card" >
-                  <Button>New Measurment</Button>
-                </span>
-              </Link>
-              <Link to="/history">
-                <span className="card" >
-                <Button>Measurements/History</Button>
-                </span>
-              </Link>
-              <Link to="/profile">
-                <span className="card" >
-                <Button linkto='/profile'>Profile</Button>
-                </span>
-              </Link>
-              <Link to="/goals">
-                <span className="card" >
-                <Button>Goals</Button>
-                </span>
-              </Link>
-              <Link to="/contact">
-                <span className="card" >
-                <Button>Messages</Button>
-                </span>
-              </Link>
-            {/* </ListGroup> */}
+        {/* <ListGroup> */}
+        <Link to="/addmeddata">
+          <span className="card" >
+            <Button>New Measurment</Button>
+          </span>
+        </Link>
+        <Link to="/history">
+          <span className="card" >
+            <Button>Measurements/History</Button>
+          </span>
+        </Link>
+        <Link to="/profile">
+          <span className="card" >
+            <Button linkto='/profile'>Profile</Button>
+          </span>
+        </Link>
+        <Link to="/goals">
+          <span className="card" >
+            <Button>Goals</Button>
+          </span>
+        </Link>
+        <Link to="/contact">
+          <span className="card" >
+            <Button>Messages</Button>
+          </span>
+        </Link>
+        {/* </ListGroup> */}
       </div>
     );
   }
