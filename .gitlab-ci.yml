@@ -30,6 +30,8 @@ build:
 pages:
   stage: deploy
   script:
+    - rm -rf public
+    - mkdir public
     - cp build/index.html build/404.html
     - mv build/* public
   artifacts:
