@@ -31,7 +31,7 @@ pages:
   stage: deploy
   script:
     - cp build/index.html build/404.html
-    - mv build public
+    - mv build/* public
   artifacts:
     paths:
       - public
