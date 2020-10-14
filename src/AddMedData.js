@@ -1,81 +1,81 @@
-import React, { Component } from 'react';
-import { Button } from "react-bootstrap";
+import React, { useState } from 'react';
+import { Button, Alert } from "react-bootstrap";
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import PostEHR from "./openEHR/PostEHR"
 
 
-class AddMedData extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showDate: true,
-      date: new Date(),
-      showMedtype: false,
-      showInput: false,
-      medtype: "diabetes",
-      showSummary: true,
-      input: null,
-      dateString: null
-    };
+const AddMedData = () => {
+  const [showDate, setshowDate] = useState(true);
+  const [date, setDate] = useState(new Date());
+  const [showMedtype, setshowMedType] = useState(true);
+  const [showInput, setshowInput] = useState(true);
+  const [medType, setmedType] = useState("diabetes");
+  const [showSummary, setshowSummary] = useState(true);
+  const [input, setInput] = useState(null);
 
-  }
   // calendar date update
-  onChange = date => this.setState({ date })
-  //changes which code will be shown from the render statement
-  secondView = () => this.setState({ showDate: false, showMedtype: true, dateString: this.state.date })
-  thirdView = () => this.setState({ showMedtype: false, showInput: true })
-  fourthView = () => this.setState({ showInput: false, showSummary: true })
-  handleChange = event => this.setState({ input: event.target.value });
-
-  render() {
-
-    if (this.state.showDate) {
+  const onChange = date => date = date;
+  const submit = () => {
+    if (PostEHR(date, medType, input)) {
       return (
-        <div>
-
-          <Calendar
-            onChange={this.onChange}
-            showWeekNumbers
-            value={this.state.date}
-            Date
-            maxDate = {new Date()}
-           
-          />
-          <Button onClick={this.secondView}>Next</Button>
-        </div>
-      );
-    }
-    if (this.state.showMedtype) {
-      return (
-        <div>
-          <h1 >vad vill du lämna för data?</h1>
-          <Button onClick={this.thirdView}>Next</Button>
-
-        </div>
-      );
-    }
-    if (this.state.showInput) {
-      return (
-        <div>
-          <h1>{this.state.medtype}</h1>
-          <input onChange={this.handleChange} placeholder="fyll i här"></input>
-          <Button onClick={this.fourthView}>Next</Button>
-        </div>
-      );
-    }
-    if (this.state.showSummary) {
-      return (
-        <div>
-          <h1>Summary</h1>
-          {<h3>{this.state.date.toString().split(0, 14)}</h3>}
-          <h3>{this.state.medtype} : {this.state.input}</h3>
-          <Button onClick={this.submit}>submit</Button>
-        </div>
+        <Alert variant="success">
+          <Alert.Heading>Success</Alert.Heading>
+          <p>Your data has been stored</p>
+          <hr />
+          <p className="mb-0">You can see all your data in</p>
+        </Alert>
 
       );
     }
   }
+
+  if (showDate) {
+    return (
+      <div>
+
+        <Calendar
+          onChange={onChange}
+          showWeekNumbers
+          value={date}
+          Date
+          maxDate={new Date()}
+
+        />
+        <Button onClick={() => setshowDate(false)}> next </Button>
+      </div>
+    );
+  }
+  if (showMedtype) {
+    return (
+      <div>
+        <h1 >vad vill du lämna för data?</h1>
+        <Button onClick={() => setshowMedType(false)}> next </Button>
+
+      </div>
+    );
+  }
+  if (showInput) {
+    return (
+      <div>
+        <h1>{medType}</h1>
+        <input onChange={(event) => setInput(event.target.value)} placeholder="fyll i här"></input>
+        <Button onClick={() => setshowInput(false)}> next </Button>
+      </div>
+    );
+  }
+  if (showSummary) {
+    return (
+      <div className="summaryDiv">
+        <h1>Summary</h1>
+        {<h3>{date.toString().split(0, 3)}</h3>}
+        <h3>{medType} : {input}</h3>
+        <Button onClick={submit}>submit</Button>
+      </div>
+    );
+  }
+
+
 }
 
 export default AddMedData;
