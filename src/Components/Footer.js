@@ -3,11 +3,8 @@ import { ListGroup, Button } from "react-bootstrap";
 import { Link, Router } from "react-router-dom";
 import "./Footer.css"
 import "./Navigationbar"
-import {globaltitle} from './Navigationbar';
-
 
 export const Footer = () => {
-  globaltitle = "råtta";
   return (
     <div>
       <div className="style">
