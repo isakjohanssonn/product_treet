@@ -3,8 +3,8 @@ import Streak from "./Components/Streak";
 import { Button, ListGroup } from "react-bootstrap";
 import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-
 class Home extends Component {
+
   render() {
     return (
       <div>

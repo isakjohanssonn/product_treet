@@ -1,4 +1,4 @@
-import React, { useState, Component } from "react";
+import React, { useState, Component, useEffect } from "react";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -11,33 +11,36 @@ import Navigationbar from "./Components/Navigationbar";
 import Footer from "./Components/Footer";
 import AddMedData from "./AddMedData";
 
-class Main extends Component {
-  
+const Main = () => {
 
-  render() {
-    return (
-      <>
-        <React.Fragment>
-          <Router>
-            <Navigationbar />
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route path="/contact" component={Contact} />
-              <Route path="/login" component={Login} />
-              <Route path="/medicaldata" component={MedicalData} />
-              <Route path="/profile" component={ProfilePage} />
-              <Route path="/AddMedData" component={AddMedData} />
+  const [globalTitle, setGlobalTitle] = useState("Home");
+
+  useEffect(() => {
+    document.title = globalTitle;
+  }, [globalTitle]);
+
+  return (
+    <>
+      <React.Fragment>
+        <Router>
+          <Navigationbar globalTitle={globalTitle} setGlobalTitle={setGlobalTitle}/>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/login" component={Login} />
+            <Route path="/medicaldata" component={MedicalData} />
+            <Route path="/profile" component={ProfilePage} />
+            <Route path="/AddMedData" component={AddMedData} />
 
 
-              {/* <Route component={NoMatch} /> */}
-            </Switch>
-            <Footer />
-          </Router>
-        </React.Fragment>
+            {/* <Route component={NoMatch} /> */}
+          </Switch>
+          <Footer globalTitle={globalTitle} setGlobalTitle={setGlobalTitle}/>
+        </Router>
+      </React.Fragment>
 
-      </>
-    );
-  }
+    </>
+  );
 }
 
 export default Main;
