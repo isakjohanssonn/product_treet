@@ -3,29 +3,23 @@ import { Nav, Navbar, Form } from 'react-bootstrap';
 import { Link, withRouter } from "react-router-dom";
 import "./Navigationbar.css";
 
+const NavigationBar = (props) => {
 
-var globaltitle = "";
+  const {globalTitle, setGlobalTitle} = props;
 
-
-const NavigationBar = () => {
-  const [title, setTitle] = useState();
-  globaltitle = title;
-  useEffect(() => {
-    document.title = globaltitle;
-  });
   return (
     <div>
       <Navbar expand="lg">
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Form className="form-center">
         </Form>
-        <navbar-brand ID='NavbarID'> {title}</navbar-brand>
+        <navbar-brand ID='NavbarID'> {globalTitle}</navbar-brand>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
-            <Link to="/" onClick={() => setTitle("Home")}><span><Nav.Item><div>Home</div></Nav.Item></span></Link>
-            <Link to="/Login" onClick={() => setTitle("Login")}><span><Nav.Item><div>Log in</div></Nav.Item></span></Link>
-            <Link to="/MedicalData" onClick={() => setTitle("MedicalData")}><span><Nav.Item><div>History</div></Nav.Item></span></Link>
-            <Link to="/profile" onClick={() => setTitle("Profile")}><span><Nav.Item><div>profile</div></Nav.Item></span></Link>
+            <Link to="/" onClick={() => setGlobalTitle("Home")}><span><Nav.Item><div>Home</div></Nav.Item></span></Link>
+            <Link to="/Login" onClick={() => setGlobalTitle("Login")}><span><Nav.Item><div>Log in</div></Nav.Item></span></Link>
+            <Link to="/MedicalData" onClick={() => setGlobalTitle("Medical data")}><span><Nav.Item><div>History</div></Nav.Item></span></Link>
+            <Link to="/profile" onClick={() => setGlobalTitle("Profile")}><span><Nav.Item><div>profile</div></Nav.Item></span></Link>
 
           </Nav>
         </Navbar.Collapse>
