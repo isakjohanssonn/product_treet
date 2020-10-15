@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Alert } from "react-bootstrap";
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import PostEHR from "./openEHR/PostEHR"
-
 
 const AddMedData = () => {
   const [showDate, setshowDate] = useState(true);
@@ -13,22 +12,10 @@ const AddMedData = () => {
   const [medType, setmedType] = useState("diabetes");
   const [showSummary, setshowSummary] = useState(true);
   const [input, setInput] = useState(null);
+  const [success, setSuccess] = useState(false);
 
   // calendar date update
   const onChange = date => date = date;
-  const submit = () => {
-    if (PostEHR(date, medType, input)) {
-      return (
-        <Alert variant="success">
-          <Alert.Heading>Success</Alert.Heading>
-          <p>Your data has been stored</p>
-          <hr />
-          <p className="mb-0">You can see all your data in</p>
-        </Alert>
-
-      );
-    }
-  }
 
   if (showDate) {
     return (
@@ -70,11 +57,16 @@ const AddMedData = () => {
         <h1>Summary</h1>
         {<h3>{date.toString().split(0, 3)}</h3>}
         <h3>{medType} : {input}</h3>
-        <Button onClick={submit}>submit</Button>
+        <Button onClick={() => setSuccess(PostEHR(date, medType, input))}>Submit</Button>
+        <Alert variant="success" show={success}>
+          <Alert.Heading>Success</Alert.Heading>
+          <p>Your data has been stored</p>
+          <hr />
+          <p className="mb-0">You can see all your data in</p>
+        </Alert>
       </div>
     );
   }
-
 
 }
 
