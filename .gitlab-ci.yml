@@ -8,7 +8,8 @@ stages:
 install:
   stage: install
   script:
-    - npm ci
+    - npm config set registry http://registry.npmjs.org/
+    - npm install
   artifacts:
     name: "artifacts"
     untracked: true
