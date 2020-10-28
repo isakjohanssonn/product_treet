@@ -20,6 +20,7 @@ const NavigationBar = (props) => {
             <Link to="/Login" onClick={() => setGlobalTitle("Login")}><span><Nav.Item><div>Log in</div></Nav.Item></span></Link>
             <Link to="/MedicalData" onClick={() => setGlobalTitle("Medical data")}><span><Nav.Item><div>History</div></Nav.Item></span></Link>
             <Link to="/profile" onClick={() => setGlobalTitle("Profile")}><span><Nav.Item><div>profile</div></Nav.Item></span></Link>
+            <Link to="/measurements" onClick={() => setGlobalTitle("Measurements")}><span><Nav.Item><div>Measurements</div></Nav.Item></span></Link>
 
           </Nav>
         </Navbar.Collapse>
