@@ -1,0 +1,13 @@
+.topButtons {
+    display: flex;
+}
+
+.topButton {
+    background-color: white;
+    color: black;
+    border-block-color: black;
+}
+
+#allMeasurements {
+    margin-left: auto;
+}
