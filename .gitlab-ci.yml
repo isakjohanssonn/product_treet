@@ -8,7 +8,7 @@ stages:
 install:
   stage: install
   script:
-    - npm install npm@latest -g
+    - npm ci
   artifacts:
     name: "artifacts"
     untracked: true
