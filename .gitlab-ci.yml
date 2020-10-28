@@ -8,6 +8,7 @@ stages:
 install:
   stage: install
   script:
+    - set http_proxy=http://registry.npmjs.org/
     - npm install
   artifacts:
     name: "artifacts"
