@@ -15,9 +15,9 @@ class Home extends Component {
             <Button>New Measurment</Button>
           </span>
         </Link>
-        <Link to="/history">
+        <Link to="/measurements">
           <span className="card" >
-            <Button>Measurements/History</Button>
+            <Button>Measurements</Button>
           </span>
         </Link>
         <Link to="/profile">

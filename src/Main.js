@@ -10,6 +10,7 @@ import ProfilePage from "./ProfilePage";
 import Navigationbar from "./Components/Navigationbar";
 import Footer from "./Components/Footer";
 import AddMedData from "./AddMedData";
+import Measurements from "./Components/Measurements";
 
 const Main = () => {
 
