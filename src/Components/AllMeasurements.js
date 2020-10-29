@@ -4,7 +4,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
-import { LineChart, XAxis, Line, ResponsiveContainer} from 'recharts';
+import { LineChart, XAxis, Line, ResponsiveContainer, Label} from 'recharts';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -66,6 +66,40 @@ const AllMeasurements = () => {
                 selected={toDate}
                 onChange={date => setToDate(date)}
                 placeholderText="To - date"/>
+        </div>
+
+        <ResponsiveContainer width="100%" height={300}>
+          <LineChart data={data} margin={{ top: 40, right: 30, left: 30, bottom: 30 }}>
+              <XAxis dataKey="name">
+                <Label value={fromDate + ' - ' + toDate} offset={0} position="bottom"/>
+              </XAxis>
+              <Line dot={false} type="monotone" dataKey="value" stroke="#8884d8" color="black"/>
+          </LineChart>
+        </ResponsiveContainer>
+
+        <div>
+          <Card border="secondary" className="typeDataDateCard">
+            <Card.Body>
+              <Card.Text>
+                Type | Data | Date
+              </Card.Text>
+            </Card.Body>
+          </Card>
+          <Card border="secondary" className="typeDataDateCard">
+            <Card.Body>
+              <Card.Text>
+                Type | Data | Date
+              </Card.Text>
+            </Card.Body>
+          </Card>
+          <Card border="secondary" className="typeDataDateCard">
+            <Card.Body>
+              <Card.Text>
+                Type | Data | Date
+              </Card.Text>
+            </Card.Body>
+          </Card>
+
         </div>
 
     </div>
