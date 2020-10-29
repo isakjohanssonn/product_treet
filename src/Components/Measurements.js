@@ -2,31 +2,32 @@ import React from "react";
 import "./Measurements.css";
 import Dropdown from 'react-bootstrap/Dropdown';
 import Button from 'react-bootstrap/Button';
-import { LineChart, XAxis, YAxis, CartesianGrid, Line, ResponsiveContainer } from 'recharts';
+import Card from 'react-bootstrap/Card';
+import { LineChart, XAxis, Line, ResponsiveContainer} from 'recharts';
 
 const Measurements = () => {
 
     const data = [
         {
-          name: 'Mon', uv: 4000,
+          name: 'Mon', value: 4000,
         },
         {
-          name: 'Tue', uv: 3000,
+          name: 'Tue', value: 3000,
         },
         {
-          name: 'Wed', uv: 2000,
+          name: 'Wed', value: 2000,
         },
         {
-          name: 'Thu', uv: 2780,
+          name: 'Thu', value: 2780,
         },
         {
-          name: 'Fri', uv: 1890,
+          name: 'Fri', value: 1890,
         },
         {
-          name: 'Sat', uv: 2390,
+          name: 'Sat', value: 2390,
         },
         {
-          name: 'Sun', uv: 3490,
+          name: 'Sun', value: 3490,
         },
       ];
 
@@ -53,13 +54,43 @@ const Measurements = () => {
 
         <div>
         <ResponsiveContainer width="100%" height={200}>
-            <LineChart data={data} margin={{ top: 40, right: 30, left: 0, bottom: 0 }}>
-                <XAxis dataKey="name"/>
-                <YAxis/>
-                <CartesianGrid stroke="#eee" strokeDasharray="5 5"/>
-                <Line dot={false} type="monotone" dataKey="uv" stroke="#8884d8" />
-            </LineChart>
+          <LineChart data={data} margin={{ top: 40, right: 30, left: 30, bottom: 0 }}>
+              <XAxis dataKey="name"/>
+              <Line dot={false} type="monotone" dataKey="value" stroke="#8884d8" color="black"/>
+          </LineChart>
         </ResponsiveContainer>
+        </div>
+
+        <div>
+
+          <Card border="secondary" className="streakCardMain">
+            <Card.Header className="streakCardHeader">Streaks</Card.Header>
+            <Card.Body className="streakCardBody">
+
+              <Card border="secondary" className="streakCardWithin">
+                <Card.Body>
+                  <Card.Text>
+                    X dagar
+                  </Card.Text>
+                  <Card.Text>
+                    Current streak
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+              <Card border="secondary" className="streakCardWithin">
+                <Card.Body>
+                  <Card.Text>
+                    X dagar
+                  </Card.Text>
+                  <Card.Text>
+                    Longest streak
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+
+            </Card.Body>
+          </Card>
+
         </div>
     </div>
   );
