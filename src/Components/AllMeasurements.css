@@ -26,3 +26,28 @@
 .typeDataDateCard {
     margin-top: 1rem;
 }
+
+.arrowButtons {
+    align-content: center;
+    margin-top: 2rem;
+}
+
+.iconButton {
+    width: 3rem;
+}
+
+.leftArrowButton {
+    position: fixed;
+    left: 1.5rem;
+}
+
+.rightArrowButton {
+    position: fixed;
+    right: 1.5rem;
+}
+
+.returnButton {
+    color: black;
+    background-color: white;
+    border-color: white;
+}

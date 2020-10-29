@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import { LineChart, XAxis, Line, ResponsiveContainer, Label} from 'recharts';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
+import { BiRightArrowCircle, BiLeftArrowCircle } from 'react-icons/bi';
+
 
 const AllMeasurements = () => {
 
@@ -101,7 +103,16 @@ const AllMeasurements = () => {
           </Card>
 
         </div>
-
+        <div className="arrowButtons">
+          <div className="leftArrowButton">
+            <Link to="/measurements">
+              <Button className='returnButton'><BiLeftArrowCircle size={60}/></Button>
+            </Link>
+          </div>
+          <div className="rightArrowButton">
+            <BiRightArrowCircle size={60}></BiRightArrowCircle>
+          </div>
+        </div>
     </div>
 
 
