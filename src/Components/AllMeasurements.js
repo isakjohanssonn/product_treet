@@ -1,12 +1,17 @@
-import React from "react";
+import React, {useState} from "react";
 import "./AllMeasurements.css";
 import Dropdown from 'react-bootstrap/Dropdown';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
 import { LineChart, XAxis, Line, ResponsiveContainer} from 'recharts';
+import DatePicker from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css";
 
 const AllMeasurements = () => {
+
+    const [toDate, setToDate] = useState(null);
+    const [fromDate, setFromDate] = useState(null);
 
     const data = [
         {
@@ -32,6 +37,7 @@ const AllMeasurements = () => {
         },
       ];
 
+
   return (
     <div>
       <div className="header">
@@ -50,10 +56,21 @@ const AllMeasurements = () => {
         </Dropdown>
 
         <div className="dateButtons">
-
+            <DatePicker 
+                className="datePicker"
+                selected={fromDate}
+                onChange={date => setFromDate(date)}
+                placeholderText="From - date"/>
+            <DatePicker 
+                className="datePicker"
+                selected={toDate}
+                onChange={date => setToDate(date)}
+                placeholderText="To - date"/>
         </div>
 
     </div>
+
+
   );
 }
 

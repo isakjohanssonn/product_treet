@@ -11,3 +11,14 @@
 .dropdown {
     text-align: center;
 }
+
+.datePicker {
+    border-radius: 0.5rem;
+    width: 80%;
+    text-align: center;
+}
+
+.dateButtons {
+    margin-top: 1rem;
+    text-align: center;
+}
