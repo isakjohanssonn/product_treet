@@ -1,0 +1,13 @@
+.typeButton {
+    background-color: white;
+    color: black;
+    border-block-color: black;
+    margin: auto;
+    height: 2rem;
+    width: 9.5rem;
+    padding: 0 0 0 0;
+}
+
+.dropdown {
+    text-align: center;
+}

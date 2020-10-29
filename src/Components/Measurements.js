@@ -3,6 +3,7 @@ import "./Measurements.css";
 import Dropdown from 'react-bootstrap/Dropdown';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { Link } from "react-router-dom";
 import { LineChart, XAxis, Line, ResponsiveContainer} from 'recharts';
 
 const Measurements = () => {
@@ -48,8 +49,9 @@ const Measurements = () => {
                 <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
             </Dropdown.Menu>
         </Dropdown>
-        
-        <Button className="topButton" id='allMeasurements'>All measurements</Button>
+        <Link to="/allmeasurements">
+          <Button className="topButton" id='allMeasurements'>All measurements</Button>
+        </Link>
         </div>
 
         <div>
@@ -91,6 +93,13 @@ const Measurements = () => {
             </Card.Body>
           </Card>
 
+        </div>
+
+        <div className="bottomButtons">
+          <Button className="bottomButton">Recent Measurements</Button>
+          <Link to="/allmeasurements">
+            <Button className="bottomButton">All Measurements</Button>
+          </Link>
         </div>
     </div>
   );
