@@ -1,0 +1,53 @@
+.typeButton {
+    background-color: white;
+    color: black;
+    border-block-color: black;
+    margin: auto;
+    height: 2rem;
+    width: 9.5rem;
+    padding: 0 0 0 0;
+}
+
+.dropdown {
+    text-align: center;
+}
+
+.datePicker {
+    border-radius: 0.5rem;
+    width: 80%;
+    text-align: center;
+}
+
+.dateButtons {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.typeDataDateCard {
+    margin-top: 1rem;
+}
+
+.arrowButtons {
+    align-content: center;
+    margin-top: 2rem;
+}
+
+.iconButton {
+    width: 3rem;
+}
+
+.leftArrowButton {
+    position: fixed;
+    left: 1.5rem;
+}
+
+.rightArrowButton {
+    position: fixed;
+    right: 1.5rem;
+}
+
+.returnButton {
+    color: black;
+    background-color: white;
+    border-color: white;
+}

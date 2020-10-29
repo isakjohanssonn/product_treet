@@ -27,6 +27,9 @@ const Footer = (props) => {
           <Link to="/profile" onClick={() => setGlobalTitle("Profile")}><span><ListGroup.Item action >P
           </ListGroup.Item></span></Link>
 
+          <Link to="/measurements" onClick={() => setGlobalTitle("Measurements")}><span><ListGroup.Item action >Measurements
+          </ListGroup.Item></span></Link>
+
         </ListGroup>,
         </div>
 

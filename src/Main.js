@@ -10,6 +10,8 @@ import ProfilePage from "./ProfilePage";
 import Navigationbar from "./Components/Navigationbar";
 import Footer from "./Components/Footer";
 import AddMedData from "./AddMedData";
+import Measurements from "./Components/Measurements";
+import AllMeasurements from "./Components/AllMeasurements";
 
 const Main = () => {
 
@@ -31,8 +33,8 @@ const Main = () => {
             <Route path="/medicaldata" component={MedicalData} />
             <Route path="/profile" component={ProfilePage} />
             <Route path="/AddMedData" component={AddMedData} />
-
-
+            <Route path="/measurements" component={Measurements} />
+            <Route path="/allmeasurements" component={AllMeasurements} />
             {/* <Route component={NoMatch} /> */}
           </Switch>
           <Footer globalTitle={globalTitle} setGlobalTitle={setGlobalTitle}/>
