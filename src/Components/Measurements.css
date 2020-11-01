@@ -6,15 +6,20 @@
     background-color: white;
     color: black;
     border-block-color: black;
-    margin-left: 2rem;
-    margin-right: 2rem;
-    height: 2rem;
-    width: 9.5rem;
-    padding: 0 0 0 0;
+    width:11em;
+    text-align:center;
+    line-height:1.1em;
+    font-size:0.6em;
+    position: fixed;
+    z-index: 1000;
+}
+
+#dropdown-basic {
+    left: 10%;
 }
 
 #allMeasurements {
-    margin-left: auto;
+    right: 10%;
 }
 
 .streakCardMain {
