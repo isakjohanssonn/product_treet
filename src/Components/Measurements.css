@@ -1,5 +1,9 @@
 .topButtons {
     display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 .topButton {
@@ -10,16 +14,6 @@
     text-align:center;
     line-height:1.1em;
     font-size:0.6em;
-    position: fixed;
-    z-index: 1000;
-}
-
-#dropdown-basic {
-    left: 10%;
-}
-
-#allMeasurements {
-    right: 10%;
 }
 
 .streakCardMain {
