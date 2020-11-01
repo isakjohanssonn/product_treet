@@ -1,20 +1,19 @@
 .topButtons {
     display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 .topButton {
     background-color: white;
     color: black;
     border-block-color: black;
-    margin-left: 2rem;
-    margin-right: 2rem;
-    height: 2rem;
-    width: 9.5rem;
-    padding: 0 0 0 0;
-}
-
-#allMeasurements {
-    margin-left: auto;
+    width:11em;
+    text-align:center;
+    line-height:1.1em;
+    font-size:0.6em;
 }
 
 .streakCardMain {
