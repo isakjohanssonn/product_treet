@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Nav, Navbar, Form } from 'react-bootstrap';
 import { Link, withRouter } from "react-router-dom";
 import "./Navigationbar.css";
+import Notifications from "./Notifications";
+
 
 const NavigationBar = (props) => {
 
@@ -11,7 +13,7 @@ const NavigationBar = (props) => {
     <div>
       <Navbar expand="lg">
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Form className="form-center">
+        <Form className="form-center"> 
         </Form>
         <navbar-brand ID='NavbarID'> {globalTitle}</navbar-brand>
         <Navbar.Collapse id="basic-navbar-nav">
@@ -24,6 +26,7 @@ const NavigationBar = (props) => {
 
           </Nav>
         </Navbar.Collapse>
+        <Notifications />
       </Navbar>
     </div>
   );
