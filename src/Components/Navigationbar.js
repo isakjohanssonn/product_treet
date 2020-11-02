@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Nav, Navbar, Form } from 'react-bootstrap';
 import { Link, withRouter } from "react-router-dom";
 import "./Navigationbar.css";
-import Notifications from "./Notifications";
+// import Notifications from "./Notifications";
 
 
 const NavigationBar = (props) => {
@@ -26,7 +26,7 @@ const NavigationBar = (props) => {
 
           </Nav>
         </Navbar.Collapse>
-        <Notifications />
+        {/* <Notifications /> */}
       </Navbar>
     </div>
   );
