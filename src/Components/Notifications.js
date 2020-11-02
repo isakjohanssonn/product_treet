@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Button, Overlay, Popover } from 'react-bootstrap';
-import {IoIosNotifications} from 'react-icons/io'
+//import {IoIosNotifications} from 'react-icons/io'
 
 
 const Notifications = () => {
@@ -17,8 +17,8 @@ const Notifications = () => {
   
     return (
       <div ref={ref}>
-        <Button onClick={handleClick }><IoIosNotifications></IoIosNotifications></Button>
-  
+        <Button onClick={handleClick }></Button>
+        {/* <IoIosNotifications></IoIosNotifications> */}
 
         <Overlay
           show={show}
