@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Button, Alert } from "react-bootstrap";
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import PostEHR from "./openEHR/PostEHR"
+import PostEHR from "./openEHR/PostEHR";
+import GoogleImport from "./Components/GoogleImport";
 
 const AddMedData = () => {
   const [showDate, setshowDate] = useState(true);
@@ -20,7 +21,7 @@ const AddMedData = () => {
   if (showDate) {
     return (
       <div>
-
+        
         <Calendar
           onChange={onChange}
           showWeekNumbers
@@ -30,6 +31,9 @@ const AddMedData = () => {
 
         />
         <Button onClick={() => setshowDate(false)}> next </Button>
+
+        <GoogleImport />
+
       </div>
     );
   }
