@@ -5,19 +5,14 @@ import PostEHR from "../openEHR/PostEHR"
 
 // imports date, and activity from google api, this function will be called in addmeddata->google api->this.
 
-const GoogleImport = (props) => {
+const PostGoogleData = (Gdate, Gactivity) => {
 
-  const [date, setDate] = useState();
-  const [activity, setActivity] = useState("10 km");
+  const [date, setDate] = useState(Gdate);
+  const [activity, setActivity] = useState(Gactivity);
   const [submited, setSubmited] = useState(false);
-
-  const googleFit = () => {
-    alert("start google fit component");
-    }
 
   return (
     <div>
-      <Button onClick={() => setDate("20200101")}>Import data from Google fit</Button>
       {date != null &&
         <Card style={{ width: '18rem' }}>
 
@@ -27,7 +22,7 @@ const GoogleImport = (props) => {
             <Card.Text>
               on {date} you walked {activity}, submit to show in your stats and keep your streak going.
             </Card.Text>
-            <Button onClick={()=> PostEHR(date, activity)}>submit</Button>
+            <Button onClick={()=> {setDate(""); PostEHR(date, activity)}}>submit</Button>
           </Card.Body>
         </Card>
       }
@@ -38,4 +33,4 @@ const GoogleImport = (props) => {
 
 }
 
-export default GoogleImport;
+export default PostGoogleData;

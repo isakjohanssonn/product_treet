@@ -3,7 +3,7 @@ import { Button, Alert } from "react-bootstrap";
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import PostEHR from "./openEHR/PostEHR";
-import GoogleImport from "./Components/GoogleImport";
+import GoogleImport from "./Components/PostGoogleData";
 
 const AddMedData = () => {
   const [showDate, setshowDate] = useState(true);
@@ -31,8 +31,6 @@ const AddMedData = () => {
 
         />
         <Button onClick={() => setshowDate(false)}> next </Button>
-
-        <GoogleImport />
 
       </div>
     );
