@@ -1,12 +1,29 @@
-.mainStreakDiv {
-  margin-top: 1,5rem;
-  border: 5px, black;
-  border-radius: 4px;
-  background-color: lightgrey;
-  align-items: center;
+.streakCardMain {
+    margin: auto;
+    width: 80%;
+    margin-top: 3rem;
+    /*border-radius: 0.5rem;*/
+    border-radius: 0;
 }
 
-h3 {
-  padding-left: auto;
+.streakCardHeader {
+    text-align: center;
+    background-color: white;
+    /*border-radius: 0.25rem 0.25rem 0 0;*/
+}
 
+.streakCardWithin {
+    width: 50%;
+    margin: auto;
+    /*border-radius: 0 0 0.25rem 0;*/
+    border-radius: 0;
+}
+
+.streakCardBody {
+    display: flex;
+    padding: 0 0 0 0;
+}
+
+.card-text {
+    text-align: center;
 }

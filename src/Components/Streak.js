@@ -1,23 +1,38 @@
 import React, { useState } from "react";
-import ListGroup from "react-bootstrap/ListGroup"
+import {Card} from "react-bootstrap"
 import "./Streak.css"
 
 export default function Streak() {
 
   return (
-    <div className="mainStreakDiv">
-      <div className="header">
-        <h3>Streaks</h3>
-      </div>
-      <ListGroup horizontal>
-        <ListGroup.Item>4 days
-          <h5>Streak</h5>
-        </ListGroup.Item>
-        <ListGroup.Item>18 days 
-          <h5>Longest streak</h5>
-        </ListGroup.Item>
+    <div>
+    <Card border="secondary" className="streakCardMain">
+    <Card.Header className="streakCardHeader">Streaks</Card.Header>
+    <Card.Body className="streakCardBody">
 
-      </ListGroup>
+      <Card border="secondary" className="streakCardWithin">
+        <Card.Body>
+          <Card.Text>
+            X dagar
+          </Card.Text>
+          <Card.Text>
+            Current streak
+          </Card.Text>
+        </Card.Body>
+      </Card>
+      <Card border="secondary" className="streakCardWithin">
+        <Card.Body>
+          <Card.Text>
+            X dagar
+          </Card.Text>
+          <Card.Text>
+            Longest streak
+          </Card.Text>
+        </Card.Body>
+      </Card>
+
+    </Card.Body>
+  </Card>
 
     </div>
   );
