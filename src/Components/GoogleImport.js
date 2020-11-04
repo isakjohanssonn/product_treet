@@ -3,8 +3,9 @@ import { Button, Alert, Card } from "react-bootstrap";
 import PostEHR from "../openEHR/PostEHR"
 
 
+// imports date, and activity from google api, this function will be called in addmeddata->google api->this.
 
-const GoogleImport = () => {
+const GoogleImport = (props) => {
 
   const [date, setDate] = useState();
   const [activity, setActivity] = useState("10 km");
@@ -12,7 +13,6 @@ const GoogleImport = () => {
 
   const googleFit = () => {
     alert("start google fit component");
-    
     }
 
   return (
