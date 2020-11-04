@@ -1,10 +1,23 @@
-.active {
-  background-color: lightgray;
-}
-a:hover {
-  color : initial;
+.navLink:hover {
   text-decoration-line: none;
+  background-color: rgb(84, 93, 102);
+  color: lightgrey;
+  box-sizing: initial;
 }
-.Link {
-  text-emphasis: Bold;
+
+#active {
+  background-color: rgb(243, 239, 239);
+  text-decoration: none;
+  border-bottom: 2px solid rgb(163, 159, 159);
+}
+
+.navLink {
+  text-emphasis-color: black;
+  color: black;
+  padding: 0.5rem;
+  margin: 0,5rem;
+}
+
+.Nav.Item {
+  color: black;
 }

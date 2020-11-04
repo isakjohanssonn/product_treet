@@ -3,9 +3,9 @@ import Streak from "./Components/Streak";
 import { Button, ListGroup } from "react-bootstrap";
 import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-class Home extends Component {
+const Home = () =>  {
 
-  render() {
+  
     return (
       <div>
         <Streak />
@@ -38,7 +38,7 @@ class Home extends Component {
         {/* </ListGroup> */}
       </div>
     );
-  }
+  
 }
 
 export default Home;
