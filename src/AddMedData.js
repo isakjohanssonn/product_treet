@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Alert } from "react-bootstrap";
+import { Button, Alert, ListGroup } from "react-bootstrap";
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import PostEHR from "./openEHR/PostEHR"
+import PostEHR from "./openEHR/PostEHR";
+import PostGoogleData from "./Components/PostGoogleData";
 
 const AddMedData = () => {
   const [showDate, setshowDate] = useState(true);
@@ -20,16 +21,19 @@ const AddMedData = () => {
   if (showDate) {
     return (
       <div>
+          <div>
+            <h3>Lägg till ny data</h3>
+            <Calendar
+              onChange={onChange}
+              showWeekNumbers
+              value={date}
+              Date
+              maxDate={new Date()}
 
-        <Calendar
-          onChange={onChange}
-          showWeekNumbers
-          value={date}
-          Date
-          maxDate={new Date()}
-
-        />
-        <Button onClick={() => setshowDate(false)}> next </Button>
+            />
+            <Button onClick={() => setshowDate(false)}> next </Button>
+          </div>
+          <PostGoogleData />
       </div>
     );
   }
