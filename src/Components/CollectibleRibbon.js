@@ -1,12 +1,17 @@
 import React from "react";
+import './CollectibleRibbon.css';
 import { GiRibbonMedal } from 'react-icons/gi';
 
-const CollectibleRibbon = () => {
+const CollectibleRibbon = (props) => {
+
+  const {number} = props;
 
   return (
     <div class = "ribbon">
-      <GiRibbonMedal size={60} color={"red"}/>
-        5
+      <GiRibbonMedal class="gi-ribbon"/>
+     <div class="number-ribbon">
+       {number}
+     </div>
     </div>
   );
 }
