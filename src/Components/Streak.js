@@ -33,6 +33,7 @@ export default function Streak() {
 
     </Card.Body>
   </Card>
+  
 
     </div>
   );
