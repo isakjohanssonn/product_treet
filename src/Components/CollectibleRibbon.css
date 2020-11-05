@@ -1,0 +1,7 @@
+.ribbon {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    width: 60px;
+    
+}
