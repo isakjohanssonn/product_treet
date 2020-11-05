@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Streak from "./Components/Streak";
+import WorkshopComponent from "./Components/WorkshopComponent";
 import { Button, ListGroup } from "react-bootstrap";
 import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -8,6 +9,7 @@ class Home extends Component {
   render() {
     return (
       <div>
+        <WorkshopComponent />
         <Streak />
         {/* <ListGroup> */}
         <Link to="/addmeddata">
