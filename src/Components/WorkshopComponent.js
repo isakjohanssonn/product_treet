@@ -9,7 +9,7 @@ import "./WorkshopComponent.css";
 // kör "npm start", du kan nu se appen i localhost:3000.
 
 
-
+//this component is imported in home 12.
 // importera det som behövs (alltid React!)(Felmeddelanden som 'Button' is not defined, beror ofta på import)
 //importera andra komponenter som du vill använda.
 // Skriv en Const YourComponent, lägg till en return samt export default YourComponent
