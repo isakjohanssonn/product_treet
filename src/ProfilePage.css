@@ -1,0 +1,18 @@
+.avatar{
+    border-radius: 50%;
+}
+
+.profileMain{
+    margin: 20px 0 20px 0;
+    width: 100%;
+}
+
+.profileCard {
+    margin: auto;
+    width: 50%;
+}
+
+/*.profileImageCard {
+    margin: auto;
+    width: 100%;
+}*/

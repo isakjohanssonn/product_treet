@@ -1,13 +1,16 @@
+
 .streakCardMain {
     margin: auto;
     width: 80%;
     margin-top: 3rem;
     /*border-radius: 0.5rem;*/
     border-radius: 0;
+    border: none;
 }
 
 .streakCardHeader {
-    text-align: center;
+    text-align: left;
+    color: gray;
     background-color: white;
     /*border-radius: 0.25rem 0.25rem 0 0;*/
 }
@@ -15,8 +18,14 @@
 .streakCardWithin {
     width: 50%;
     margin: auto;
+    margin-left: 5px;
+    margin-bottom: 5px;
     /*border-radius: 0 0 0.25rem 0;*/
+    border: none;
     border-radius: 0;
+    color: gray;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    
 }
 
 .streakCardBody {
