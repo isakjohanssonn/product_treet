@@ -30,11 +30,15 @@ const Footer = (props) => {
           <Link to="/measurements" onClick={() => setGlobalTitle("Measurements")}><span><ListGroup.Item action >Measurements
           </ListGroup.Item></span></Link>
 
+          <Link to="/achievement" onClick={() => setGlobalTitle("Achievement")}><span><ListGroup.Item action >Achievement
+          </ListGroup.Item></span></Link>
+
         </ListGroup>,
         </div>
 
     </div>
   )
 }
+
 
 export default Footer

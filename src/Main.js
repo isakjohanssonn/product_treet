@@ -12,6 +12,7 @@ import Footer from "./Components/Footer";
 import AddMedData from "./AddMedData";
 import Measurements from "./Components/Measurements";
 import AllMeasurements from "./Components/AllMeasurements";
+import AchivementPage from "./AchievementPage"
 
 const Main = () => {
 
@@ -35,6 +36,7 @@ const Main = () => {
             <Route path="/AddMedData" component={AddMedData} />
             <Route path="/measurements" component={Measurements} />
             <Route path="/allmeasurements" component={AllMeasurements} />
+            <Route path="/achievement" component={AchivementPage} />
             {/* <Route component={NoMatch} /> */}
           </Switch>
           <Footer globalTitle={globalTitle} setGlobalTitle={setGlobalTitle}/>
