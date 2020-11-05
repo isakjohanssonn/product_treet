@@ -1,0 +1,23 @@
+
+.achievementBoxCardMain {
+  margin: auto;
+  margin-top: 3rem;
+  /*border-radius: 0.5rem;*/
+  border-radius: 0;
+  border: none;
+}
+
+.achievementBoxCardHeader {
+  text-align: left;
+  background-color: white;
+
+}
+
+.achievementBoxCardBody {
+  display: flex;
+  border-color: gray;
+}
+
+.achievementBoxSecondary {
+  border: none;
+}
