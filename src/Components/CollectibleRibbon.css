@@ -1,0 +1,18 @@
+.ribbon {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    width: 60px;   
+}
+
+.number-ribbon {
+    margin: auto;
+    font-family: Bookman Old Style;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.gi-ribbon {
+    font-size: 4rem;
+    color: #cd7f32;
+}

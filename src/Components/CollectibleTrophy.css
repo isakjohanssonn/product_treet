@@ -1,0 +1,22 @@
+.trophy {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    width: 60px;   
+}
+
+.number-trophy {
+    margin: auto;
+    font-family: Bookman Old Style;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.fa-trophy {
+    margin: auto;
+    margin-top: 0.5rem;
+    font-size: 3rem;
+    color: gold;
+    opacity: 0.76;
+}

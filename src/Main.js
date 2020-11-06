@@ -13,6 +13,7 @@ import AddMedData from "./AddMedData";
 import Measurements from "./Components/Measurements";
 import AllMeasurements from "./Components/AllMeasurements";
 import AchivementPage from "./AchievementPage"
+import CollectibleDemo from "./Components/CollectibleDemo";
 
 const Main = () => {
 
@@ -37,6 +38,7 @@ const Main = () => {
             <Route path="/measurements" component={Measurements} />
             <Route path="/allmeasurements" component={AllMeasurements} />
             <Route path="/achievement" component={AchivementPage} />
+            <Route path="/collectibledemo" component={CollectibleDemo} />
             {/* <Route component={NoMatch} /> */}
           </Switch>
           <Footer globalTitle={globalTitle} setGlobalTitle={setGlobalTitle}/>
