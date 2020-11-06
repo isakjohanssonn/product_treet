@@ -2,20 +2,26 @@
 .achievementBoxCardMain {
   margin: auto;
   margin-top: 3rem;
-  /*border-radius: 0.5rem;*/
   border-radius: 0;
   border: none;
+}
+
+.arrowAchivement {
+  position: absolute;
+  right: 5%;
+  top: 40%;
+  left: 85%
 }
 
 .achievementBoxCardHeader {
   text-align: left;
   background-color: white;
-
+  color: gray;
+  border: none;
 }
 
 .achievementBoxCardBody {
   display: flex;
-  border-color: gray;
 }
 
 .achievementBoxSecondary {

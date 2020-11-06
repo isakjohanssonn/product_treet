@@ -6,7 +6,7 @@ class AchievementPage extends Component {
     return (
       <div>
         <AchievementBox />
-        <p>test</p>
+  
 
       </div>
       
