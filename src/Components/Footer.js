@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { ListGroup, Button } from "react-bootstrap";
 import { Link, Router } from "react-router-dom";
+import {FaUserAlt, FaStar, FaClock, FaHome} from 'react-icons/fa'
+
 import "./Footer.css"
 import "./Navigationbar"
 
@@ -10,27 +12,21 @@ const Footer = (props) => {
 
   return (
     <div>
-      <div className="style">
+      <div className="footerDiv">
         <ListGroup horizontal>
-          <Link to="/" onClick={() => setGlobalTitle("Home")}><span><ListGroup.Item action >Home
+          <Link className="footerLink" to="/" onClick={() => setGlobalTitle("Home")}><span><ListGroup.Item action ><FaHome></FaHome>
           </ListGroup.Item></span></Link>
 
-          <Link to="/" onClick={() => setGlobalTitle("Home")}><span><ListGroup.Item action >H
+          <Link className="footerLink" to="/measurements" onClick={() => setGlobalTitle("Measurements")}><span><ListGroup.Item action ><FaClock></FaClock>
           </ListGroup.Item></span></Link>
 
-          <Link to="/MedicalData" onClick={() => setGlobalTitle("Medical data")}><span><ListGroup.Item action >History
+          <Link className="footerLink" to="/collectibledemo" onClick={() => setGlobalTitle("Collectible")}><span><ListGroup.Item action className="FooterListItem" ><FaStar></FaStar>
           </ListGroup.Item></span></Link>
 
-          <Link to="/contact" onClick={() => setGlobalTitle("Contact")}><span><ListGroup.Item action >help
+          <Link className="footerLink" to="/profile" onClick={() => setGlobalTitle("Profile")}><span><ListGroup.Item action ><FaUserAlt></FaUserAlt>
           </ListGroup.Item></span></Link>
 
-          <Link to="/profile" onClick={() => setGlobalTitle("Profile")}><span><ListGroup.Item action >P
-          </ListGroup.Item></span></Link>
-
-          <Link to="/measurements" onClick={() => setGlobalTitle("Measurements")}><span><ListGroup.Item action >Measurements
-          </ListGroup.Item></span></Link>
-
-        </ListGroup>,
+        </ListGroup>
         </div>
 
     </div>
