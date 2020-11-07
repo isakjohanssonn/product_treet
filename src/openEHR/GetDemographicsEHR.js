@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
+
+//To use: in your Component: "const [state] = useState(GetDemographicsEHR()), and import component"
 
 const GetDemographicsEHR = () => {
   const [person, setPerson] = useState(
@@ -31,15 +34,9 @@ const GetDemographicsEHR = () => {
         Telefon: "031-1337"
       }
     }
-
-
   )
-  
-
-
 
   return (person)
-
 
 }
 
