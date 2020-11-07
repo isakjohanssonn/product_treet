@@ -15,7 +15,10 @@
   width: 25%; 
 
 }
-.FooterListItem {
-  margin:auto;
-  padding:auto ;
+
+.list-group-item {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  
 }

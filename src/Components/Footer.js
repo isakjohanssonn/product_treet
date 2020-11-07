@@ -20,7 +20,7 @@ const Footer = (props) => {
           <Link className="footerLink" to="/measurements" onClick={() => setGlobalTitle("Measurements")}><span><ListGroup.Item action ><FaClock></FaClock>
           </ListGroup.Item></span></Link>
 
-          <Link className="footerLink" to="/collectibledemo" onClick={() => setGlobalTitle("Collectible")}><span><ListGroup.Item action className="FooterListItem" ><FaStar></FaStar>
+          <Link className="footerLink" to="/collectibledemo" onClick={() => setGlobalTitle("Collectible")}><span><ListGroup.Item action  ><FaStar></FaStar>
           </ListGroup.Item></span></Link>
 
           <Link className="footerLink" to="/profile" onClick={() => setGlobalTitle("Profile")}><span><ListGroup.Item action ><FaUserAlt></FaUserAlt>
