@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 
-//To use: in your Component: "const [state] = useState(GetDemographicsEHR()), and import component"
+//To use: in your Component: "const [stateName] = useState(GetDemographicsEHR()), and import component"
 
 const GetDemographicsEHR = () => {
   const [person, setPerson] = useState(
