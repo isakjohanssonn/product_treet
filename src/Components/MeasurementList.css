@@ -1,0 +1,33 @@
+.time {
+    display:flex;
+    align-items:center;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.activity {
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+}
+
+.activity p {
+    margin-bottom: 0px;
+    font-weight: bold;
+    margin-right: 3px;
+}
+.icon {
+    margin-right: 5px;
+}
+
+.activityIcon {
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+.listItem {
+    margin-top: 12px;
+}
+
+
+

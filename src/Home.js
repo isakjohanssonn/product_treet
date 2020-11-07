@@ -2,16 +2,25 @@ import React, { Component } from "react";
 import Streak from "./Components/Streak";
 import { Button, ListGroup } from "react-bootstrap";
 import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import MeasurementList from "./Components/MeasurementList";
+import {BsGraphUp, IoMdWalk} from "react-icons/all";
 
 const Home = () =>  {
+      const data = [
+          {header: 'Upcoming Measurement', time: '09:00', activity: 'Blood sugar', icon: BsGraphUp, completed: false, target:'70-99mg/dl'},
+          {header: 'Upcoming Activity', time: '15:00', activity: 'Go for a walk', icon: IoMdWalk, completed: false, target:'30 min'},
+          {header: 'Upcoming Measurement', time: '12:00', activity: 'Blood sugar', icon: BsGraphUp, completed: false, target:'70-99mg/dl'},
+          {header: 'Upcoming Measurement', time: '18:00', activity: 'Blood sugar', icon: BsGraphUp, completed: false, target:'70-99mg/dl'}
+          ];
 
-  
     return (
       <div>
         <Streak />
+        <MeasurementList data={data}/>
+
 
         {/* <ListGroup> */}
-        <Link to="/addmeddata">
+          {/*<Link to="/addmeddata">
           <span className="card" >
             <Button>New Measurment</Button>
           </span>
@@ -35,11 +44,10 @@ const Home = () =>  {
           <span className="card" >
             <Button>Messages</Button>
           </span>
-        </Link>
+        </Link>*/}
         {/* </ListGroup> */}
       </div>
     );
-  
 }
 
 export default Home;
