@@ -1,13 +1,24 @@
-.style {
+.footerDiv {
   overflow: auto;
   padding: "20px";
-  /* position: "fixed"; */
-  left: "0";
+  position: "fixed";
   bottom: "0";
   height: 51px;
   position: absolute;
   left: 0;
   bottom: 0;
-  right: 0;
+  right: auto;
   width: 100%;
+}
+
+.footerLink {
+  width: 25%; 
+
+}
+
+.list-group-item {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  
 }
