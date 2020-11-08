@@ -28,6 +28,7 @@ const Main = () => {
       <React.Fragment>
         <Router>
           <Navigationbar globalTitle={globalTitle} setGlobalTitle={setGlobalTitle}/>
+          <div>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/contact" component={Contact} />
@@ -42,6 +43,7 @@ const Main = () => {
             {/* <Route component={NoMatch} /> */}
           </Switch>
           <Footer globalTitle={globalTitle} setGlobalTitle={setGlobalTitle}/>
+          </div>
         </Router>
       </React.Fragment>
 

@@ -1,3 +1,8 @@
+/* .mainDiv {
+    display: block;
+    overflow: auto;
+} */
+
 .typeButton {
     background-color: white;
     color: black;
@@ -30,6 +35,8 @@
 .arrowButtons {
     align-content: center;
     margin-top: 2rem;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 .iconButton {
@@ -37,13 +44,16 @@
 }
 
 .leftArrowButton {
-    position: fixed;
+    /* position: fixed; */
+    width: 50%;
     left: 1.5rem;
 }
 
 .rightArrowButton {
-    position: fixed;
+    /* position: fixed; */
+    width: 50%;
     right: 1.5rem;
+    text-align: right;
 }
 
 .returnButton {

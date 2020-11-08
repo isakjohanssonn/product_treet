@@ -41,7 +41,7 @@ const NavigationBar = (props) => {
   }, [globalTitle])
 
   return (
-    <div>
+    <div className="mainDiv">
       <Navbar expanded={expanded} expand="lg">
         <Navbar.Toggle onClick={() => setExpanded(expanded ? false : true)} />
         {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
@@ -51,7 +51,7 @@ const NavigationBar = (props) => {
           <Nav data-toggle="collapse" className="ml-auto">
             <Link id={activeHome} className="navLink" to="/" onClick={() => { setExpanded(false); setGlobalTitle("Home") }} ><span ><Nav.Item >Home</Nav.Item></span></Link>
             <Link id={activeLogin} className="navLink" to="/Login" onClick={() => { setExpanded(false); setGlobalTitle("Login") }}><span><Nav.Item ><div>Log in</div></Nav.Item></span></Link>
-            <Link id={activeMedData} className="navLink" to="/MedicalData" onClick={() => { setExpanded(false); setGlobalTitle("Medical data") }}><span><Nav.Item><div>History</div></Nav.Item></span></Link>
+            {/* <Link id={activeMedData} className="navLink" to="/MedicalData" onClick={() => { setExpanded(false); setGlobalTitle("Medical data") }}><span><Nav.Item><div>History</div></Nav.Item></span></Link> */}
             <Link id={activeProfile} className="navLink" to="/profile" onClick={() => { setExpanded(false); setGlobalTitle("Profile") }}><span><Nav.Item><div>profile</div></Nav.Item></span></Link>
             <Link id={activeMeasurements} className="navLink" to="/measurements" onClick={() => { setExpanded(false); setGlobalTitle("Measurements") }}><span><Nav.Item><div>Measurements</div></Nav.Item></span></Link>
 
