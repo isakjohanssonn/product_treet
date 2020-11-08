@@ -1,0 +1,63 @@
+
+.achievementBoxCardMain {
+  margin-top: 3rem;
+  border-radius: 0;
+  border: none;
+
+}
+
+.comingAchievementBoxCardMain {
+  margin-top: 3rem;
+  border-radius: 0;
+  border: none;
+}
+
+.arrowAchivement {
+  position: absolute;
+  right: 1rem;
+  top: 30%;
+  font-size: 300%;
+}
+
+.achievementBoxCardHeader {
+  text-align: left;
+  background-color: white;
+  color: gray;
+  margin-left: 1.5rem;
+  border: none;
+}
+
+.achievementBoxCardBody {
+  display: flex;
+  margin-left: 1rem;
+}
+
+.achievementBoxSecondary {
+  border: none;
+}
+
+/*  These were made in case we want to redo the CSS for different screen sizes. 
+
+@media 
+only screen and (min-width: 1024px) {
+ 
+  .arrowAchivement {
+    position: absolute;
+    right: 15%;
+    top: 30%;
+    left: 95%;
+    font-size: 300%;
+  }
+
+}
+@media 
+only screen and (min-width: 770px) and (max-width: 1024px) {
+ 
+  .arrowAchivement {
+    position: absolute;
+    right: 15%;
+    top: 30%;
+    left: 90%;
+    font-size: 300%;
+  }
+} */
