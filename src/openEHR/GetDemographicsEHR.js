@@ -21,7 +21,11 @@ const GetDemographicsEHR = () => {
 
 
       GameLevel: "3",
-      Achievments: ["one", "two", "three"],
+      Achievments: {
+        ribbon: 26,
+        medal: 10,
+        trophy: 3
+      },
       TreeLevel: "3",
 
       Anhorig1: {
