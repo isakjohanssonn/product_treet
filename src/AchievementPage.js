@@ -1,20 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
 import LatestAchievementBox from "./Components/AchievementBox";
 import CommingAchievementBox from "./Components/ComingAchievementBox";
 
-class AchievementPage extends Component {
-  render() {
-    return (
-      <div>
-        <LatestAchievementBox />
+const AchievementPage = () => {
+  return (
+    <div>
+      <LatestAchievementBox />
+      <CommingAchievementBox />
+    </div>
 
-
-        <CommingAchievementBox />
-      </div>
-
-      
-    );
-  }
+    
+  );
 }
  
 export default AchievementPage;

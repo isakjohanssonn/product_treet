@@ -9,7 +9,7 @@ import CollectibleTrophy from "./CollectibleTrophy.js";
 // If the arrow is not displayed (The one from bootstrap icons)
 // Try installing bootstrap icons in the terminal with the command "npm install react-bootstrap-icons --save"
 
-export default function AchievementBox() {
+const AchievementBox = () => {
 
   return (
     <div>
@@ -38,3 +38,4 @@ export default function AchievementBox() {
       );
 }
 
+export default AchievementBox;
