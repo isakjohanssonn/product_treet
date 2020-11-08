@@ -1,6 +1,12 @@
 
 .achievementBoxCardMain {
-  margin: auto;
+  margin-top: 3rem;
+  border-radius: 0;
+  border: none;
+
+}
+
+.comingAchievementBoxCardMain {
   margin-top: 3rem;
   border-radius: 0;
   border: none;
@@ -30,8 +36,10 @@
   border: none;
 }
 
-/* @media 
-only screen and (min-width: 1100px) {
+/*  These were made in case we want to redo the CSS for different screen sizes. 
+
+@media 
+only screen and (min-width: 1024px) {
  
   .arrowAchivement {
     position: absolute;
@@ -43,7 +51,7 @@ only screen and (min-width: 1100px) {
 
 }
 @media 
-only screen and (min-width: 770px) and (max-width: 1100px) {
+only screen and (min-width: 770px) and (max-width: 1024px) {
  
   .arrowAchivement {
     position: absolute;
