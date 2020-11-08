@@ -1,19 +1,19 @@
 
 .achievementBoxCardMain {
   margin-top: 1rem;
-  border: 2px solid gray;
+  border: 10px solid gray;
+
 }
 
 .comingAchievementBoxCardMain {
   margin-top: 1rem;
-  border: 2px solid gray;
+  border: 10px solid gray;
 }
 
 .arrowAchivement {
   right: 1rem;
   top: 30%;
   font-size: 300%;
-
 }
 
 .achievementBoxCardHeader {

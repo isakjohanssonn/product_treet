@@ -17,9 +17,9 @@ const ComingAchievementBox = () => {
  
        <div>
          {/* Creating the card/box to contain the achievements */}
-         <Card class="comingAchievementBoxCardMain border-1" >
-           <Card.Header class="achievementBoxCardHeader">Upcomming achievements</Card.Header>
-           <Card.Body class="achievementBoxCardBody card-columns">
+         <Card className="comingAchievementBoxCardMain">
+           <Card.Header className="achievementBoxCardHeader">Upcomming achievements</Card.Header>
+           <Card.Body className="achievementBoxCardBody card-columns">
  
  
              {/*This are the achievements displayed */}
@@ -28,7 +28,7 @@ const ComingAchievementBox = () => {
              <CollectibleTrophy number={24} />
  
              {/* The arrow */}
-             <ArrowRight viewBox="0 0 16 16" class="pull-right arrowAchivement"  fill="currentColor"/>
+             <ArrowRight viewBox="0 0 16 16" className="pull-right arrowAchivement"  fill="currentColor"/>
            </Card.Body>
          </Card>
        </div>
