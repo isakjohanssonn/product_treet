@@ -9,6 +9,7 @@ const Home = () =>  {
     return (
       <div>
         <Streak />
+
         {/* <ListGroup> */}
         <Link to="/addmeddata">
           <span className="card" >

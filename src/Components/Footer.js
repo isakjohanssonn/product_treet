@@ -11,7 +11,6 @@ const Footer = (props) => {
   const {globalTitle, setGlobalTitle} = props;
 
   return (
-    <div>
       <div className="footerDiv">
         <ListGroup horizontal>
           <Link className="footerLink" to="/" onClick={() => setGlobalTitle("Home")}><span><ListGroup.Item action ><FaHome></FaHome>
@@ -27,8 +26,6 @@ const Footer = (props) => {
           </ListGroup.Item></span></Link>
 
         </ListGroup>
-        </div>
-
     </div>
   )
 }
