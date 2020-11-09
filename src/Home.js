@@ -2,23 +2,13 @@ import React, { Component } from "react";
 import Streak from "./Components/Streak";
 import { Button, ListGroup } from "react-bootstrap";
 import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import MeasurementList from "./Components/MeasurementList";
-import {BsGraphUp, IoMdWalk} from "react-icons/all";
+import MeasurementList, {Types} from "./Components/MeasurementList";
 
 const Home = () =>  {
-      const data = [
-          {header: 'Upcoming Measurement', time: '09:00', activity: 'Blood sugar', icon: BsGraphUp, completed: false, target:'70-99mg/dl'},
-          {header: 'Upcoming Activity', time: '15:00', activity: 'Go for a walk', icon: IoMdWalk, completed: false, target:'30 min'},
-          {header: 'Upcoming Measurement', time: '12:00', activity: 'Blood sugar', icon: BsGraphUp, completed: false, target:'70-99mg/dl'},
-          {header: 'Upcoming Measurement', time: '18:00', activity: 'Blood sugar', icon: BsGraphUp, completed: false, target:'70-99mg/dl'}
-          ];
-
     return (
       <div>
         <Streak />
-        <MeasurementList data={data}/>
-
-
+        <MeasurementList />
         {/* <ListGroup> */}
           {/*<Link to="/addmeddata">
           <span className="card" >
