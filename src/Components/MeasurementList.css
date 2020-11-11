@@ -1,0 +1,50 @@
+h5 {
+    text-align: left;
+}
+
+.target {
+    display: flex;
+}
+
+.time {
+    display:flex;
+    align-items:center;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    justify-content: space-between;
+}
+
+.activity {
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+}
+
+.activity p {
+    margin-bottom: 0px;
+    font-weight: bold;
+    margin-right: 3px;
+}
+.icon {
+    margin-right: 5px;
+}
+
+.statusIcon {
+    font-size: 34px;
+}
+
+.activityIcon {
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+.listItem {
+    margin-top: 12px;
+    border: 1px solid lightgrey;
+    border-radius: 6px;
+    box-shadow: 0px 2px 6px lightgrey;
+    background-color: white,
+}
+
+
+

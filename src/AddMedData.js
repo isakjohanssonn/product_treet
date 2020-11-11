@@ -5,7 +5,7 @@ import 'react-calendar/dist/Calendar.css';
 import PostEHR from "./openEHR/PostEHR";
 import PostGoogleData from "./Components/PostGoogleData";
 
-const AddMedData = () => {
+const AddMedData = (props) => {
   const [showDate, setshowDate] = useState(true);
   const [date, setDate] = useState(new Date());
   const [showMedtype, setshowMedType] = useState(true);
@@ -14,6 +14,12 @@ const AddMedData = () => {
   const [showSummary, setshowSummary] = useState(true);
   const [input, setInput] = useState(null);
   const [success, setSuccess] = useState(false);
+
+  const state = props.location.state;
+  if (state) {
+      // State will determine how we got here. If state is undefined show error page
+      // State is a measurement type, see Types in components/MeasurementList
+  }
 
   // calendar date update
   const onChange = date => date = date;

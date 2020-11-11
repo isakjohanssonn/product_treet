@@ -2,16 +2,15 @@ import React, { Component } from "react";
 import Streak from "./Components/Streak";
 import { Button, ListGroup } from "react-bootstrap";
 import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import MeasurementList, {Types} from "./Components/MeasurementList";
 
 const Home = () =>  {
-
-  
     return (
       <div>
         <Streak />
-
+        <MeasurementList />
         {/* <ListGroup> */}
-        <Link to="/addmeddata">
+          {/*<Link to="/addmeddata">
           <span className="card" >
             <Button>New Measurment</Button>
           </span>
@@ -35,11 +34,10 @@ const Home = () =>  {
           <span className="card" >
             <Button>Messages</Button>
           </span>
-        </Link>
+        </Link>*/}
         {/* </ListGroup> */}
       </div>
     );
-  
 }
 
 export default Home;
