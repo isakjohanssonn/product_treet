@@ -14,6 +14,14 @@ import Measurements from "./Components/Measurements";
 import AllMeasurements from "./Components/AllMeasurements";
 import AchivementPage from "./AchievementPage"
 import CollectibleDemo from "./Components/CollectibleDemo";
+// import successfullysaved from './Components/successfullysaved'
+// import TreeInfo from './Components/TreeInfo'
+// import History from './History'
+// import Goals from './Goals'
+// import Diabetes from './Diabetes'
+// import Forest from './Components/Forest'
+// import NewMeasurement from './Components/NewMeasurement'
+
 
 const Main = () => {
 
@@ -34,12 +42,25 @@ const Main = () => {
             <Route path="/contact" component={Contact} />
             <Route path="/login" component={Login} />
             <Route path="/medicaldata" component={MedicalData} />
-            <Route path="/profile" component={ProfilePage} />
-            <Route path="/AddMedData" component={AddMedData} />
+            <Route path="/profile" component={ProfilePage} /> {/** */}
+            {/* <Route path="/newmeasurement" component={NewMeasurement} /> */}
             <Route path="/measurements" component={Measurements} />
             <Route path="/allmeasurements" component={AllMeasurements} />
             <Route path="/achievement" component={AchivementPage} />
-            <Route path="/collectibledemo" component={CollectibleDemo} />
+            <Route path="/collectibledemo" component={AchivementPage} />
+            {/* <Route path="/successfullysaved" component={SuccessfullySaved} /> */}
+            {/* <Route path="/TreeInfo" component={TreeInfo} /> */}
+            {/* <Route path="/history" component={History} /> */}
+            {/* <Route path="/goals" component={Goals} /> */}
+            {/* <Route path="/diabetes" component={Diabetes} /> */}
+            {/* <Route path="/forest" component={Forest} /> */}
+            <Route path="/collectibledemo" component={AchivementPage} />
+
+
+
+
+
+
             {/* <Route component={NoMatch} /> */}
           </Switch>
           <Footer globalTitle={globalTitle} setGlobalTitle={setGlobalTitle}/>
