@@ -38,21 +38,6 @@ const Main = () => {
       <React.Fragment>
         <Router>
           <div>
-<<<<<<< src/Main.js
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route path="/contact" component={Contact} />
-              <Route path="/login" component={Login} />
-              <Route path="/medicaldata" component={MedicalData} />
-              <Route path="/profile" component={ProfilePage} />
-              <Route path="/AddMedData" component={AddMedData} />
-              <Route path="/measurements" component={Measurements} />
-              <Route path="/allmeasurements" component={AllMeasurements} />
-              <Route path="/achievement" component={AchivementPage} />
-              <Route path="/collectibledemo" component={CollectibleDemo} />
-              {/* <Route component={NoMatch} /> */}
-            </Switch>
-=======
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/contact" component={Contact} />
@@ -72,14 +57,8 @@ const Main = () => {
             {/* <Route path="/forest" component={Forest} /> */}
             <Route path="/collectibledemo" component={AchivementPage} />
 
-
-
-
-
-
             {/* <Route component={NoMatch} /> */}
           </Switch>
->>>>>>> src/Main.js
           </div>
         </Router>
       </React.Fragment>
