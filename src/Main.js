@@ -1,6 +1,7 @@
 import React, { useState, Component, useEffect } from "react";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { createBrowserHistory } from 'history'
 
 import Home from "./Home";
 import MedicalData from "./MedicalData";
@@ -26,6 +27,7 @@ import CollectibleDemo from "./Components/CollectibleDemo";
 const Main = () => {
 
   const [globalTitle, setGlobalTitle] = useState("Home");
+  const history = createBrowserHistory();
 
   useEffect(() => {
     document.title = globalTitle;
@@ -35,7 +37,6 @@ const Main = () => {
     <>
       <React.Fragment>
         <Router>
-          <Navigationbar globalTitle={globalTitle} setGlobalTitle={setGlobalTitle}/>
           <div>
           <Switch>
             <Route exact path="/" component={Home} />
@@ -56,14 +57,8 @@ const Main = () => {
             {/* <Route path="/forest" component={Forest} /> */}
             <Route path="/collectibledemo" component={AchivementPage} />
 
-
-
-
-
-
             {/* <Route component={NoMatch} /> */}
           </Switch>
-          <Footer globalTitle={globalTitle} setGlobalTitle={setGlobalTitle}/>
           </div>
         </Router>
       </React.Fragment>

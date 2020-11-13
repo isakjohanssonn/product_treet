@@ -1,66 +1,49 @@
-import React, { useState, useEffect } from 'react';
-import { Nav, Navbar, Form } from 'react-bootstrap';
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { ListGroup } from 'react-bootstrap';
 import "./Navigationbar.css";
-import Notifications from "./Notifications";
-
+import { useAuth0 } from "@auth0/auth0-react";
+import { FiLogOut } from 'react-icons/fi';
+import { HiArrowLeft } from 'react-icons/hi';
+import { useHistory } from 'react-router-dom';
 
 const NavigationBar = (props) => {
-  const { globalTitle, setGlobalTitle } = props;
-  const [expanded, setExpanded] = useState(false);
-  const [activeHome, setActiveHome] = useState("active");
-  const [activeLogin, setActiveLogin] = useState("");
-  const [activeMedData, setActiveMedData] = useState("");
-  const [activeProfile, setActiveProfile] = useState("");
-  const [activeMeasurements, setActiveMeasurements] = useState("");
+  const [history] = useState(useHistory());
+  const [gtitle] = useState(props.title);
+  const { logout } = useAuth0();
 
-  useEffect(() => {
-    if (globalTitle == "Home") {
-      setActiveHome("active");
-    } else { setActiveHome(""); }
-    
-    if (globalTitle == "Login") {
-      setActiveLogin("active");
-    } else { setActiveLogin(""); }
-
-    if (globalTitle == "Medical data") {
-      setActiveMedData("active");
-    } else { setActiveMedData(""); }
+  console.log(gtitle)
+  console.log("hej" + gtitle)
 
 
-    if (globalTitle == "Profile") {
-      setActiveProfile("active");
-    } else { setActiveProfile(""); }
-    
-    if (globalTitle == "Measurements") {
-      setActiveMeasurements("active");
-    } else { setActiveMeasurements(""); }
-    
-
-
-  }, [globalTitle])
+  const BackButton = () => {
+    if (gtitle == 'Homoe' ){ 
+      return null  
+    } else if (gtitle == 'Goals'){
+      return null
+    } else if (gtitle == 'History'){
+      return null
+    } else if (gtitle == 'Profile'){
+      return null
+    } else {
+      return (
+      console.log(gtitle),
+      <button className="navbutton" id="back" onClick={() => history.goBack()} ><HiArrowLeft></HiArrowLeft></button>
+      );
+    }
+  }
 
   return (
-    <div className="mainDiv">
-      <Navbar expanded={expanded} expand="lg">
-        <Navbar.Toggle onClick={() => setExpanded(expanded ? false : true)} />
-        {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
-        <Form className="form-center"> {globalTitle} </Form>
-        <navbar-brand ID='NavbarID'>  </navbar-brand>
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav data-toggle="collapse" className="ml-auto">
-            <Link id={activeHome} className="navLink" to="/" onClick={() => { setExpanded(false); setGlobalTitle("Home") }} ><span ><Nav.Item >Home</Nav.Item></span></Link>
-            <Link id={activeLogin} className="navLink" to="/Login" onClick={() => { setExpanded(false); setGlobalTitle("Login") }}><span><Nav.Item ><div>Log in</div></Nav.Item></span></Link>
-            {/* <Link id={activeMedData} className="navLink" to="/MedicalData" onClick={() => { setExpanded(false); setGlobalTitle("Medical data") }}><span><Nav.Item><div>History</div></Nav.Item></span></Link> */}
-            <Link id={activeProfile} className="navLink" to="/profile" onClick={() => { setExpanded(false); setGlobalTitle("Profile") }}><span><Nav.Item><div>profile</div></Nav.Item></span></Link>
-            <Link id={activeMeasurements} className="navLink" to="/measurements" onClick={() => { setExpanded(false); setGlobalTitle("Measurements") }}><span><Nav.Item><div>Measurements</div></Nav.Item></span></Link>
-
-          </Nav>
-        </Navbar.Collapse>
-        {(!expanded &&
-        <Notifications />)}
-      </Navbar>
-    </div >
+    <ListGroup horizontal className="mainDiv">
+      <div className="backbutton">
+      {BackButton()}
+      </div>
+      <div className="title">
+        <h1> {gtitle} </h1>
+      </div>
+      <div id="logout">
+        <button className="navbutton" id="logout" onClick={() => logout({ returnTo: window.location.origin })}><FiLogOut></FiLogOut></button>
+      </div>
+    </ListGroup >
   );
 
 }
