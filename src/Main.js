@@ -1,8 +1,7 @@
 import React, { useState, Component, useEffect } from "react";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import createBrowserHistory from 'history/createBrowserHistory';
-
+import { createBrowserHistory } from 'history'
 
 import Home from "./Home";
 import MedicalData from "./MedicalData";
@@ -31,10 +30,8 @@ const Main = () => {
       <React.Fragment>
         <Router>
           <div>
-            {/* {PrintNav()}, */}
             <Switch>
               <Route exact path="/" component={Home} />
-              <Route exact path="/hej" component= {Home} />
               <Route path="/contact" component={Contact} />
               <Route path="/login" component={Login} />
               <Route path="/medicaldata" component={MedicalData} />
@@ -46,7 +43,6 @@ const Main = () => {
               <Route path="/collectibledemo" component={CollectibleDemo} />
               {/* <Route component={NoMatch} /> */}
             </Switch>
-            {/* <Footer globalTitle={globalTitle} setGlobalTitle={setGlobalTitle} /> */}
           </div>
         </Router>
       </React.Fragment>

@@ -16,7 +16,7 @@ const NavigationBar = (props) => {
 
 
   const BackButton = () => {
-    if (gtitle == 'Home' ){ 
+    if (gtitle == 'Homoe' ){ 
       return null  
     } else if (gtitle == 'Achievement'){
       return null
@@ -34,7 +34,9 @@ const NavigationBar = (props) => {
 
   return (
     <ListGroup horizontal className="mainDiv">
+      <div className="backbutton">
       {BackButton()}
+      </div>
       <div className="title">
         <h1> {gtitle} </h1>
       </div>
