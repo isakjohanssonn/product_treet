@@ -1,28 +1,27 @@
-import React, { Component } from 'react';
-import { ListGroup, Button } from "react-bootstrap";
-import { Link, Router } from "react-router-dom";
+import React from 'react';
+import { ListGroup  } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import {FaUserAlt, FaStar, FaClock, FaHome} from 'react-icons/fa'
 
 import "./Footer.css"
 import "./Navigationbar"
 
-const Footer = (props) => {
+const Footer = () => {
 
-  const {globalTitle, setGlobalTitle} = props;
 
   return (
       <div className="footerDiv">
         <ListGroup horizontal>
-          <Link className="footerLink" to="/" onClick={() => setGlobalTitle("Home")}><span><ListGroup.Item action ><FaHome></FaHome>
+          <Link className="footerLink" to="/" ><span><ListGroup.Item action ><FaHome></FaHome>
           </ListGroup.Item></span></Link>
 
-          <Link className="footerLink" to="/measurements" onClick={() => setGlobalTitle("Measurements")}><span><ListGroup.Item action ><FaClock></FaClock>
+          <Link className="footerLink" to="/measurements" ><span><ListGroup.Item action ><FaClock></FaClock>
           </ListGroup.Item></span></Link>
 
-          <Link className="footerLink" to="/collectibledemo" onClick={() => setGlobalTitle("Collectible")}><span><ListGroup.Item action  ><FaStar></FaStar>
+          <Link className="footerLink" to="/collectibledemo" ><span><ListGroup.Item action  ><FaStar></FaStar>
           </ListGroup.Item></span></Link>
 
-          <Link className="footerLink" to="/profile" onClick={() => setGlobalTitle("Profile")}><span><ListGroup.Item action ><FaUserAlt></FaUserAlt>
+          <Link className="footerLink" to="/profile" ><span><ListGroup.Item action ><FaUserAlt></FaUserAlt>
           </ListGroup.Item></span></Link>
 
         </ListGroup>

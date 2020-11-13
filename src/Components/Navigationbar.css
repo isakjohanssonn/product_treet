@@ -1,23 +1,30 @@
-.navLink:hover {
-  text-decoration-line: none;
-  background-color: rgb(84, 93, 102);
-  color: lightgrey;
-  box-sizing: initial;
+.mainDiv {
+  width: 100%;
+  z-index: 999;
+  background-color: white;
+  background-repeat: repeat;
+  background-attachment: scroll;
+  background-position: 0% 0%;
+  position: fixed;
+  top: 0pt;
+  left: 0pt;
+  border: 2px solid lightgray;
 }
 
-#active {
-  background-color: rgb(243, 239, 239);
-  text-decoration: none;
-  border-bottom: 2px solid rgb(163, 159, 159);
+.navbutton {
+  font-size: 2rem;
+  background-color: transparent;
+  border: none;
+
+}
+.title {
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.navLink {
-  text-emphasis-color: black;
-  color: black;
-  padding: 0.5rem;
-  margin: 0,5rem;
-}
+#logout {
+  text-align: right;
+  margin-top: auto;
+  margin-bottom: auto;
 
-.Nav.Item {
-  color: black;
 }

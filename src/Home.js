@@ -1,43 +1,19 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import Streak from "./Components/Streak";
 import { Button, ListGroup } from "react-bootstrap";
-import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import MeasurementList, {Types} from "./Components/MeasurementList";
+import MeasurementList, { Types } from "./Components/MeasurementList";
+import Navigationbar from './Components/Navigationbar'
+import Footer from './Components/Footer'
 
-const Home = () =>  {
-    return (
-      <div>
-        <Streak />
-        <MeasurementList />
-        {/* <ListGroup> */}
-          {/*<Link to="/addmeddata">
-          <span className="card" >
-            <Button>New Measurment</Button>
-          </span>
-        </Link>
-        <Link to="/measurements">
-          <span className="card" >
-            <Button>Measurements</Button>
-          </span>
-        </Link>
-        <Link to="/profile">
-          <span className="card" >
-            <Button linkto='/profile'>Profile</Button>
-          </span>
-        </Link>
-        <Link to="/goals">
-          <span className="card" >
-            <Button>Goals</Button>
-          </span>
-        </Link>
-        <Link to="/contact">
-          <span className="card" >
-            <Button>Messages</Button>
-          </span>
-        </Link>*/}
-        {/* </ListGroup> */}
-      </div>
-    );
+const Home = () => {
+  return (
+    <div>
+      <Navigationbar title={'Home'} />
+      <Streak />
+      <MeasurementList />
+      <Footer />
+    </div>
+  );
 }
 
 export default Home;
