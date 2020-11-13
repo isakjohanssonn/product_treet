@@ -18,7 +18,7 @@ const NavigationBar = (props) => {
   const BackButton = () => {
     if (gtitle == 'Homoe' ){ 
       return null  
-    } else if (gtitle == 'Achievement'){
+    } else if (gtitle == 'Goals'){
       return null
     } else if (gtitle == 'History'){
       return null
