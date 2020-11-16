@@ -1,49 +1,113 @@
-
-
-import React, {useState} from "react"
+import React, { useState } from "react"
 import Oak1 from "../img/oak1.png";
+import Oak2 from "../img/mightyoak.png";
+import Oak3 from "../img/sicktree.png"
+import Spruce1 from "../img/sapling_spruce.png";
+import Spruce2 from "../img/pine_old.jpg";
+import Spruce3 from "../img/jaja.png"
+import Spruce4 from "../img/young_dead_spruce.jpg";
+import Spruce5 from "../img/dead_spruce.png"
 
 
-const AllTrees = () => {
+/*const AllTrees = () => {
     const [tree, setTree] = useState(
         {
-        spruce: {
-            name:  "Spruce",
-            desc: "Description",
-            timeToGrow: 10,
-            img: Oak1,
-            picLive2: "",
-            picLive3: "",
-            picDead1: "",
-            picDead2: "" 
+            spruce: {
+                name: "Spruce",
+                desc: "Description",
+                timeToGrow: 10,
+                sapling: Oak1,
+                young_tree: Oak2,
+                old_tree: Oak2,
+                young_sick_tree: Oak3,
+                old_sick_tree: Oak3
 
-        },
-        oak: {
-            name: "Oak",
-            desc: "Description",
-            timeToGrow: 20,
-            picLive1: "",
-            picLive2: "",
-            picLive3: "",
-            picDead1: "",
-            picDead2: "" 
             },
-        pine: {
-            name:  "Spruce",
-            desc: "Description",
-            timeToGrow: 30,
-            img: Oak1,
-            picLive2: "",
-            picLive3: "",
-            picDead1: "",
-            picDead2: "" 
+            oak: {
+                name: "Oak",
+                desc: "Description",
+                timeToGrow: 20,
+                picLive1: "",
+                picLive2: "",
+                picLive3: "",
+                picDead1: "",
+                picDead2: ""
+            },
+            pine: {
+                name: "Pine",
+                desc: "Description",
+                timeToGrow: 30,
+                img: Oak1,
+                picLive2: "",
+                picLive3: "",
+                picDead1: "",
+                picDead2: ""
             }
         }
     )
     return (tree)
+}*/
+
+export const allTrees = [{
+                name: "Spruce",
+                desc: "Description",
+                timeToGrow: 10,
+                sapling: Spruce1,
+                young_tree: Spruce2,
+                old_tree: Spruce3,
+                young_sick_tree: Spruce4,
+                old_sick_tree: Spruce5
+            }, {
+                name: "Oak",
+                desc: "Description",
+                timeToGrow: 20,
+                sapling: Oak1,
+                young_tree: Oak2,
+                old_tree: Oak2,
+                young_sick_tree: Oak3,
+                old_sick_tree: Oak3
+            }, {name: "Pine",
+                desc: "Description",
+                timeToGrow: 30,
+                sapling: Oak1,
+                young_tree: Oak2,
+                old_tree: Oak2,
+                young_sick_tree: Oak3,
+                old_sick_tree: Oak3
+            }
+]
+
+// Ni blandar javascript och react på ett sätt som man inte brukar göra
+// get tree borde bara vara en vanligt funktion som tar emot parametrar som vanligt : getTree(treeType, currentAge, is_sick)
+
+//Aha, detta är inte en vanlig funktion?
+
+//const getTree = (tree, currentAge, isSick) => {} samma som den nedan.
+
+//är det en komponent? 
+// #1 Alla komponenter ska ha stor bokstav typ Component
+// #2 det måste returnera html kod typ return <div/>
+// både 1 && 2 måste stämma
+export function getTree(tree, currentAge, isSick) {
+
+    //treeType = 2
+    const treeType = allTrees[tree];
+   // return treeType;
+    
+    if (isSick == true) {
+        if (currentAge / allTrees[tree].timeToGrow <= 0.33) {
+            return allTrees[tree].young_sick_tree;
+        } else if (currentAge / allTrees[tree].timeToGrow > 0.33) {
+            return allTrees[tree].old_sick_tree;
+        }
+    } else if (isSick == false) {
+        if (currentAge / allTrees[tree].timeToGrow <= 0.33) {
+            return allTrees[tree].sapling;
+        } else if (currentAge / allTrees[tree].timeToGrow < 0.66) {
+            return allTrees[tree].young_tree;
+        } else if (currentAge / allTrees[tree].timeToGrow >= 0.66) {
+            return allTrees[tree].old_tree;
+        }
+    }
 }
-
-export default AllTrees;
-
-
 
