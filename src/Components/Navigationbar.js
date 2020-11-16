@@ -11,10 +11,6 @@ const NavigationBar = (props) => {
   const [gtitle] = useState(props.title);
   const { logout } = useAuth0();
 
-  console.log(gtitle)
-  console.log("hej" + gtitle)
-
-
   const BackButton = () => {
     if (gtitle == 'Home' ){ 
       return null  
@@ -26,7 +22,6 @@ const NavigationBar = (props) => {
       return null
     } else {
       return (
-      console.log(gtitle),
       <button className="navbutton" id="back" onClick={() => history.goBack()} ><HiArrowLeft></HiArrowLeft></button>
       );
     }

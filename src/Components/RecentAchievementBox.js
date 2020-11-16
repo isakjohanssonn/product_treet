@@ -10,7 +10,7 @@ import GetDemographicsEHR from "../openEHR/GetDemographicsEHR.js";
 // If the arrow is not displayed (The one from bootstrap icons)
 // Try installing bootstrap icons in the terminal with the command "npm install react-bootstrap-icons --save"
 
-const AchievementBox = () => {
+const RecentAchievementBox = () => {
   const [person] = useState(GetDemographicsEHR)
   return (
     <div>
@@ -38,4 +38,4 @@ const AchievementBox = () => {
       </div>
       );
 }
-export default AchievementBox;
+export default RecentAchievementBox;
