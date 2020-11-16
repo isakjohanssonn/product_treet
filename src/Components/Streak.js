@@ -1,39 +1,57 @@
 import React, { useState } from "react";
-import {Card} from "react-bootstrap"
+import { Card } from "react-bootstrap"
 import "./Streak.css"
+// import Achievement from './Achievement'
+//import CurrentTree from './CurrentTree'
 
 export default function Streak() {
 
+  const [gamelvl, setGamelvl] = useState(1);
+  const [streak, setStreak] = useState(1);
+  const [longest, setLongest] = useState(5);
+
+
+  const Game = () => {
+    if (gamelvl == 1) {
+      return (
+        <Card border="secondary" className="streakCardWithin">
+          <Card.Body>
+            <h3> Longest Streak</h3>
+            <h4>{longest} days </h4>
+          </Card.Body>
+        </Card>
+      );
+    } else if (gamelvl == 2) {
+      // return (
+      //   <Achievemnts />
+      // );
+      return null; //remove when code is in
+    } else {
+      // return (
+      //   <CurrentTree />
+      // );
+      return null; //remove when code is in
+    }
+
+
+  }
+
+
   return (
     <div>
-    <Card border="secondary" className="streakCardMain">
-    <Card.Header className="streakCardHeader">Streaks</Card.Header>
-    <Card.Body className="streakCardBody">
+      <Card border="secondary" className="mainCard" id="StreakCard">
+        <Card.Body className="streakCardBody">
+          {Game()}
+          <Card border="secondary" className="streakCardWithin" id="middleLine">
+            <Card.Body>
+              <h3>Current Streak</h3>
+              <h4>{streak} days </h4>
+            </Card.Body>
+          </Card>
 
-      <Card border="secondary" className="streakCardWithin">
-        <Card.Body>
-          <Card.Text>
-            X dagar
-          </Card.Text>
-          <Card.Text>
-            Current streak
-          </Card.Text>
-        </Card.Body>
-      </Card>
-      <Card border="secondary" className="streakCardWithin">
-        <Card.Body>
-          <Card.Text>
-            X dagar
-          </Card.Text>
-          <Card.Text>
-            Longest streak
-          </Card.Text>
         </Card.Body>
       </Card>
 
-    </Card.Body>
-  </Card>
-  
 
     </div>
   );
