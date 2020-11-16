@@ -1,13 +1,17 @@
 
-.diseaseButtonCard {
+#firstButton {
    margin-top: 4rem;
-   border: 2px solid gray;
- }
- 
- .diseaseButtonCardHeader {
+}
+
+.diseaseButtonCard {
    margin-top: 1rem;
    border: 2px solid gray;
  }
+/*  
+ .diseaseButtonCardHeader {
+   margin-top: 1rem;
+   border: 2px solid gray;
+ } */
  
  .arrowAchivement {
    right: 1rem;
@@ -16,7 +20,7 @@
  
  }
  
- .achievementBoxCardHeader {
+ .diseaseButtonCardHeader {
    text-align: left;
    background-color: white;
    color: gray;
