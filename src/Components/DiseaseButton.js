@@ -18,6 +18,7 @@ const DiseaseButton = (props) => {
         <Card  className="diseaseButtonCard" id='firstButton'>
           <Card.Header className="diseaseButtonCardHeader">{props.title}</Card.Header>
           <Card.Body className="diseaseButtonCardBody card-columns">
+          <ArrowRight viewBox="0 0 16 16" className="pull-right arrowAchivement"  fill="currentColor"/>
           </Card.Body>
         </Card>
         </Link>
@@ -30,6 +31,7 @@ const DiseaseButton = (props) => {
       <Card  className="diseaseButtonCard">
       <Card.Header className="diseaseButtonCardHeader">{props.title}</Card.Header>
       <Card.Body className="diseaseButtonCardBody card-columns">
+      <ArrowRight viewBox="0 0 16 16" className="pull-right arrowAchivement"  fill="currentColor"/>
       </Card.Body>
       </Card>
       {/* </Link>  */}

@@ -14,25 +14,24 @@
  } */
  
  .arrowAchivement {
-   right: 1rem;
-   top: 30%;
    font-size: 300%;
- 
+   margin-left: auto;
+   min-height: 100%;
  }
  
  .diseaseButtonCardHeader {
-   text-align: left;
+   text-align: center;
    background-color: white;
    color: gray;
-   margin-left: 1.5rem;
+
    border: none;
+   padding-bottom: 0;
+   position: relative;
  }
  
  .diseaseButtonCardBody {
    display: flex;
-   margin-left: 1rem;
- }
- 
- .achievementBoxSecondary {
-   border: none;
+   align-items: center;
+   padding-top: 0;
+   padding-bottom: 1.9rem;
  }

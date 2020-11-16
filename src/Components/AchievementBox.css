@@ -10,10 +10,9 @@
 }
 
 .arrowAchivement {
-  right: 1rem;
-  top: 30%;
+  margin-left: auto;
   font-size: 300%;
-
+  /* right: 85%; */
 }
 
 .achievementBoxCardHeader {
