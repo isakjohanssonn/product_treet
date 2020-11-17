@@ -28,6 +28,8 @@ const Main = () => {
 
   const [globalTitle, setGlobalTitle] = useState("Home");
   const history = createBrowserHistory();
+  
+  
 
   useEffect(() => {
     document.title = globalTitle;

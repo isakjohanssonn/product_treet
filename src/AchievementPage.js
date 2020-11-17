@@ -1,12 +1,17 @@
 import React from "react";
-import LatestAchievementBox from "./Components/AchievementBox";
-import CommingAchievementBox from "./Components/ComingAchievementBox";
+import AchievementBox from "./Components/AchievementBox";
+import ComingAchievementBox from "./Components/ComingAchievementBox";
+import AllAchievementsBox from "./Components/AllAchievementsBox";
 
 const AchievementPage = () => {
+
+  //Hard coded achievements that have been reached
+  const achievements = [0, 1 , 2];
   return (
     <div>
-      <LatestAchievementBox />
-      <CommingAchievementBox />
+      <AchievementBox reachedAchievements = {achievements}/>
+      <ComingAchievementBox lastAchievement = {achievements[achievements.length-1]} />
+      <AllAchievementsBox />
     </div>
 
     

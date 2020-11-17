@@ -1,3 +1,4 @@
+//The box that renders all existing achievements.
 import React from "react";
 import { Card } from "react-bootstrap";
 import "./AchievementBox.css";
@@ -9,12 +10,20 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // If the arrow is not displayed (The one from bootstrap icons)
 // Try installing bootstrap icons in the terminal with the command "npm install react-bootstrap-icons --save"
 
-const AchievementBox = (props) => {
-  const {reachedAchievements} = props;
+const AchievementBox = () => {
   //Gets data about the three last achievements from allachievements
-  const achievement1 = AllAchievements(reachedAchievements[reachedAchievements.length-1]);
-  const achievement2 = AllAchievements(reachedAchievements[reachedAchievements.length-1]);
-  const achievement3 = AllAchievements(reachedAchievements[reachedAchievements.length-1]);
+  const achievement1 = AllAchievements(0);
+  var i;
+  var result = [];
+  result[0] = Achievement(achievement1);
+  var temp;
+  for (i = 0; i < (achievement1.totalNumberOfAchievements-1); i++){
+
+    temp = AllAchievements(i);
+    result[i+1] = Achievement(temp);
+  }
+
+  
    return (
     <div>
        <Card.Header className="achievementBoxCardHeader">Your latest achievements</Card.Header>
@@ -22,10 +31,7 @@ const AchievementBox = (props) => {
     <Card className="achievementBoxCardMain " >
       <Card.Body className="achievementBoxCardBody card-columns">
 
-        {/*This are the achievements displayed */}
-            <Achievement achievement = {achievement1.achievement} />
-            <Achievement achievement = {achievement2.achievement} />
-            <Achievement achievement = {achievement3.achievement} />
+        {result}
 
         {/* The arrow */}
         <ArrowRight viewBox="0 0 16 16" className="pull-right arrowAchivement"  fill="currentColor"/>
