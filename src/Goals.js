@@ -9,13 +9,15 @@ const GoalsPage = () => {
   return (
 
     <div>
+      <div className="goals-page">
       <Navigationbar title={'Goals'} />
-      <div>
       <Slider/>
-      <DiseaseButton title={'Diabetes'} link={'/Diabetes'} />
-      <DiseaseButton title={'Heartfailure'}/>
-      <DiseaseButton title={'COPD (KOL)'}/>
-      <DiseaseButton title={'Hypertoni'}/>
+        <div className="goals-page-content">
+        <DiseaseButton title={'Diabetes'} link={'/Diabetes'} />
+        <DiseaseButton title={'Heartfailure'}/>
+        <DiseaseButton title={'COPD (KOL)'}/>
+        <DiseaseButton title={'Hypertoni'}/>
+        </div>
       </div>
       <Footer />
  
