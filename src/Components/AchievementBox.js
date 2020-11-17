@@ -17,11 +17,11 @@ const AchievementBox = (props) => {
   const achievement3 = AllAchievements(reachedAchievements[reachedAchievements.length-1]);
    return (
     <div>
-       <Card.Header className="achievementBoxCardHeader">Your latest achievements</Card.Header>
+       <Card.Header className="achievementBoxCardHeader ">Your latest achievements</Card.Header>
     {/* Creating the card/box to contain the achievements */}
     <Card className="achievementBoxCardMain " >
       <Card.Body className="achievementBoxCardBody card-columns">
-
+          
         {/*This are the achievements displayed */}
             <Achievement achievement = {achievement1.achievement} />
             <Achievement achievement = {achievement2.achievement} />

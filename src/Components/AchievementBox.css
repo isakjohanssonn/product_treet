@@ -4,17 +4,16 @@
   margin-bottom: 0.5rem;
   box-shadow: 0px 2px 6px lightgrey;
   border: 1px lighgrey;
+  
 }
 
 .comingAchievementBoxCardMain {
-  margin-top: 1rem;
-  
-  
+  margin-top: 1rem;  
 }
 
 .arrowAchivement {
   right: 1rem;
-  top: 30%;
+  margin-top: 1.5rem;
   font-size: 300%;
 
 }
@@ -28,6 +27,7 @@
   margin-bottom: 0px;
   border: none;
   padding: 0px;
+  margin-top: 20px;
 }
 
 .achievementBoxCardBody {

@@ -25,16 +25,14 @@ const AchievementBox = () => {
 
   
    return (
-    <div>
-       <Card.Header className="achievementBoxCardHeader">Your latest achievements</Card.Header>
+    <div> 
+       <Card.Header className="achievementBoxCardHeader">All achievements</Card.Header>
     {/* Creating the card/box to contain the achievements */}
     <Card className="achievementBoxCardMain " >
       <Card.Body className="achievementBoxCardBody card-columns">
-
+        <div class="row row-cols-md-3">
         {result}
-
-        {/* The arrow */}
-        <ArrowRight viewBox="0 0 16 16" className="pull-right arrowAchivement"  fill="currentColor"/>
+        </div>
       </Card.Body>
     </Card>
   </div>
