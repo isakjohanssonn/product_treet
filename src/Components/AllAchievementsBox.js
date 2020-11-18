@@ -2,7 +2,7 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 import "./AchievementBox.css";
-import { ArrowRight } from 'react-bootstrap-icons'; 
+import { ArrowRight } from 'react-bootstrap-icons';
 import AllAchievements from "./AllAchievements";
 import Achievement from "./Achievement";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -17,26 +17,26 @@ const AchievementBox = () => {
   var result = [];
   result[0] = Achievement(achievement1);
   var temp;
-  for (i = 0; i < (achievement1.totalNumberOfAchievements-1); i++){
+  for (i = 0; i < (achievement1.totalNumberOfAchievements - 1); i++) {
 
-    temp = AllAchievements(i);
-    result[i+1] = Achievement(temp);
+    temp = AllAchievements(i + 1);
+    result[i + 1] = Achievement(temp);
   }
 
-  
-   return (
-    <div> 
-       <Card.Header className="achievementBoxCardHeader">All achievements</Card.Header>
-    {/* Creating the card/box to contain the achievements */}
-    <Card className="achievementBoxCardMain " >
-      <Card.Body className="achievementBoxCardBody card-columns">
-        <div class="row row-cols-md-3">
-        {result}
-        </div>
-      </Card.Body>
-    </Card>
-  </div>
-         
-       );
- }
+
+  return (
+    <div>
+      <Card.Header className="achievementBoxCardHeader">All achievements</Card.Header>
+      {/* Creating the card/box to contain the achievements */}
+      <Card className="achievementBoxCardMain " >
+        <Card.Body className="achievementBoxCardBody card-columns">
+          <div class="row row-cols-md-3">
+            {result}
+          </div>
+        </Card.Body>
+      </Card>
+    </div>
+
+  );
+}
 export default AchievementBox;

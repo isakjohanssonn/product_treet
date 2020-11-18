@@ -10,19 +10,19 @@ import Footer from './Components/Footer'
 const AchievementPage = () => {
 
   //Hard coded achievements that have been reached
-  const achievements = [0, 1 , 2];
+  const achievements = [0, 1];
   return (
     <div>
-      <Navigationbar title={'Home'} />
-      <br></br><br></br>
-      <AchievementBox reachedAchievements = {achievements}/>
-      <ComingAchievementBox lastAchievement = {achievements[achievements.length-1]} />
+      <Navigationbar title={'Achievement'} />
+      <br /><br />
+      <AchievementBox reachedAchievements={achievements} />
+      <ComingAchievementBox lastAchievement={achievements[achievements.length - 1]} />
       <AllAchievementsBox />
       <Footer />
     </div>
 
-    
+
   );
 }
- 
+
 export default AchievementPage;

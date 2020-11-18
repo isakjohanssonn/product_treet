@@ -1,5 +1,6 @@
 //Renders an achievement. As props it takes a achievement that it displays, and a boolean upcoming that says if the achievement
-//should be shown with a progressbar or not. If the achievement is null it doesnt render anything.
+//should be shown with a progressbar or not, boolean showScore that if true shows like 7/10, showName that shows the name if true
+// If the achievement is null it doesnt render anything.
 import placeholder from "../images/placeholderHexagon.png";
 import React from 'react';
 import "./Achievement.css";
@@ -7,25 +8,38 @@ import ProgressBar from 'react-bootstrap/ProgressBar'
 
 const Achievement = (props) => {
 
-    const {achievement, upcoming} = props;
-    if(achievement && upcoming) {
-    return(
-        <div className = "upcoming-achievement-card">
-        <img src = {placeholder} className = "placeholder"/>
-        <ProgressBar now = {(10/achievement.Requirement)*100} className = "progressbar" />
-        <div className = "achievement-label">{achievement.Name}</div>
-        </div>
-    );}
-    else if (achievement){
-        return(
-        <div className = "upcoming-achievement-card">
-        <img src = {placeholder} className = "placeholder"/>
-        <div className = "achievement-label">{achievement.Name}</div>
-        </div>);
+    const { achievement, upcoming, showScore, showName } = props;
+    const currentStreak = 12;
+
+    if (achievement) {
+        if (showName) {
+            var name = achievement.Name;
+        }
+        if (upcoming) {
+            if (showScore) {
+                var score = String(currentStreak) + "/" + String(achievement.Requirement);
+            }
+            return (
+                <div className="upcoming-achievement-card">
+                    <img src={placeholder} className="placeholder" />
+                    <ProgressBar now={(currentStreak / achievement.Requirement) * 100} className="progressbar" />
+                    <div className="achievement-label">{name}</div>
+                    {score}
+                </div>
+            );
+        }
+        else {
+            return (
+                <div className="upcoming-achievement-card">
+                    <img src={placeholder} className="placeholder" />
+                    <div className="achievement-label">{name}</div>
+                </div>);
+        }
     }
     else {
-        return(<div></div>);
+        return (<div></div>);
     }
+
 }
- 
+
 export default Achievement;
