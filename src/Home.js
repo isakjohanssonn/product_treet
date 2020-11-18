@@ -1,16 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Streak from "./Components/Streak";
 import { } from "react-bootstrap";
 import MeasurementList, { Types } from "./Components/MeasurementList";
-import Navigationbar from './Components/Navigationbar'
-import Footer from './Components/Footer'
+import Navigationbar from './Components/Navigationbar';
+import Footer from './Components/Footer';
+import RemainingMeasurements from './Components/RemainingMeasurements'
+import {FaCalendarAlt} from 'react-icons/fa'
+import './Home.css'
 
 
 const Home = () => {
+
+  const [remaining] = useState(RemainingMeasurements());
+  const [time] = useState(new Date().toLocaleString());
+  const [remainingAmount, setRemainingAmount] = useState();
+  useEffect(() => {
+    setRemainingAmount(remaining.remaining.length);
+}, [remaining]);
   return (
     <div>
       <Navigationbar title={'Home'} />
+      <div className="topDiv">
+        <div className="textDiv" id="toptopdiv"><h4 className="left">{time.substring(0,10)}</h4></div>
+        <div className="textDiv"><h4 className="right"><FaCalendarAlt></FaCalendarAlt></h4></div>
+      </div>
       <Streak />
+      <div className="topDiv">
+        <div className="textDiv" id="measureementsText"><h4 className="left">Todays' Measuremnts</h4></div>
+        <div className="textDiv"><h4 className="right">{remainingAmount / 2 } remaining</h4></div>
+      </div>
       <MeasurementList />
       <Footer />
     </div>

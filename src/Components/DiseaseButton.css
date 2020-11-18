@@ -1,0 +1,36 @@
+
+#firstButton {
+   margin-top: 4rem;
+}
+
+.diseaseButtonCard {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  box-shadow: 0px 2px 6px lightgrey;
+  border: 1px lighgrey;
+ }
+/*  
+ .diseaseButtonCardHeader {
+   margin-top: 1rem;
+   border: 2px solid gray;
+ } */
+ 
+ .arrowAchivement {
+   font-size: 300%;
+   margin-left: auto;
+   min-height: 100%;
+ }
+ 
+ .diseaseButtonCardHeader {
+   text-align: center;
+   background-color: white;
+   color: gray;
+   border: none;
+ }
+ 
+ .diseaseButtonCardBody {
+   display: flex;
+   align-items: center;
+   padding-top: 0;
+   padding-bottom: 1.9rem;
+ }

@@ -15,11 +15,11 @@ import Measurements from "./Components/Measurements";
 import AllMeasurements from "./Components/AllMeasurements";
 import AchivementPage from "./AchievementPage"
 import CollectibleDemo from "./Components/CollectibleDemo";
+import GoalsPage from './Goals';
+import DiabetesPage from './Diabetes';
 // import successfullysaved from './Components/successfullysaved'
 // import TreeInfo from './Components/TreeInfo'
 // import History from './History'
-// import Goals from './Goals'
-// import Diabetes from './Diabetes'
 // import Forest from './Components/Forest'
 // import NewMeasurement from './Components/NewMeasurement'
 
@@ -54,8 +54,8 @@ const Main = () => {
             {/* <Route path="/successfullysaved" component={SuccessfullySaved} /> */}
             {/* <Route path="/TreeInfo" component={TreeInfo} /> */}
             {/* <Route path="/history" component={History} /> */}
-            {/* <Route path="/goals" component={Goals} /> */}
-            {/* <Route path="/diabetes" component={Diabetes} /> */}
+            <Route path="/goals" component={GoalsPage} />
+            <Route path="/diabetes" component={DiabetesPage} />
             {/* <Route path="/forest" component={Forest} /> */}
             <Route path="/collectibledemo" component={AchivementPage} />
 

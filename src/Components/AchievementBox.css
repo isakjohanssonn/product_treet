@@ -14,8 +14,9 @@
 .arrowAchivement {
   right: 1rem;
   margin-top: 1.5rem;
+  margin-left: auto;
   font-size: 300%;
-
+  /* right: 85%; */
 }
 
 .achievementBoxCardHeader {
