@@ -3,11 +3,13 @@ import Streak from "./Components/Streak";
 import { Button, ListGroup } from "react-bootstrap";
 import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import MeasurementList, {Types} from "./Components/MeasurementList";
+import GrowingTree from "./Components/GrowingTree";
 
 const Home = () =>  {
     return (
       <div>
         <Streak />
+        <GrowingTree />
         <MeasurementList />
         {/* <ListGroup> */}
           {/*<Link to="/addmeddata">

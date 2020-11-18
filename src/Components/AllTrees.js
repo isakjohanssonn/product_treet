@@ -9,45 +9,6 @@ import Spruce4 from "../img/young_dead_spruce.jpg";
 import Spruce5 from "../img/dead_spruce.png"
 
 
-/*const AllTrees = () => {
-    const [tree, setTree] = useState(
-        {
-            spruce: {
-                name: "Spruce",
-                desc: "Description",
-                timeToGrow: 10,
-                sapling: Oak1,
-                young_tree: Oak2,
-                old_tree: Oak2,
-                young_sick_tree: Oak3,
-                old_sick_tree: Oak3
-
-            },
-            oak: {
-                name: "Oak",
-                desc: "Description",
-                timeToGrow: 20,
-                picLive1: "",
-                picLive2: "",
-                picLive3: "",
-                picDead1: "",
-                picDead2: ""
-            },
-            pine: {
-                name: "Pine",
-                desc: "Description",
-                timeToGrow: 30,
-                img: Oak1,
-                picLive2: "",
-                picLive3: "",
-                picDead1: "",
-                picDead2: ""
-            }
-        }
-    )
-    return (tree)
-}*/
-
 export const allTrees = [{
                 name: "Spruce",
                 desc: "Description",
@@ -109,5 +70,15 @@ export function getTree(tree, currentAge, isSick) {
             return allTrees[tree].old_tree;
         }
     }
+}
+
+export function getTreeName(tree) {
+    const treeType = allTrees[tree];
+return allTrees[tree].name;
+}
+
+export function getTreeAge(tree) {
+    const treeType = allTrees[tree];
+return allTrees[tree].timeToGrow;
 }
 
