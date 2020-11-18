@@ -10,5 +10,5 @@ const DiabetesPage = () => {
     </div>
   );
 }
- 
+//  check streaks boxen
 export default DiabetesPage;
