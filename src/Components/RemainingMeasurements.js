@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { FaLessThanEqual } from "react-icons/fa";
 
 
 
@@ -14,18 +15,33 @@ const RemainingMeasurements = () => {
     if (sugarTime.length > doneSugar.length) {
       for (var i = 0; i < sugarTime.length; i++) {
         if (sugarTime[i] > time.substring(11, 13)) {
-          remaining.push("BloodSugar");
+          remaining.push("Blood Sugar");
           remaining.push(sugarTime[i]);
-
+          remaining.push(false);
         }
       }
     }
 
     if (doneActivity == null) {
       remaining.push("Activity");
-      remaining.push(activityTime)
+      remaining.push(activityTime);
+      remaining.push(false);
+
     }
   }, []);
+
+  for  ( var i = 0; doneSugar.length > i ; i++) {
+    remaining.push("BloodSugar");
+    remaining.push(doneSugar[i]);
+    remaining.push(true);
+  }
+
+  for  ( var i = 0; doneActivity.length > i ; i++) {
+    remaining.push("Activity");
+    remaining.push(doneActivity[i]);
+    remaining.push(true);
+  }
+
   return ({ remaining });
 
 }
