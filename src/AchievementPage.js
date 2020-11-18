@@ -18,10 +18,11 @@ const AchievementPage = () => {
       <AllAchievementsBox />
       <Footer />
     </div>
-    
+
 
 
   );
+
 }
 
 export default AchievementPage;
