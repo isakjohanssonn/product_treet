@@ -7,7 +7,8 @@ and takes inspiration from [Semantic Versioning](https://semver.org/spec/v2.0.0.
 ## Unreleased
 
 ###Fixed
-- Small changes to remaining measurements
+- Two loops added to Recent Measurements component, adds medical data to array.
+- Pipeline has been updated, yarn install instead of npm install.
 
 ## [2.0.0] - 2020-11-15
 ### Added
