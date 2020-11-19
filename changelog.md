@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and takes inspiration from [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## Unreleased
 
-###Fixed
+### Fixed
 - Two loops added to Recent Measurements component, adds medical data to array.
 - Pipeline has been updated, yarn install instead of npm install.
 
