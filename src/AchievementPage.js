@@ -5,6 +5,7 @@ import AllAchievementsBox from "./Components/AllAchievementsBox";
 import Navigationbar from './Components/Navigationbar'
 import Footer from './Components/Footer'
 
+
 const AchievementPage = () => {
 
   //Hard coded achievements that have been reached
