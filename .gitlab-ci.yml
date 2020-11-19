@@ -21,7 +21,7 @@ install:
 build:
   stage: build
   script:
-    - CI=false npm run build
+      - npm run build
   artifacts:
     paths:
       - build
