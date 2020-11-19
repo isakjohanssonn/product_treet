@@ -11,7 +11,7 @@ import Spruce5 from "../img/dead_spruce.png"
 
 export const allTrees = [{
                 name: "Spruce",
-                desc: "Description",
+                desc: "Description about the tree spruce",
                 timeToGrow: 10,
                 sapling: Spruce1,
                 young_tree: Spruce2,
@@ -20,7 +20,7 @@ export const allTrees = [{
                 old_sick_tree: Spruce5
             }, {
                 name: "Oak",
-                desc: "Description",
+                desc: "This is an oak",
                 timeToGrow: 20,
                 sapling: Oak1,
                 young_tree: Oak2,
@@ -28,7 +28,7 @@ export const allTrees = [{
                 young_sick_tree: Oak3,
                 old_sick_tree: Oak3
             }, {name: "Pine",
-                desc: "Description",
+                desc: "This is a pine",
                 timeToGrow: 30,
                 sapling: Oak1,
                 young_tree: Oak2,
@@ -80,5 +80,10 @@ return allTrees[tree].name;
 export function getTreeAge(tree) {
     const treeType = allTrees[tree];
 return allTrees[tree].timeToGrow;
+}
+
+export function getTreeDescription(tree) {
+    const treeType = allTrees[tree];
+return allTrees[tree].desc;
 }
 

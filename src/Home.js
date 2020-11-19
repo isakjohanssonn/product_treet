@@ -3,16 +3,24 @@ import Streak from "./Components/Streak";
 import { Button, ListGroup } from "react-bootstrap";
 import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import MeasurementList, {Types} from "./Components/MeasurementList";
-import GrowingTree from "./Components/GrowingTree";
+import { GrowingTree } from "./Components/GrowingTree";
 
 const Home = () =>  {
     return (
       <div>
         <Streak />
-        <GrowingTree />
+
+        <Link to="/Tree">
+          <span className="card" >
+            <Button linkto={GrowingTree} type={GrowingTree} class={GrowingTree} >Tree</Button>
+          </span>
+        </Link>
+
+        
+
         <MeasurementList />
-        {/* <ListGroup> */}
-          {/*<Link to="/addmeddata">
+        <ListGroup>
+          <Link to="/addmeddata">
           <span className="card" >
             <Button>New Measurment</Button>
           </span>
@@ -36,8 +44,8 @@ const Home = () =>  {
           <span className="card" >
             <Button>Messages</Button>
           </span>
-        </Link>*/}
-        {/* </ListGroup> */}
+        </Link>
+        </ListGroup>
       </div>
     );
 }

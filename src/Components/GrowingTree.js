@@ -2,12 +2,14 @@ import React, {useState} from "react";
 //import AllTrees from "./AllTrees.js";//<---
 import { Card } from "react-bootstrap";
 import { ArrowRight, Box } from 'react-bootstrap-icons';
-import { getTree, getTreeName, getTreeAge } from "./AllTrees";
+import { getTree, getTreeName, getTreeAge, getTreeDescription } from "./AllTrees";
 import ProgressBar from 'react-bootstrap/ProgressBar';
 
+import "./GrowingTree.css"
 
 
-const GrowingTree = (props) => {
+
+export const GrowingTree = (props) => {
     
     //const currentAge = Get from and store in OpenEHR
     //const sickTree = get based on last data measurements from openEHR
@@ -55,4 +57,28 @@ const GrowingTree = (props) => {
     </div>
     );  
 }
-export default GrowingTree;
+
+export const GetDescription = (props) => {
+  const testTreeDescription = getTreeDescription(0);
+
+  return (
+    <div>
+            
+    <div>
+   {/* */}
+
+   <Card className="achievementBoxCardMain" >
+          <Card.Header className="achievementBoxCardHeader">Tree Info</Card.Header>
+          <Card.Body className="achievementBoxCardBody card-columns">
+          {testTreeDescription}
+          </Card.Body>
+        </Card>
+
+    </div>
+
+</div>
+  );
+}
+
+
+//export default GrowingTree;
