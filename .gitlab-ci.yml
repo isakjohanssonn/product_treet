@@ -21,7 +21,7 @@ install:
 build:
   stage: build
   script:
-      - yarn run build
+      - CI=false yarn run build
   artifacts:
     paths:
       - build
