@@ -26,19 +26,20 @@ const RemainingMeasurements = () => {
       remaining.push("Activity");
       remaining.push(activityTime);
       remaining.push(false);
-
+    } else {
+      for  ( var i = 0; doneActivity.length > i ; i++) {
+        remaining.push("Activity");
+        remaining.push(doneActivity[i]);
+        remaining.push(true);
+      }
     }
+
+    
   }, []);
 
   for  ( var i = 0; doneSugar.length > i ; i++) {
     remaining.push("BloodSugar");
     remaining.push(doneSugar[i]);
-    remaining.push(true);
-  }
-
-  for  ( var i = 0; doneActivity.length > i ; i++) {
-    remaining.push("Activity");
-    remaining.push(doneActivity[i]);
     remaining.push(true);
   }
 
