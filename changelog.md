@@ -6,8 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and takes inspiration from [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## Unreleased
 
-###Fixed
-- Small changes to remaining measurements
+### Fixed
+- Two loops added to Recent Measurements component, adds medical data to array.
+- Pipeline has been updated, yarn install instead of npm install. This creates a loop so that if the first pipe fails it will run a second CI-pipeline.
+- Changed the call to comingachievementbox to show all.
 
 ## [2.0.0] - 2020-11-15
 ### Added
