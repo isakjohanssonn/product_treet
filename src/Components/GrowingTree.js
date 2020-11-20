@@ -14,13 +14,13 @@ export const GrowingTree = (props) => {
   //const currentAge = Get from and store in OpenEHR
   //const sickTree = get based on last data measurements from openEHR
   const printTree = props
-  const age = 1;
+  const age = 12;
   const currentTree = 0;
 
   // const [tree] = useState(AllTrees);
-  const testTree = getTree(1, age, false); //bara för att testa om vi får ut rätt träd osv!
-  const testTreeName = getTreeName(0);
-  const testTreeAge = getTreeAge(0);
+  const testTree = getTree(2, age, false); //bara för att testa om vi får ut rätt träd osv!
+  const testTreeName = getTreeName(2);
+  const testTreeAge = getTreeAge(2);
   console.log(testTree);
   // const AllTrees = [spruce, oak, pine]
   // currentTree: 0
@@ -36,7 +36,7 @@ export const GrowingTree = (props) => {
 
         <Card className="GrowingTreeCardMain text-center" >
           {/* <Card.Body className="GrowingTreeCardHeader">{testTreeName}</Card.Body> */}
-          <h5 class="card-title text-center">{testTreeName}</h5>
+          {/* <h5 class="card-title text-center">{testTreeName}</h5> */}
           <Card.Body className="GrowingTreeCardBody ">
 
             <div class="container" style={{ height: "100%" }}>
@@ -44,9 +44,9 @@ export const GrowingTree = (props) => {
               {/* The arrow */}
 
               {/*This are the achievements displayed */}
-          <br/>
+              <br />
               <div className="container" style={{ width: 250 }}>
-                <div class="col-*-*" ><ProgressBar animated now={(age / testTreeAge) * 100} />
+                <div class="col-*-*"><ProgressBar animated now={(age / testTreeAge) * 100} />
                 </div>
 
                 <p>{age}/{testTreeAge}</p>

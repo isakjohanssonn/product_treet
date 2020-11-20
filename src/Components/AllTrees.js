@@ -2,40 +2,50 @@ import React, { useState } from "react"
 import Oak1 from "../img/oak1.svg";
 import Oak2 from "../img/mightyoak.png";
 import Oak3 from "../img/sicktree.png"
-import Spruce1 from "../img/sapling_spruce.png";
+import Spruce1 from "../img/oak1.svg";
 import Spruce2 from "../img/pine_old.jpg";
 import Spruce3 from "../img/jaja.png"
 import Spruce4 from "../img/young_dead_spruce.jpg";
 import Spruce5 from "../img/dead_spruce.png"
 
+import AppleTree from "../img/appletree.svg"
+import CherryTree from "../img/cherrytree.svg"
+import HangingTree from "../img/hangingtree.svg"
+import PurpleTree from "../img/purpletree.svg"
+import YellowTree from "../img/yellowtree.svg"
+import TallTree from "../img/talltree.svg"
+import UpcomingAppleTree from "../img/upcoming-appletree.svg"
+import UpcomingCherryTree from "../img/upcoming-cherrytree.svg"
+import UpcomingPurpleTree from "../img/upcoming-purpletree.svg"
 
 export const allTrees = [{
-                name: "Spruce",
-                desc: "Description about the tree spruce",
-                timeToGrow: 10,
-                sapling: Spruce1,
-                young_tree: Spruce2,
-                old_tree: Spruce3,
-                young_sick_tree: Spruce4,
-                old_sick_tree: Spruce5
-            }, {
-                name: "Oak",
-                desc: "This is an oak",
-                timeToGrow: 20,
-                sapling: Oak1,
-                young_tree: Oak2,
-                old_tree: Oak2,
-                young_sick_tree: Oak3,
-                old_sick_tree: Oak3
-            }, {name: "Pine",
-                desc: "This is a pine",
-                timeToGrow: 30,
-                sapling: Oak1,
-                young_tree: Oak2,
-                old_tree: Oak2,
-                young_sick_tree: Oak3,
-                old_sick_tree: Oak3
-            }
+    name: "Apple tree",
+    desc: "Description about the apple tree",
+    timeToGrow: 10,
+    sapling: Spruce1,
+    young_tree: AppleTree,
+    old_tree: AppleTree,
+    young_sick_tree: Spruce4,
+    old_sick_tree: Spruce5
+}, {
+    name: "Oak",
+    desc: "This is an oak",
+    timeToGrow: 20,
+    sapling: Oak1,
+    young_tree: CherryTree,
+    old_tree: CherryTree,
+    young_sick_tree: Oak3,
+    old_sick_tree: Oak3
+}, {
+    name: "Purple tree",
+    desc: "This is a pine",
+    timeToGrow: 30,
+    sapling: Oak1,
+    young_tree: PurpleTree,
+    old_tree: PurpleTree,
+    young_sick_tree: Oak3,
+    old_sick_tree: Oak3
+}
 ]
 
 // Ni blandar javascript och react på ett sätt som man inte brukar göra
@@ -53,8 +63,8 @@ export function getTree(tree, currentAge, isSick) {
 
     //treeType = 2
     const treeType = allTrees[tree];
-   // return treeType;
-    
+    // return treeType;
+
     if (isSick == true) {
         if (currentAge / allTrees[tree].timeToGrow <= 0.33) {
             return allTrees[tree].young_sick_tree;
@@ -74,16 +84,16 @@ export function getTree(tree, currentAge, isSick) {
 
 export function getTreeName(tree) {
     const treeType = allTrees[tree];
-return allTrees[tree].name;
+    return allTrees[tree].name;
 }
 
 export function getTreeAge(tree) {
     const treeType = allTrees[tree];
-return allTrees[tree].timeToGrow;
+    return allTrees[tree].timeToGrow;
 }
 
 export function getTreeDescription(tree) {
     const treeType = allTrees[tree];
-return allTrees[tree].desc;
+    return allTrees[tree].desc;
 }
 

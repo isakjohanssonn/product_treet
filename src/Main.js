@@ -15,6 +15,7 @@ import AllMeasurements from "./Components/AllMeasurements";
 import AchivementPage from "./AchievementPage"
 import CollectibleDemo from "./Components/CollectibleDemo";
 import Tree from "./Tree";
+import Forest from "./Forest";
 
 const Main = () => {
 
@@ -28,23 +29,24 @@ const Main = () => {
     <>
       <React.Fragment>
         <Router>
-          <Navigationbar globalTitle={globalTitle} setGlobalTitle={setGlobalTitle}/>
+          <Navigationbar globalTitle={globalTitle} setGlobalTitle={setGlobalTitle} />
           <div>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/contact" component={Contact} />
-            <Route path="/login" component={Login} />
-            <Route path="/medicaldata" component={MedicalData} />
-            <Route path="/profile" component={ProfilePage} />
-            <Route path="/AddMedData" component={AddMedData} />
-            <Route path="/measurements" component={Measurements} />
-            <Route path="/allmeasurements" component={AllMeasurements} />
-            <Route path="/achievement" component={AchivementPage} />
-            <Route path="/collectibledemo" component={CollectibleDemo} />
-            <Route path="/tree" component={Tree} />
-            {/* <Route component={NoMatch} /> */}
-          </Switch>
-          <Footer globalTitle={globalTitle} setGlobalTitle={setGlobalTitle}/>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/contact" component={Contact} />
+              <Route path="/login" component={Login} />
+              <Route path="/medicaldata" component={MedicalData} />
+              <Route path="/profile" component={ProfilePage} />
+              <Route path="/AddMedData" component={AddMedData} />
+              <Route path="/measurements" component={Measurements} />
+              <Route path="/allmeasurements" component={AllMeasurements} />
+              <Route path="/achievement" component={AchivementPage} />
+              <Route path="/collectibledemo" component={CollectibleDemo} />
+              <Route path="/tree" component={Tree} />
+              <Route path="/Forest" component={Forest} />
+              {/* <Route component={NoMatch} /> */}
+            </Switch>
+            <Footer globalTitle={globalTitle} setGlobalTitle={setGlobalTitle} />
           </div>
         </Router>
       </React.Fragment>

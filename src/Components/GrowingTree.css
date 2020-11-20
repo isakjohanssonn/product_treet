@@ -1,5 +1,5 @@
 .treeimage {
-    width: 300px;
+    width: 250px;
     height: auto;
 }
 
@@ -14,3 +14,10 @@
 .GrowingTreeCardHeader {
     background-color: white;
 }
+
+.column{
+    float: left;
+    width: 33.33%;
+}
+
+
