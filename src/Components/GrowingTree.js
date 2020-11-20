@@ -18,7 +18,7 @@ export const GrowingTree = (props) => {
     const currentTree = 0;
 
    // const [tree] = useState(AllTrees);
-    const testTree = getTree(0, age, false); //bara för att testa om vi får ut rätt träd osv!
+    const testTree = getTree(1, age, false); //bara för att testa om vi får ut rätt träd osv!
     const testTreeName = getTreeName(0);
     const testTreeAge = getTreeAge(0);
     console.log(testTree);
@@ -34,21 +34,22 @@ export const GrowingTree = (props) => {
         <div>
        {/* */}
     
-        <Card className="achievementBoxCardMain" >
-          <Card.Header className="achievementBoxCardHeader">{testTreeName}</Card.Header>
-          <Card.Body className="achievementBoxCardBody card-columns">
+        <Card className="GrowingTreeCardMain" >
+          <Card.Header className="GrowingTreeCardHeader">{testTreeName}</Card.Header>
+          <Card.Body className="GrowingTreeCardBody card-columns">
+            <div class="col-*-*"><img src={testTree} className="treeimg" /></div>
+            {/* The arrow */}
 
             {/*This are the achievements displayed */}
-            
-           <div style={{ width: 400 }}>
-				    <ProgressBar animated now={(age/testTreeAge)*100} />
+            <p>hej</p>
+            <div style={{ width: 400 }}>
+            <div class="col-*-*"><ProgressBar animated now={(age/testTreeAge)*100} /></div>
+				    
             <p>{age}/{testTreeAge}</p>
 
 			    </div>
-              
-            <img src={testTree} />
-            {/* The arrow */}
-            <ArrowRight viewBox="0 0 16 16" className="pull-right arrowAchivement"  fill="currentColor"/>
+
+            {/*<ArrowRight viewBox="0 0 16 16" className="pull-right arrowAchivement"  fill="currentColor"/>*/}
           </Card.Body>
         </Card>
     
