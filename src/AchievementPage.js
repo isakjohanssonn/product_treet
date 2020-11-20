@@ -1,15 +1,17 @@
 import React from "react";
-import LatestAchievementBox from "./Components/AchievementBox";
+import RecentAchievementBox from "./Components/RecentAchievementBox";
 import CommingAchievementBox from "./Components/ComingAchievementBox";
+import Navigationbar from './Components/Navigationbar'
+import Footer from './Components/Footer'
 
 const AchievementPage = () => {
   return (
     <div>
-      <LatestAchievementBox />
+      <Navigationbar title={'Achievements'} />
+      <RecentAchievementBox />
       <CommingAchievementBox />
-    </div>
-
-    
+      <Footer />
+    </div>    
   );
 }
  

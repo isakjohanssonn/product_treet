@@ -1,0 +1,35 @@
+.left {
+  text-align: left;
+  float: left;
+  /* width: 40%; */
+  /* margin-right: 0mm; */
+}
+
+.right {
+  text-align: right;
+  /* float: right; */
+  /* width: 40%; */
+  /* margin-left: 0mm; */
+}
+
+.topDiv {
+  width: 100%;
+}
+
+#toptopdiv {
+  margin-top: 65px;
+}
+#measureementsText {
+  margin-top: 1rem;
+}
+
+.block {
+  width: 100%;
+  height: 1px;
+}
+
+.textDiv {}
+
+h4 {
+  font-size: 1rem;
+}
