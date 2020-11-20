@@ -1,0 +1,23 @@
+.treeimage {
+    width: 250px;
+    height: auto;
+}
+
+.ProgressBar {
+    
+}
+
+.GrowingTreeCardMain {
+    border: none;
+}
+
+.GrowingTreeCardHeader {
+    background-color: white;
+}
+
+.column{
+    float: left;
+    width: 33.33%;
+}
+
+
