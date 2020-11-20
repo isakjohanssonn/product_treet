@@ -1,49 +1,46 @@
-import React, { useState, useEffect } from "react";
-import { FaLessThanEqual } from "react-icons/fa";
+import React, {useState, useEffect} from "react";
+import {FaLessThanEqual} from "react-icons/fa";
 
-
+//Added this to make things easier and to minimize the risk of typing-errors.
+export const MeasurementsTypes = {
+    BloodSugar: "Blood sugar",
+    Activity: "Go for a walk",
+};
 
 const RemainingMeasurements = () => {
-  const [remaining] = useState([])
-  const [sugarTime] = useState([8, 12, 18, 21]) //hardcoded, should come from doctor/med reccord
-  const [activityTime] = useState(18) // same as above.
-  const [doneSugar] = useState([8, 13]) //TODO: import actual data from EHR
-  const [doneActivity] = useState() //TODO: import actual data from EHR
-  const [time] = useState(new Date().toLocaleString());
+    const [remaining] = useState([]) //Made this into a array with objects with {activity, time & completed?} instead of keeping all info separate.
+    const [sugarTime] = useState(["08:00", "12:00", "18:00", "21:00"]) //hardcoded, should come from doctor/med reccord
+    const [activityTime] = useState("18:00") // same as above.
+    const [doneSugar] = useState(["08:00", "13:00"]) //TODO: import actual data from EHR
+    const [doneActivity] = useState() //TODO: import actual data from EHR
+    const [time] = useState(new Date().toLocaleString());
 
-  useEffect(() => {
-    if (sugarTime.length > doneSugar.length) {
-      for (var i = 0; i < sugarTime.length; i++) {
-        if (sugarTime[i] > time.substring(11, 13)) {
-          remaining.push("Blood Sugar");
-          remaining.push(sugarTime[i]);
-          remaining.push(false);
+    useEffect(() => {
+        if (sugarTime.length > doneSugar.length) {
+            for (var i = 0; i < sugarTime.length; i++) {
+                if (sugarTime[i] > time.substring(11, 13)) {
+                    remaining.push({activity: MeasurementsTypes.BloodSugar, time: sugarTime[i], completed: false});
+                    //as said above, remaining is now a array with objects with {activity, time & completed?}
+                }
+            }
         }
-      }
+
+        if (doneActivity == null) {
+            remaining.push({activity: MeasurementsTypes.Activity, time: activityTime, completed: false});
+        } else {
+            for (var i = 0; doneActivity.length > i; i++) {
+                remaining.push({activity: MeasurementsTypes.Activity, time: doneActivity[i], completed: true});
+            }
+        }
+
+
+    }, []);
+
+    for (var i = 0; doneSugar.length > i; i++) {
+        remaining.push({activity: MeasurementsTypes.BloodSugar, time: sugarTime[i], completed: true});
     }
 
-    if (doneActivity == null) {
-      remaining.push("Activity");
-      remaining.push(activityTime);
-      remaining.push(false);
-    } else {
-      for  ( var i = 0; doneActivity.length > i ; i++) {
-        remaining.push("Activity");
-        remaining.push(doneActivity[i]);
-        remaining.push(true);
-      }
-    }
-
-    
-  }, []);
-
-  for  ( var i = 0; doneSugar.length > i ; i++) {
-    remaining.push("BloodSugar");
-    remaining.push(doneSugar[i]);
-    remaining.push(true);
-  }
-
-  return ({ remaining });
+    return ({remaining});
 
 }
 
