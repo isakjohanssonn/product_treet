@@ -9,7 +9,7 @@ install:
   stage: install
   script:
     - npm config set registry http://registry.npmjs.org/
-    - npm install
+    - yarn install
   artifacts:
     name: "artifacts"
     untracked: true
@@ -21,7 +21,7 @@ install:
 build:
   stage: build
   script:
-    - CI=false npm run build
+      - CI=false yarn run build
   artifacts:
     paths:
       - build
