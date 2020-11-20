@@ -1,13 +1,16 @@
 .treeimage {
-    width: 50%;
-    height: 50%;
+    width: 300px;
+    height: auto;
 }
 
-ProgressBar {
-    position: relative;
+.ProgressBar {
+    
 }
 
 .GrowingTreeCardMain {
     border: none;
+}
 
+.GrowingTreeCardHeader {
+    background-color: white;
 }

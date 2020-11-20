@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import Oak1 from "../img/oak1.png";
+import Oak1 from "../img/oak1.svg";
 import Oak2 from "../img/mightyoak.png";
 import Oak3 from "../img/sicktree.png"
 import Spruce1 from "../img/sapling_spruce.png";
