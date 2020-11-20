@@ -15,7 +15,7 @@ const AchievementPage = () => {
       <Navigationbar title={'Achievement'} />
       <br /><br />
       <AchievementBox reachedAchievements={achievements} />
-      <ComingAchievementBox lastAchievement={achievements[achievements.length - 1]} showOne = {1} />
+      <ComingAchievementBox lastAchievement={achievements[achievements.length - 1]} />
       <AllAchievementsBox />
       <Footer />
     </div>
