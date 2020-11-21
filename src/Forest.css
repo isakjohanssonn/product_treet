@@ -1,0 +1,33 @@
+.middle{
+    text-align:center;
+    vertical-align: middle;
+    line-height: auto;
+}
+
+.Rtable {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+.Rtable-cell {
+    box-sizing: border-box;
+    flex-grow: 1;
+    width: 33.33%;
+    overflow: hidden;
+    list-style: none;
+}
+
+
+
+.Rtable-cell--alignTop, 
+.Rtable-cell--alignMiddle, 
+.Rtable-cell--alignBottom { display: flex; }
+
+.Rtable-cell--alignTop { align-items: flex-start; }
+.Rtable-cell--alignMiddle { align-items: center; }
+.Rtable-cell--alignBottom { align-items: flex-end; }
+
+.Rtable-cell--alignLeft { align-items: left; }
+.Rtable-cell--alignCenter { text-align: center; } 
+.Rtable-cell--alignRight { align-items: right; }

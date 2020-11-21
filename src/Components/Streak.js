@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Card } from "react-bootstrap"
 import "./Streak.css"
 // import Achievement from './Achievement'
-//import CurrentTree from './CurrentTree'
+//import current_tree from './current_tree'
 
 export default function Streak() {
 
@@ -28,7 +28,7 @@ export default function Streak() {
       return null; //remove when code is in
     } else {
       // return (
-      //   <CurrentTree />
+      //   <current_tree />
       // );
       return null; //remove when code is in
     }

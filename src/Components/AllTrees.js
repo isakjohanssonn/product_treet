@@ -18,7 +18,37 @@ import UpcomingAppleTree from "../img/upcoming-appletree.svg"
 import UpcomingCherryTree from "../img/upcoming-cherrytree.svg"
 import UpcomingPurpleTree from "../img/upcoming-purpletree.svg"
 
-export const allTrees = [{
+export const allTrees = [ {
+    name: "Hanging tree",
+    desc: "This is a pine",
+    timeToGrow: 30,
+    sapling: Oak1,
+    young_tree: HangingTree,
+    old_tree: HangingTree,
+    young_sick_tree: Oak3,
+    old_sick_tree: Oak3,
+    upcoming_tree: UpcomingAppleTree
+}, {
+    name: "Yellow tree",
+    desc: "This is a pine",
+    timeToGrow: 30,
+    sapling: Oak1,
+    young_tree: YellowTree,
+    old_tree: YellowTree,
+    young_sick_tree: Oak3,
+    old_sick_tree: Oak3,
+    upcoming_tree: UpcomingAppleTree
+}, {
+    name: "Tall tree",
+    desc: "This is a pine",
+    timeToGrow: 30,
+    sapling: Oak1,
+    young_tree: TallTree,
+    old_tree: TallTree,
+    young_sick_tree: Oak3,
+    old_sick_tree: Oak3,
+    upcoming_tree: UpcomingAppleTree
+}, {
     name: "Apple tree",
     desc: "Description about the apple tree",
     timeToGrow: 10,
@@ -26,16 +56,18 @@ export const allTrees = [{
     young_tree: AppleTree,
     old_tree: AppleTree,
     young_sick_tree: Spruce4,
-    old_sick_tree: Spruce5
+    old_sick_tree: Spruce5,
+    upcoming_tree: UpcomingAppleTree
 }, {
-    name: "Oak",
+    name: "Cherry tree",
     desc: "This is an oak",
     timeToGrow: 20,
     sapling: Oak1,
     young_tree: CherryTree,
     old_tree: CherryTree,
     young_sick_tree: Oak3,
-    old_sick_tree: Oak3
+    old_sick_tree: Oak3,
+    upcoming_tree: UpcomingCherryTree
 }, {
     name: "Purple tree",
     desc: "This is a pine",
@@ -44,14 +76,13 @@ export const allTrees = [{
     young_tree: PurpleTree,
     old_tree: PurpleTree,
     young_sick_tree: Oak3,
-    old_sick_tree: Oak3
+    old_sick_tree: Oak3,
+    upcoming_tree: UpcomingPurpleTree
 }
 ]
 
 // Ni blandar javascript och react på ett sätt som man inte brukar göra
 // get tree borde bara vara en vanligt funktion som tar emot parametrar som vanligt : getTree(treeType, currentAge, is_sick)
-
-//Aha, detta är inte en vanlig funktion?
 
 //const getTree = (tree, currentAge, isSick) => {} samma som den nedan.
 
@@ -59,11 +90,16 @@ export const allTrees = [{
 // #1 Alla komponenter ska ha stor bokstav typ Component
 // #2 det måste returnera html kod typ return <div/>
 // både 1 && 2 måste stämma
-export function getTree(tree, currentAge, isSick) {
+export function getTree(tree, currentAge, isSick, isUpcoming) {
 
     //treeType = 2
     const treeType = allTrees[tree];
     // return treeType;
+
+    if (isUpcoming)
+    {
+        return allTrees[tree].upcoming_tree;
+    }
 
     if (isSick == true) {
         if (currentAge / allTrees[tree].timeToGrow <= 0.33) {

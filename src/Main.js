@@ -17,6 +17,8 @@ import AchivementPage from "./AchievementPage"
 import CollectibleDemo from "./Components/CollectibleDemo";
 import GoalsPage from './Goals';
 import DiabetesPage from './Diabetes';
+import Tree from "./Tree";
+import Forest from "./Forest";
 // import successfullysaved from './Components/successfullysaved'
 // import TreeInfo from './Components/TreeInfo'
 // import History from './History'
@@ -58,6 +60,8 @@ const Main = () => {
             <Route path="/diabetes" component={DiabetesPage} />
             {/* <Route path="/forest" component={Forest} /> */}
             <Route path="/collectibledemo" component={AchivementPage} />
+            <Route path="/tree" component={Tree} />
+              <Route path="/Forest" component={Forest} />
 
             {/* <Route component={NoMatch} /> */}
           </Switch>
