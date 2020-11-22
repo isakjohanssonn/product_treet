@@ -36,7 +36,7 @@ const NavigationBar = (props) => {
       {BackButton()}
       </div>
       <div className="title">
-        <h1> {gtitle} </h1>
+        <h3> {gtitle} </h3>
       </div>
       <div id="logout">
         <button className="navbutton" id="logout" onClick={() => logout({ returnTo: window.location.origin })}><FiLogOut></FiLogOut></button>

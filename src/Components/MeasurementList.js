@@ -4,7 +4,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 import {AiOutlineClockCircle} from "react-icons/all";
 import {BsGraphUp, IoMdWalk, BsPlusCircleFill, FaCheckCircle, MdModeEdit} from "react-icons/all";
 import {useHistory} from "react-router-dom";
-import RemainingMeasurements, {MeasurementsTypes} from "./RemainingMeasurements";
+import useRemainingMeasurements, {MeasurementsTypes} from "./useRemainingMeasurements";
 
 const IconTypes = {
     [MeasurementsTypes.BloodSugar]: BsGraphUp,
@@ -30,25 +30,25 @@ function getHeader(completed, type) {
 //  2. completed measurement second
 function MeasurementList() {
     const history = useHistory();
-    const remaining = RemainingMeasurements().remaining;
+    const {measurements} = useRemainingMeasurements();
 
     // Sorting function that makes sure all the none completed measurements end up first
-    remaining.sort((a, b) => {
+    measurements.sort((a, b) => {
         if (!a.completed && b.completed) return -1;
     });
 
     return <div>
         <ListGroup className="ruta">
-            {remaining.map((measurement, index) => {
-                const {activity, time, completed} = measurement;
+            {measurements.map((measurement, index) => {
+                const {activity, time, completed, id, value} = measurement;
 
                 const ActualIcon = IconTypes[activity];
                 const header = getHeader(completed, activity);
                 const StatusIcon = completed ? FaCheckCircle : BsPlusCircleFill;
-                const onClick = completed ? null : () => history.push('/addmeddata', {activity});
-                const onClick2 = completed ? () => history.push('/addmeddata', {activity}) : null;
-                const completedStyle = completed ? {backgroundColor: '#f5faff'} : null;
 
+                const goToAddMedData = () => history.push('/addmeddata', {activity, id, completed});
+
+                const completedStyle = completed ? {backgroundColor: '#bdd8f1'} : null;
 
                 return <ListGroup.Item
                     className="listItem"
@@ -63,7 +63,7 @@ function MeasurementList() {
                         </div>
                         <div>
                             <StatusIcon
-                                onClick={onClick}
+                                onClick={!completed ? goToAddMedData : undefined}
                                 className="statusIcon"
                             />
                         </div>
@@ -77,11 +77,15 @@ function MeasurementList() {
                                 <div className="activity">
                                     <p>Edit</p>
                                     <MdModeEdit
-                                        onClick={onClick2}
+                                        onClick={completed ? goToAddMedData : undefined}
                                         className="statusIcon"/>
                                 </div>
                             )}
                         </div>
+                    </div>
+
+                    <div style={{display: 'flex'}}>
+                        {value && value}
                     </div>
                 </ListGroup.Item>
             })}

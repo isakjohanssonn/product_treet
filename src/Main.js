@@ -17,7 +17,8 @@ import AchivementPage from "./AchievementPage"
 import CollectibleDemo from "./Components/CollectibleDemo";
 import GoalsPage from './Goals';
 import DiabetesPage from './Diabetes';
-// import successfullysaved from './Components/successfullysaved'
+import AddMedDataNew from "./AddMedDataNew";
+import SuccessfullySaved from './SuccessfullySaved'
 // import TreeInfo from './Components/TreeInfo'
 // import History from './History'
 // import Forest from './Components/Forest'
@@ -29,11 +30,9 @@ const Main = () => {
     const [globalTitle, setGlobalTitle] = useState("Home");
     const history = createBrowserHistory();
 
-
-
-  useEffect(() => {
-    document.title = globalTitle;
-  }, [globalTitle]);
+    useEffect(() => {
+        document.title = globalTitle;
+    }, [globalTitle]);
 
     return (
         <>
@@ -51,19 +50,18 @@ const Main = () => {
                             <Route path="/allmeasurements" component={AllMeasurements}/>
                             <Route path="/achievement" component={AchivementPage}/>
                             <Route path="/collectibledemo" component={AchivementPage}/>
-                            {/* <Route path="/successfullysaved" component={SuccessfullySaved} /> */}
+                            <Route path="/successfullysaved" component={SuccessfullySaved}/>
                             {/* <Route path="/TreeInfo" component={TreeInfo} /> */}
                             {/* <Route path="/history" component={History} /> */}
                             <Route path="/goals" component={GoalsPage}/>
                             <Route path="/diabetes" component={DiabetesPage}/>
                             {/* <Route path="/forest" component={Forest} /> */}
                             <Route path="/collectibledemo" component={AchivementPage}/>
-                            <Route path="/addmeddata" component={AddMedData}/>
+                            <Route path="/addmeddata" component={AddMedDataNew}/>
                             <Route>
                                 <Redirect to="/"/>
                                 {/* Added this row so if a a route fails/doesn't exist it redirects us to homepage anyway.  */}
                             </Route>
-
                             {/* <Route component={NoMatch} /> */}
                         </Switch>
                     </div>

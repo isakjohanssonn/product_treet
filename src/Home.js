@@ -1,38 +1,32 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Streak from "./Components/Streak";
-import { } from "react-bootstrap";
-import MeasurementList, { Types } from "./Components/MeasurementList";
+import MeasurementList from "./Components/MeasurementList";
 import Navigationbar from './Components/Navigationbar';
 import Footer from './Components/Footer';
-import RemainingMeasurements from './Components/RemainingMeasurements'
-import {FaCalendarAlt} from 'react-icons/fa'
+import useRemainingMeasurements from './Components/useRemainingMeasurements'
+import DateAndCalendar from "./Components/DateAndCalendar";
 import './Home.css'
 
 
 const Home = () => {
+    const {remainingAmount} = useRemainingMeasurements();
+    const text = remainingAmount === 0 ? "All done!" : remainingAmount + " remaining";
 
-  const [remaining] = useState(RemainingMeasurements());
-  const [time] = useState(new Date().toLocaleString());
-  const [remainingAmount, setRemainingAmount] = useState();
-  useEffect(() => {
-    setRemainingAmount(remaining.remaining.length);
-}, [remaining]);
-  return (
-    <div>
-      <Navigationbar title={'Home'} />
-      <div className="topDiv">
-        <div className="textDiv" id="toptopdiv"><h4 className="left">{time.substring(0,10)}</h4></div>
-        <div className="textDiv"><h4 className="right"><FaCalendarAlt></FaCalendarAlt></h4></div>
-      </div>
-      <Streak />
-      <div className="topDiv">
-        <div className="textDiv" id="measureementsText"><h4 className="left">Todays' Measuremnts</h4></div>
-        <div className="textDiv"><h4 className="right">{remainingAmount / 2 } remaining</h4></div>
-      </div>
-      <MeasurementList />
-      <Footer />
-    </div>
-  );
+    return (
+        <div>
+            <Navigationbar title={'Home'}/>
+            <DateAndCalendar/>
+            <Streak/>
+
+            <div className="topDiv">
+                <h4>Today's measurements</h4>
+                <h4>{text}</h4>
+            </div>
+
+            <MeasurementList/>
+            <Footer/>
+        </div>
+    );
 }
 
 export default Home;
