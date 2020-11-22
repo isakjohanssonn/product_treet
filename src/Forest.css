@@ -8,16 +8,27 @@
     display: flex;
     flex-wrap: nowrap;
     width: 100%;
+    
+   
 }
 
-.Rtable-cell {
+.Rtable-cell1 {
     box-sizing: border-box;
     flex-grow: 1;
-    width: 33.33%;
+    width: 50%;
     overflow: hidden;
     list-style: none;
+
 }
 
+.Rtable-cell2 {
+    box-sizing: border-box;
+    flex-grow: 1;
+    width: 25%;
+    overflow: hidden;
+    list-style: none;
+
+}
 
 
 .Rtable-cell--alignTop, 

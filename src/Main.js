@@ -61,7 +61,10 @@ const Main = () => {
             {/* <Route path="/forest" component={Forest} /> */}
             <Route path="/collectibledemo" component={AchivementPage} />
             <Route path="/tree" component={Tree} />
-              <Route path="/Forest" component={Forest} />
+            <Route path="/Forest" component={Forest} />
+            
+
+             
 
             {/* <Route component={NoMatch} /> */}
           </Switch>

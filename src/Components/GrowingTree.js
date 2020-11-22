@@ -11,10 +11,10 @@ import "./GrowingTree.css"
 
 export const GrowingTree = (props) => {
   const printTree = props
-  const age = 12;
-  const current_tree = 0;
+  const age = 7;
+  const current_tree = 3;
 
-  const testTree = getTree(2, age, false, false); //bara för att testa om vi får ut rätt träd osv!
+  const testTree = getTree(3, age, false, false); //bara för att testa om vi får ut rätt träd osv!
   const testTreeName = getTreeName(2);
   const testTreeAge = getTreeAge(2);
   console.log(testTree);
@@ -26,7 +26,7 @@ export const GrowingTree = (props) => {
 
     <div>
 
-      <div>
+      
         {/* */}
 
         <Card className="GrowingTreeCardMain text-center" >
@@ -34,25 +34,31 @@ export const GrowingTree = (props) => {
           {/* <h5 class="card-title text-center">{testTreeName}</h5> */}
           <Card.Body className="GrowingTreeCardBody ">
 
-            <div class="container" style={{ height: "100%" }}>
-              <div><img src={testTree} className="treeimage" /></div>
+            <div class="container" >
+              
+              {/*<img src={testTree} class="treeimage" />*/}
+              <div>
+                <object class="treeimage" type="image/svg+xml" data={testTree}></object>
+              </div>
               {/* The arrow */}
 
               {/*This are the achievements displayed */}
-              <br />
-              <div className="container" style={{ width: 250 }}>
-                <div class="col-*-*"><ProgressBar class="progressbar" animated now={(age / testTreeAge) * 100} />
+              
+              
+                <div><ProgressBar class="progressbar" animated now={(age / testTreeAge) * 100} style={{ width: 100, margin: "auto"}} />
                 </div>
+                
 
+                
+                
                 <p>{age}/{testTreeAge}</p>
-              </div>
             </div>
 
             {/* <ArrowRight viewBox="0 0 16 16" className="pull-right arrowAchivement"  fill="currentColor"/> */}
           </Card.Body>
-        </Card>
+          </Card>
 
-      </div>
+      
 
     </div>
   );

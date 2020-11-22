@@ -8,7 +8,9 @@ import Spruce3 from "../img/jaja.png"
 import Spruce4 from "../img/young_dead_spruce.jpg";
 import Spruce5 from "../img/dead_spruce.png"
 
-import AppleTree from "../img/appletree.svg"
+import AppleTreeSapling from "../img/appletree-sapling-anim.svg"
+import AppleTree from "../img/appletree-full-anim.svg"
+import AppleTreeYoung from "../img/appletree-young-anim.svg"
 import CherryTree from "../img/cherrytree.svg"
 import HangingTree from "../img/hangingtree.svg"
 import PurpleTree from "../img/purpletree.svg"
@@ -52,8 +54,8 @@ export const allTrees = [ {
     name: "Apple tree",
     desc: "Description about the apple tree",
     timeToGrow: 10,
-    sapling: Spruce1,
-    young_tree: AppleTree,
+    sapling: AppleTreeSapling,
+    young_tree: AppleTreeYoung,
     old_tree: AppleTree,
     young_sick_tree: Spruce4,
     old_sick_tree: Spruce5,
@@ -116,6 +118,13 @@ export function getTree(tree, currentAge, isSick, isUpcoming) {
             return allTrees[tree].old_tree;
         }
     }
+}
+
+export function TreeName(props)
+{
+    const tree = props.tree;
+    const treeName = allTrees[tree].name;
+    return (<div>{treeName}</div>);
 }
 
 export function getTreeName(tree) {
