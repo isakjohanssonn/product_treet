@@ -23,9 +23,9 @@ const AchievementBox = (props) => {
         <Card.Body className="achievementBoxCardBody card-columns">
 
           {/*This are the achievements displayed */}
-          <Achievement achievement={achievement1.achievement} showName={1} />
-          <Achievement achievement={achievement2.achievement} showName={1} />
           <Achievement achievement={achievement3.achievement} showName={1} />
+          <Achievement achievement={achievement2.achievement} showName={1} />
+          <Achievement achievement={achievement1.achievement} showName={1} />
 
           {/* The arrow */}
           <ArrowRight viewBox="0 0 16 16" className="pull-right arrowAchivement" fill="currentColor" />
