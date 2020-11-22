@@ -1,13 +1,11 @@
 import React from "react";
-import { ProgressBar } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import { GrowingTree, GetDescription } from "./Components/GrowingTree";
 import { getTreeName } from "./Components/AllTrees";
 import Navigationbar from './Components/Navigationbar';
-import { Card } from "react-bootstrap";
 import Footer from './Components/Footer';
 
 
-//A view for showing a tree. Uses the components found in the folder Components.
 const Tree = () => {
     const testTreeName = getTreeName(2);
 
@@ -15,19 +13,31 @@ const Tree = () => {
         <div>
             <Navigationbar title={'Tree'} />
             <div>
-            <br></br>
-            <br></br>
-            <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
                 <h5 class="text-center">{testTreeName}</h5>
                 <GrowingTree />
                 <GetDescription />
-                {/*<TreeInfo>
-                <AchievmentInfo/>
-                  </TreeInfo>*/}
+                <GetAchievmentInfo />
             </div>
             <Footer />
         </div>
+    );
+}
 
+const GetAchievmentInfo = () => {
+    return (
+        <div>
+            <div>
+                <Card className="achievementBoxCardMain" >
+                    <Card.Header className="achievementBoxCardHeader">How to achieve</Card.Header>
+                    <Card.Body className="achievementBoxCardBody card-columns">
+                        This tree is recieved when you have maintained an activity streak for 30 days
+                    </Card.Body>
+                </Card>
+            </div>
+        </div>
     );
 }
 

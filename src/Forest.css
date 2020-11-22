@@ -8,8 +8,6 @@
     display: flex;
     flex-wrap: nowrap;
     width: 100%;
-    
-   
 }
 
 .Rtable-cell1 {
@@ -18,7 +16,6 @@
     width: 50%;
     overflow: hidden;
     list-style: none;
-
 }
 
 .Rtable-cell2 {
@@ -27,7 +24,6 @@
     width: 25%;
     overflow: hidden;
     list-style: none;
-
 }
 
 

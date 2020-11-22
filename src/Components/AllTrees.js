@@ -1,13 +1,9 @@
-import React, { useState } from "react"
+import React from "react"
+
 import Oak1 from "../img/oak1.svg";
-import Oak2 from "../img/mightyoak.png";
 import Oak3 from "../img/sicktree.png"
-import Spruce1 from "../img/oak1.svg";
-import Spruce2 from "../img/pine_old.jpg";
-import Spruce3 from "../img/jaja.png"
 import Spruce4 from "../img/young_dead_spruce.jpg";
 import Spruce5 from "../img/dead_spruce.png"
-
 import AppleTreeSapling from "../img/appletree-sapling-anim.svg"
 import AppleTree from "../img/appletree-full-anim.svg"
 import AppleTreeYoung from "../img/appletree-young-anim.svg"
@@ -19,40 +15,44 @@ import TallTree from "../img/talltree.svg"
 import UpcomingAppleTree from "../img/upcoming-appletree.svg"
 import UpcomingCherryTree from "../img/upcoming-cherrytree.svg"
 import UpcomingPurpleTree from "../img/upcoming-purpletree.svg"
+import UpcomingHangingTree from "../img/upcoming-hangingtree.svg"
+import UpcomingTallTree from "../img/upcoming-talltree.svg"
+import UpcomingYellowTree from "../img/upcoming-yellowtree.svg"
 
-export const allTrees = [ {
+
+export const allTrees = [{
     name: "Hanging tree",
-    desc: "This is a pine",
+    desc: "This is a hanging tree.",
     timeToGrow: 30,
     sapling: Oak1,
     young_tree: HangingTree,
     old_tree: HangingTree,
     young_sick_tree: Oak3,
     old_sick_tree: Oak3,
-    upcoming_tree: UpcomingAppleTree
+    upcoming_tree: UpcomingHangingTree
 }, {
     name: "Yellow tree",
-    desc: "This is a pine",
+    desc: "This is a yellow tree.",
     timeToGrow: 30,
     sapling: Oak1,
     young_tree: YellowTree,
     old_tree: YellowTree,
     young_sick_tree: Oak3,
     old_sick_tree: Oak3,
-    upcoming_tree: UpcomingAppleTree
+    upcoming_tree: UpcomingYellowTree
 }, {
     name: "Tall tree",
-    desc: "This is a pine",
+    desc: "This is a tall tree.",
     timeToGrow: 30,
     sapling: Oak1,
     young_tree: TallTree,
     old_tree: TallTree,
     young_sick_tree: Oak3,
     old_sick_tree: Oak3,
-    upcoming_tree: UpcomingAppleTree
+    upcoming_tree: UpcomingTallTree
 }, {
     name: "Apple tree",
-    desc: "Description about the apple tree",
+    desc: "Description about the apple tree.",
     timeToGrow: 10,
     sapling: AppleTreeSapling,
     young_tree: AppleTreeYoung,
@@ -62,7 +62,7 @@ export const allTrees = [ {
     upcoming_tree: UpcomingAppleTree
 }, {
     name: "Cherry tree",
-    desc: "This is an oak",
+    desc: "This is an cherry tree.",
     timeToGrow: 20,
     sapling: Oak1,
     young_tree: CherryTree,
@@ -72,7 +72,7 @@ export const allTrees = [ {
     upcoming_tree: UpcomingCherryTree
 }, {
     name: "Purple tree",
-    desc: "This is a pine",
+    desc: "This is a purple tree.",
     timeToGrow: 30,
     sapling: Oak1,
     young_tree: PurpleTree,
@@ -83,33 +83,19 @@ export const allTrees = [ {
 }
 ]
 
-// Ni blandar javascript och react på ett sätt som man inte brukar göra
-// get tree borde bara vara en vanligt funktion som tar emot parametrar som vanligt : getTree(treeType, currentAge, is_sick)
-
-//const getTree = (tree, currentAge, isSick) => {} samma som den nedan.
-
-//är det en komponent? 
-// #1 Alla komponenter ska ha stor bokstav typ Component
-// #2 det måste returnera html kod typ return <div/>
-// både 1 && 2 måste stämma
 export function getTree(tree, currentAge, isSick, isUpcoming) {
 
-    //treeType = 2
-    const treeType = allTrees[tree];
-    // return treeType;
-
-    if (isUpcoming)
-    {
+    if (isUpcoming) {
         return allTrees[tree].upcoming_tree;
     }
 
-    if (isSick == true) {
+    if (isSick) {
         if (currentAge / allTrees[tree].timeToGrow <= 0.33) {
             return allTrees[tree].young_sick_tree;
         } else if (currentAge / allTrees[tree].timeToGrow > 0.33) {
             return allTrees[tree].old_sick_tree;
         }
-    } else if (isSick == false) {
+    } else {
         if (currentAge / allTrees[tree].timeToGrow <= 0.33) {
             return allTrees[tree].sapling;
         } else if (currentAge / allTrees[tree].timeToGrow < 0.66) {
@@ -120,25 +106,21 @@ export function getTree(tree, currentAge, isSick, isUpcoming) {
     }
 }
 
-export function TreeName(props)
-{
+export function TreeName(props) {
     const tree = props.tree;
     const treeName = allTrees[tree].name;
     return (<div>{treeName}</div>);
 }
 
 export function getTreeName(tree) {
-    const treeType = allTrees[tree];
     return allTrees[tree].name;
 }
 
 export function getTreeAge(tree) {
-    const treeType = allTrees[tree];
     return allTrees[tree].timeToGrow;
 }
 
 export function getTreeDescription(tree) {
-    const treeType = allTrees[tree];
     return allTrees[tree].desc;
 }
 

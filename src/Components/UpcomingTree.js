@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { Card } from "react-bootstrap";
-import { getTree, TreeName } from "./AllTrees";
+import { getTree } from "./AllTrees";
 import "./UpcomingTree.css"
 
 export const UpcomingTree = (props) => {
