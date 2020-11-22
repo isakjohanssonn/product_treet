@@ -7,7 +7,7 @@ import Footer from './Components/Footer';
 
 
 const Tree = () => {
-    const testTreeName = getTreeName(2);
+    const testTreeName = getTreeName(3);
 
     return (
         <div>
@@ -33,7 +33,7 @@ const GetAchievmentInfo = () => {
                 <Card className="achievementBoxCardMain" >
                     <Card.Header className="achievementBoxCardHeader">How to achieve</Card.Header>
                     <Card.Body className="achievementBoxCardBody card-columns">
-                        This tree is recieved when you have maintained an activity streak for 30 days
+                        This tree is received when you have maintained an activity streak for 10 days.
                     </Card.Body>
                 </Card>
             </div>
