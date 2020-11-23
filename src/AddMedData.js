@@ -15,11 +15,6 @@ const AddMedData = (props) => {
   const [input, setInput] = useState(null);
   const [success, setSuccess] = useState(false);
 
-  const state = props.location.state;
-  if (state) {
-      // State will determine how we got here. If state is undefined show error page
-      // State is a measurement type, see Types in components/MeasurementList
-  }
 
   // calendar date update
   const onChange = date => date = date;
