@@ -46,3 +46,5 @@ export const GetDescription = (props) => {
   );
 }
 
+
+export default GrowingTree;
