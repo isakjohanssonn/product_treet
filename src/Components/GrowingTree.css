@@ -1,18 +1,20 @@
 .treeimage {
-    width: 250px;
+    max-width: 100%;
     height: auto;
+    margin-bottom: 3%;
 }
 
-.ProgressBar {
-    
-}
+
 
 .GrowingTreeCardMain {
     border: none;
+    
+   
 }
 
-.GrowingTreeCardHeader {
-    background-color: white;
+.GrowingTreeCardBody {
+    padding: 0;
+    
 }
 
 .column{
@@ -20,4 +22,10 @@
     width: 33.33%;
 }
 
+.container {
+    padding: 0;
+    width: 100%; 
+    margin-top: 4%  
+    
+}
 

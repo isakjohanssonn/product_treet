@@ -6,7 +6,9 @@ import Footer from './Components/Footer';
 import useRemainingMeasurements from './Components/useRemainingMeasurements'
 import DateAndCalendar from "./Components/DateAndCalendar";
 import './Home.css'
+import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+import { GrowingTree } from "./Components/GrowingTree";
 
 const Home = () => {
     const {remainingAmount} = useRemainingMeasurements();

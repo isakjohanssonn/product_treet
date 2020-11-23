@@ -30,9 +30,34 @@ const Main = () => {
     const [globalTitle, setGlobalTitle] = useState("Home");
     const history = createBrowserHistory();
 
-    useEffect(() => {
-        document.title = globalTitle;
-    }, [globalTitle]);
+  return (
+    <>
+      <React.Fragment>
+        <Router>
+          <div>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/login" component={Login} />
+            <Route path="/medicaldata" component={MedicalData} />
+            <Route path="/profile" component={ProfilePage} /> {/** */}
+            {/* <Route path="/newmeasurement" component={NewMeasurement} /> */}
+            <Route path="/measurements" component={Measurements} />
+            <Route path="/allmeasurements" component={AllMeasurements} />
+            <Route path="/achievement" component={AchivementPage} />
+            <Route path="/collectibledemo" component={AchivementPage} />
+            {/* <Route path="/successfullysaved" component={SuccessfullySaved} /> */}
+            {/* <Route path="/TreeInfo" component={TreeInfo} /> */}
+            {/* <Route path="/history" component={History} /> */}
+            <Route path="/goals" component={GoalsPage} />
+            <Route path="/diabetes" component={DiabetesPage} />
+            {/* <Route path="/forest" component={Forest} /> */}
+            <Route path="/collectibledemo" component={AchivementPage} />
+            <Route path="/tree" component={Tree} />
+            <Route path="/Forest" component={Forest} />
+            
+
+             
 
     return (
         <>
