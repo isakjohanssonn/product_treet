@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Card } from "react-bootstrap"
 import "./Streak.css"
-import UpcomingAchievement from './Achievement'
 import GrowingTree from './GrowingTree'
+import ComingAchievementBox from "./ComingAchievementBox";
 
 
 // This function prints the streakdiv. Depending on the hook: gamelvl (soon to be imported from EHR, hard coded at the moment)
@@ -13,6 +13,7 @@ export default function Streak() {
   const [gamelvl, setGamelvl] = useState(2);
   const [streak, setStreak] = useState(1);
   const [longest, setLongest] = useState(5);
+  const achievements = [0, 1];
 
 
   const Game = () => {
@@ -31,7 +32,7 @@ export default function Streak() {
       return (
         <Card border="secondary" className="streakCardWithin">
           <Card.Body>
-            <UpcomingAchievement achievement={3} upcoming={1} showScore={1} />
+          <ComingAchievementBox lastAchievement={achievements[achievements.length - 1]} showOne = {1} />
           </Card.Body>
         </Card>
       );
