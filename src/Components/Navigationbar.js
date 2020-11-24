@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ListGroup } from 'react-bootstrap';
 import "./Navigationbar.css";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -13,6 +13,10 @@ const NavigationBar = (props) => {
   const [history] = useState(useHistory());
   const [gtitle] = useState(props.title);
   const { logout } = useAuth0();
+
+  useEffect(() => {
+    document.title = gtitle;
+  }, [gtitle]);
 
   const BackButton = () => {
     if (gtitle == 'Home' ){ 
