@@ -10,14 +10,14 @@ import ComingAchievementBox from "./ComingAchievementBox";
 // Author: O. Olsson
 export default function Streak() {
 
-  const [gamelvl, setGamelvl] = useState(2);
-  const [streak, setStreak] = useState(1);
-  const [longest, setLongest] = useState(5);
+  const [gamelvl] = useState(2);
+  const [streak] = useState(1);
+  const [longest] = useState(5);
   const achievements = [0, 1];
 
 
   const Game = () => {
-    if (gamelvl == 1) {
+    if (gamelvl === 1) {
       return (
         <Card border="secondary" className="streakCardWithin">
           <Card.Body className="body">
@@ -28,7 +28,7 @@ export default function Streak() {
           </Card.Body>
         </Card>
       );
-    } else if (gamelvl == 2) {
+    } else if (gamelvl === 2) {
       return (
         <Card border="secondary" className="streakCardWithin">
           <Card.Body>
