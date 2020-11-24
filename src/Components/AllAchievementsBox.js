@@ -30,7 +30,7 @@ const AllAchievementBox = () => {
       {/* Creating the card/box to contain the achievements */}
       <Card className="achievementBoxCardMain " >
         <Card.Body className="achievementBoxCardBody card-columns">
-          <div class="row row-cols-md-3">
+          <div className="row row-cols-md-3">
             {result}
           </div>
         </Card.Body>

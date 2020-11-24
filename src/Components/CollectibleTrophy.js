@@ -8,8 +8,8 @@ const CollectibleTrophy = (props) => {
 
   return (
     <div class = "trophy">
-      <FaTrophy class="fa-trophy"/>
-     <div class="number-trophy">
+      <FaTrophy className="fa-trophy"/>
+     <div className="number-trophy">
        {number}
      </div>
     </div>
