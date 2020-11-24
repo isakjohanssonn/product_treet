@@ -1,4 +1,4 @@
-import React, { useState, Component, useEffect } from "react";
+import React, { useState } from "react";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { createBrowserHistory } from 'history'
@@ -23,7 +23,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 //TESTER : to test: uncomment row 29-42 + 77. Now you cannot go anywhere else than /login if not loggedin
 //upon login you come to /intro (Intro.js), here Matthew will implement a design that explains the App. 
 // When you log out, you will be redirected to /login. Profile is still hidden behind loggin since it does not print relevant data without loggin token. 
- 
+
 
 const Main = () => {
 
