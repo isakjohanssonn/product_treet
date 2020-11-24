@@ -8,16 +8,16 @@ import ComingAchievementBox from "./ComingAchievementBox";
 // This function prints the streakdiv. Depending on the hook: gamelvl (soon to be imported from EHR, hard coded at the moment)
 //the different views will show depending on hook:gamelvl integer.  (for testing: change integer in hook: gamelvl to 1-3, in order to test different settings.).
 // Author: O. Olsson
-export default function Streak() {
+export default function Streak(props) {
 
-  const [gamelvl, setGamelvl] = useState(2);
+  const {level} = props;
   const [streak, setStreak] = useState(1);
   const [longest, setLongest] = useState(5);
   const achievements = [0, 1];
 
 
   const Game = () => {
-    if (gamelvl == 1) {
+    if (level === 1) {
       return (
         <Card border="secondary" className="streakCardWithin">
           <Card.Body className="body">
@@ -28,7 +28,7 @@ export default function Streak() {
           </Card.Body>
         </Card>
       );
-    } else if (gamelvl == 2) {
+    } else if (level === 2) {
       return (
         <Card border="secondary" className="streakCardWithin">
           <Card.Body>

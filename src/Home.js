@@ -10,7 +10,7 @@ import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import { GrowingTree } from "./Components/GrowingTree";
 
-const Home = () => {
+const Home = (props) => {
     const {remainingAmount} = useRemainingMeasurements();
     const text = remainingAmount === 0 ? "All done!" : remainingAmount + " remaining";
 
@@ -18,7 +18,7 @@ const Home = () => {
         <div>
             <Navigationbar title={'Home'}/>
             <DateAndCalendar/>
-            <Streak/>
+            <Streak {...props} />
 
             <div className="topDiv">
                 <h4>Today's measurements</h4>
