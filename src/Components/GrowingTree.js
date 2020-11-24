@@ -3,6 +3,8 @@ import { Card } from "react-bootstrap";
 import { getTree, getTreeName, getTreeAge, getTreeDescription } from "./AllTrees";
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import "./GrowingTree.css"
+import Tree from "../Tree"
+import { Link } from "react-router-dom"
 
 export const GrowingTree = (props) => {
   const printTree = props
@@ -13,6 +15,7 @@ export const GrowingTree = (props) => {
 
   return (
     <div>
+    <Link to={Tree}> //Location .pathname 
       <Card className="GrowingTreeCardMain text-center" >
         <Card.Body className="GrowingTreeCardBody ">
           <div class="container" >
@@ -26,6 +29,7 @@ export const GrowingTree = (props) => {
           </div>
         </Card.Body>
       </Card>
+    </Link>
     </div>
   );
 }
