@@ -1,0 +1,32 @@
+.NewMeasurementBox {
+    margin-top: 50px;
+    width: 90%;
+    border: 1px solid darkgray;
+    border-radius: 1px;
+    box-shadow: 0px 2px 2px darkgray;
+    background-color: white;
+    display:flex;
+    flex-direction: column;
+}
+
+.test {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.form-label {
+    font-size: 16px;
+    color: dimgrey;
+}
+
+.EnterThings {
+    display: flex;
+    align-items:baseline;
+
+}
+
+.form-control {
+    width: 60%;
+    margin-right: 10px;
+}

@@ -6,6 +6,9 @@ import { FiLogOut } from 'react-icons/fi';
 import { HiArrowLeft } from 'react-icons/hi';
 import { useHistory } from 'react-router-dom';
 
+
+//This is the header or navbar without navigation capabilities. It is rendered from all views with the Text (Home, Profile etc) as inparam.
+// It will print a back button for all views except the ones reached in the footer navigation. It allways displays log out button. Does not control where logout is send to. 
 const NavigationBar = (props) => {
   const [history] = useState(useHistory());
   const [gtitle] = useState(props.title);
@@ -33,7 +36,7 @@ const NavigationBar = (props) => {
       {BackButton()}
       </div>
       <div className="title">
-        <h1> {gtitle} </h1>
+        <h3> {gtitle} </h3>
       </div>
       <div id="logout">
         <button className="navbutton" id="logout" onClick={() => logout({ returnTo: window.location.origin })}><FiLogOut></FiLogOut></button>

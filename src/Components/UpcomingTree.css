@@ -1,0 +1,12 @@
+.treeimage {
+    max-width: 100%;
+    height: auto;
+}
+
+.UpcomingTreeCardMain {
+    border: none;
+}
+
+.UpcomingTreeCardHeader {
+    background-color: white;
+}

@@ -3,9 +3,10 @@ import "./Measurements.css";
 import Streak from "./Streak";
 import Dropdown from 'react-bootstrap/Dropdown';
 import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
 import { LineChart, XAxis, Line, ResponsiveContainer } from 'recharts';
+import Navigationbar from './Navigationbar';
+import Footer from './Footer';
 
 const Measurements = () => {
 
@@ -35,9 +36,7 @@ const Measurements = () => {
 
   return (
     <div>
-      <div className="header">
-        <h3>Measurements</h3>
-      </div>
+      <Navigationbar title={'Measurements'} />
       <div className="topButtons">
         <Dropdown>
           <Dropdown.Toggle className="topButton" id="dropdown-basic">
@@ -74,6 +73,7 @@ const Measurements = () => {
           <Button className="bottomButton">All Measurements</Button>
         </Link>
       </div>
+      <Footer />
     </div>
   );
 }
