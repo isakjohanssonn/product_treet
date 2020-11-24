@@ -9,18 +9,71 @@ import GoogleLogin from 'react-google-login';
 }*/
 
 const responseGoogle = (response) => {
-  console.log(response.accessToken);
   console.log(response);
-  GetGoogleData(response.accessToken);
+
 }
 
 const GetGoogleFit = () => {
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [items, setItems] = useState();
+  const [today, setDate] = React.useState(new Date());
+
+  function getUrl() { /*Function that sets the current day in format required by Google*/
+    var currentDate = new Date();
+    var eDateTime = currentDate.toLocaleDateString('zh-Hans-CN').replaceAll('/','-')+'T23:59:59';
+    var sDateTime = currentDate.toLocaleDateString('zh-Hans-CN').replaceAll('/','-')+'T00:00:00';
+    var googleUrl = 'https://www.googleapis.com/fitness/v1/users/me/sessions?startTime=' +
+                    sDateTime + '.000Z&endTime=' + eDateTime + '.999Z';
+    return googleUrl;
+  }
+
+  function getGoogleData(response) {
+    var url = "https://www.googleapis.com/fitness/v1/users/me/sessions?startTime=2020-10-01T00:00:00.000Z&endTime=2020-11-20T23:59:59.999Z";
+    /*Temp lösning ^^, jobbar på att lösa det faktiska var url = getUrl()*/
+    console.log(url);
+    fetch(url, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${response.accessToken}`,
+          'Accept': 'application/json'
+        },
+    })
+        .then(res => res.json())
+        .then(
+            (result) => {
+                setIsLoaded(true);
+                console.log(result);
+                extractSession(result);
+              /*  setItems(obj);*/
+            },
+            (error) => {
+                setIsLoaded(true);
+                setError(error);
+                console.log(error);
+            }
+        )
+  }
+
+  function extractSession(result) {
+    console.log(result);
+    for (var i in result.session) {
+      console.log(i);
+      if (i.activityType == 7) {
+        console.log(i);
+      }
+
+    }
+    var listSessions = result.filter(session => session.activityType === '7');
+
+  }
+
   return (
     <div>
       <GoogleLogin
         clientId="654593297019-orbp64i7cajsh577k1lm6bnf5abo2roh.apps.googleusercontent.com"
         buttonText="Add Measurement"
-        onSuccess={GetGoogleData}
+        onSuccess={getGoogleData}
         onFailure={responseGoogle}
         cookiePolicy={'single_host_origin'}
         scope={[
