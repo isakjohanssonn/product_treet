@@ -16,7 +16,8 @@ ReactDOM.render(
   <Auth0Provider
     domain="dev-i14utqqo.eu.auth0.com"
     clientId="FQno2WxbSJTD3A9JZUPsxvlz3T30JPHi"
-    redirectUri={"http://localhost:3000/#/profilepage"}
+    redirectUri={"http://localhost:3000/intro"}
+    redirectUrl={"http://localhost:3000/intro"}
   >
     <Main />
   </Auth0Provider>,

@@ -39,7 +39,7 @@ const NavigationBar = (props) => {
         <h3> {gtitle} </h3>
       </div>
       <div id="logout">
-        <button className="navbutton" id="logout" onClick={() => logout({ returnTo: window.location.origin })}><FiLogOut></FiLogOut></button>
+        <button className="navbutton" id="logout" onClick={() => logout({ returnTo: 'http://localhost:3000/login' })}><FiLogOut></FiLogOut></button>
       </div>
     </ListGroup >
   );
