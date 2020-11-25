@@ -7,7 +7,7 @@ import ComingAchievementBox from "./ComingAchievementBox";
 
 // This function prints the streakdiv. Depending on the hook: gamelvl (soon to be imported from EHR, hard coded at the moment)
 //the different views will show depending on hook:gamelvl integer.  (for testing: change integer in hook: gamelvl to 1-3, in order to test different settings.).
-// Author: O. Olsson
+// Author: O. Olsson & A. Cederblad
 export default function Streak(props) {
 
   const {level} = props;
