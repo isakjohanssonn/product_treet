@@ -15,15 +15,15 @@ export const GrowingTree = (props) => {
 
   return (
     <div>
-    <Link to={Tree}> //Location .pathname 
+    <Link to={Tree}>
       <Card className="GrowingTreeCardMain text-center" >
         <Card.Body className="GrowingTreeCardBody ">
-          <div class="container" >
+          <div className="container" >
             <div>
-              <object class="treeimage" type="image/svg+xml" data={testTree}></object>
+              <object className="treeimage" type="image/svg+xml" data={testTree}></object>
             </div>
             <div>
-              <ProgressBar class="progressbar" animated now={(age / testTreeAge) * 100} style={{ width: 100, margin: "auto" }} />
+              <ProgressBar className="progressbar" animated now={(age / testTreeAge) * 100} style={{ width: 100, margin: "auto" }} />
             </div>
             <p>{age}/{testTreeAge}</p>
           </div>

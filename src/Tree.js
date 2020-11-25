@@ -13,10 +13,10 @@ const Tree = () => {
         <div>
             <Navigationbar title={'Tree'} />
             <div>
-                <br></br>
-                <br></br>
-                <br></br>
-                <h5 class="text-center">{testTreeName}</h5>
+                <br/>
+                <br/>
+                <br/>
+                <h5 className="text-center">{testTreeName}</h5>
                 <GrowingTree />
                 <GetDescription />
                 <GetAchievmentInfo />

@@ -8,8 +8,8 @@ const CollectibleRibbon = (props) => {
 
   return (
     <div class = "ribbon">
-      <GiRibbonMedal class="gi-ribbon"/>
-     <div class="number-ribbon">
+      <GiRibbonMedal className="gi-ribbon"/>
+     <div className="number-ribbon">
        {number}
      </div>
     </div>

@@ -27,57 +27,59 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const Main = () => {
 
-    const [globalTitle, setGlobalTitle] = useState("Home");
-    const history = createBrowserHistory();
-    // const { isAuthenticated, isLoading } = useAuth0();
-    // if (isLoading) {
-    //     return <div>Loading ...</div>;
-    // }
-    // if (!isAuthenticated) {
-    //     return (
-    //         <Router>
-    //             <Switch>
-    //                 <Route path='/' component={Login} />
-    //             </Switch>
-    //         </Router>
-    //     );
-    // }
-    // if (isAuthenticated) {
-        return (
-            <>
-                <React.Fragment>
-                    <Router>
-                        <div>
-                            <Switch>
-                                <Route path='/intro' component={Intro} />
-                                <Route exact path="/" component={Home} />
-                                <Route path="/login" component={Login} />
-                                <Route path="/profile" component={ProfilePage} /> {/** */}
-                                {/* <Route path="/newmeasurement" component={NewMeasurement} /> */}
-                                <Route path="/measurements" component={Measurements} />
-                                <Route path="/allmeasurements" component={AllMeasurements} />
-                                <Route path="/achievement" component={AchivementPage} />
-                                <Route path="/collectibledemo" component={AchivementPage} />
-                                <Route path="/successfullysaved" component={SuccessfullySaved} />
-                                <Route path="/Tree" component={Tree} />
-                                {/* <Route path="/history" component={History} /> */}
-                                <Route path="/goals" component={GoalsPage} />
-                                <Route path="/diabetes" component={DiabetesPage} />
-                                <Route path="/forest" component={Forest} />
-                                <Route path="/addmeddata" component={AddMedDataNew} />
-                                <Route>
-                                    <Redirect to="/" />
-                                    {/* Added this row so if a a route fails/doesn't exist it redirects us to homepage anyway.  */}
-                                </Route>
-                                {/* <Route component={NoMatch} /> */}
-                            </Switch>
-                        </div>
-                    </Router>
-                </React.Fragment>
+  const [globalTitle, setGlobalTitle] = useState("Home");
+  const history = createBrowserHistory();
+  const [level, setLevel] = useState(3);
 
-            </>
-        );
-    // }
+  return (
+    <>
+      <React.Fragment>
+        <Router>
+          <div>
+            <Switch>
+              <Route
+                path='/'
+                exact
+                render={(props) => (
+                  <Home {...props} level={level}/>
+                )}
+              />
+              <Route path="/login" component={Login}/>
+              <Route
+                path='/profile'
+                render={(props) => (
+                  <ProfilePage {...props} level={level} onClick={setLevel}/>
+                )}
+              />
+              {/* <Route path="/newmeasurement" component={NewMeasurement} /> */}
+              <Route path="/measurements" component={Measurements}/>
+              <Route path="/allmeasurements" component={AllMeasurements}/>
+              <Route path="/achievement" component={AchivementPage}/>
+              <Route
+                path='/collectibledemo'
+                render={(props) => (
+                  <AchivementPage {...props} level={level}/>
+                )}
+              />
+              <Route path="/successfullysaved" component={SuccessfullySaved}/>
+              <Route path="/Tree" component={Tree}/>
+              {/* <Route path="/history" component={History} /> */}
+              <Route path="/goals" component={GoalsPage}/>
+              <Route path="/diabetes" component={DiabetesPage}/>
+              <Route path="/forest" component={Forest}/>
+              <Route path="/addmeddata" component={AddMedDataNew}/>
+              <Route>
+                <Redirect to="/"/>
+                {/* Added this row so if a a route fails/doesn't exist it redirects us to homepage anyway.  */}
+              </Route>
+              {/* <Route component={NoMatch} /> */}
+            </Switch>
+          </div>
+        </Router>
+      </React.Fragment>
+
+    </>
+  );
 }
 
 export default Main;
