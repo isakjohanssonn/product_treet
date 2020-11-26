@@ -45,6 +45,8 @@ const Main = () => {
                 )}
               />
               <Route path="/login" component={Login}/>
+              <Route path="/intro" component={Intro}/>
+
               <Route
                 path='/profile'
                 render={(props) => (
