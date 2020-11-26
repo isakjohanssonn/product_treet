@@ -27,20 +27,20 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const Main = () => {
     const [level, setLevel] = useState(3);
-    const { isAuthenticated, isLoading } = useAuth0();
-    if (isLoading) {
-        return <div>Loading ...</div>;
-    }
-    if (!isAuthenticated) {
-        return (
-            <Router>
-                <Switch>
-                    <Route path='/' component={Login} />
-                </Switch>
-            </Router>
-        );
-    }
-    if (isAuthenticated) {
+    // const { isAuthenticated, isLoading } = useAuth0();
+    // if (isLoading) {
+    //     return <div>Loading ...</div>;
+    // }
+    // if (!isAuthenticated) {
+    //     return (
+    //         <Router>
+    //             <Switch>
+    //                 <Route path='/' component={Login} />
+    //             </Switch>
+    //         </Router>
+    //     );
+    // }
+    //if (isAuthenticated) {
         return (
             <>
                 <React.Fragment>
@@ -97,7 +97,7 @@ const Main = () => {
 
             </>
         );
-    }
+  //  }
 }
 
 export default Main;
