@@ -1,4 +1,20 @@
-h5 {
+.firstDivAlign{
+    float:left;
+}
+
+.secondDivAlign{
+    float : right;
+}
+
+.fa-heart {
+    font-size: 7px;
+}
+
+.divDistance{
+    margin-top: 05px;
+}
+
+h6 {
     text-align: left;
 }
 
@@ -34,7 +50,8 @@ h5 {
 
 .activityIcon {
     font-size: 20px;
-    margin-left: 5px;
+    margin-left: 2px;
+    margin-right: 10px;
 }
 
 .listItem {

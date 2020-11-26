@@ -12,7 +12,7 @@ const Footer = () => {
   return (
       <div className="footerDiv">
         <ListGroup horizontal>
-          <Link className="footerLink" to="/" ><span><ListGroup.Item action ><FaHome></FaHome>
+          <Link className="footerLink" to="/"><span><ListGroup.Item action ><FaHome></FaHome>
           </ListGroup.Item></span></Link>
 
           <Link className="footerLink" to="/measurements" ><span><ListGroup.Item action ><FaClock></FaClock>

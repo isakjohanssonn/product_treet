@@ -1,8 +1,8 @@
 import React from "react";
 import "./MeasurementList.css";
 import ListGroup from "react-bootstrap/ListGroup";
-import {AiOutlineClockCircle} from "react-icons/all";
-import {BsGraphUp, IoMdWalk, BsPlusCircleFill, FaCheckCircle, MdModeEdit} from "react-icons/all";
+import {AiOutlineClockCircle,AiOutlineHeart} from "react-icons/all";
+import {BsGraphUp, IoMdWalk, BsPlusCircleFill, FaCheckCircle, MdModeEdit, FaHeart} from "react-icons/all";
 import {useHistory} from "react-router-dom";
 import useRemainingMeasurements, {MeasurementsTypes} from "./useRemainingMeasurements";
 
@@ -53,15 +53,60 @@ function MeasurementList() {
                 return <ListGroup.Item
                     className="listItem"
                     key={'measurement' + index}
-                    style={completedStyle}
-                >
-                    <h5>{header}</h5>
-                    <div className="time">
+                    style={completedStyle}>
+
+                    <h6><b>{header}</b></h6>
+                    <div className="firstDivAlign">
+                        <div className="time">
+                            <div className={"activity"}>
+                                <AiOutlineClockCircle className="icon"/>
+                                {time}
+                            </div>
+                        </div>
+                        <div>
+                            <ActualIcon className={"activityIcon"}/> {activity}
+                        </div>
+                        <div style={{display: 'flex',marginTop:'10px'}}>
+                             {value && value}
+                        </div>
+                    </div>
+                    <div className="secondDivAlign">
+                        <div>
+                            {completed &&(
+                                <div className="activity" style={{marginLeft:'42px'}}>
+                                    <FaHeart style={{fontSize:"30px"}}/>
+                                </div>
+                            )}
+                        </div>
+                        <div className="divDistance">
+                            <StatusIcon style={{marginLeft:'40px'}}
+                                onClick={!completed ? goToAddMedData : undefined}
+                                className="statusIcon"
+                            />
+                        </div>
+                        <div className="divDistance">
+                            {completed &&(
+                                <div className="activity">
+                                    <MdModeEdit style={{marginLeft:'40px'}}
+                                        onClick={completed ? goToAddMedData : undefined}
+                                        className="statusIcon"/>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                    {/* <div className="time">
                         <div className={"activity"}>
                             <AiOutlineClockCircle className="icon"/>
                             {time}
                         </div>
                         <div>
+                            <div>
+                            {completed &&(
+                                <div className="activity">
+                                    <p>Lawrence</p>
+                                </div>
+                            )}
+                            </div>
                             <StatusIcon
                                 onClick={!completed ? goToAddMedData : undefined}
                                 className="statusIcon"
@@ -69,11 +114,11 @@ function MeasurementList() {
                         </div>
                     </div>
                     <div className="activity">
-                        <div>{activity}
-                            <ActualIcon className={"activityIcon"}/>
+                        <div>
+                            <ActualIcon className={"activityIcon"}/> {activity}
                         </div>
                         <div>
-                            {completed && (
+                            {completed &&(
                                 <div className="activity">
                                     <p>Edit</p>
                                     <MdModeEdit
@@ -82,11 +127,9 @@ function MeasurementList() {
                                 </div>
                             )}
                         </div>
-                    </div>
+                    </div> */}
 
-                    <div style={{display: 'flex'}}>
-                        {value && value}
-                    </div>
+                    
                 </ListGroup.Item>
             })}
         </ListGroup>

@@ -12,12 +12,11 @@
 
 .footerLink {
   width: 25%; 
-
+  background-color: #3f87cf;
 }
 
 .list-group-item {
   display: table-cell;
   vertical-align: middle;
   text-align: center;
-  
 }
