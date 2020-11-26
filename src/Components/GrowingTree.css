@@ -1,0 +1,31 @@
+.treeimage {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 3%;
+}
+
+
+
+.GrowingTreeCardMain {
+    border: none;
+    
+   
+}
+
+.GrowingTreeCardBody {
+    padding: 0;
+    
+}
+
+.column{
+    float: left;
+    width: 33.33%;
+}
+
+.container {
+    padding: 0;
+    width: 100%; 
+    margin-top: 4%  
+    
+}
+

@@ -8,8 +8,8 @@ const CollectibleMedal = (props) => {
 
   return (
     <div class = "medal">
-      <FiAward class="fi-award"/>
-     <div class="number-medal">
+      <FiAward className="fi-award"/>
+     <div className="number-medal">
        {props.number}
      </div>
     </div>

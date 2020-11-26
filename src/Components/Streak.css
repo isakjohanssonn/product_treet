@@ -21,7 +21,6 @@
     margin: 0px;
     color: gray;
     text-align: center;
-
 }
 #middleLine{
     border-left: solid #000;
@@ -36,4 +35,15 @@
 
 .card-text {
     text-align: center;
+}
+.verticalCenter {
+    margin-top:auto;
+    margin-bottom: auto;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+
+}
+.body {
+    display: flex;
 }

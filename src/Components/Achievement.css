@@ -22,6 +22,6 @@
 }
 
 .upcoming-achievement-card {
-    width : 30%;
     text-align: center;
+    margin: 0.3rem;
 }

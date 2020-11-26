@@ -3,7 +3,8 @@
     justify-content: space-between;
     width: 100%;
     padding-left: 5%;
-    padding-right: 5%;
+    padding-right: 5%; 
+    margin-top: 67px;
 }
 
 .topButton {

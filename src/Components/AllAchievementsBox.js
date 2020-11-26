@@ -10,17 +10,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // If the arrow is not displayed (The one from bootstrap icons)
 // Try installing bootstrap icons in the terminal with the command "npm install react-bootstrap-icons --save"
 
-const AchievementBox = () => {
+const AllAchievementBox = () => {
   //Gets data about the three last achievements from allachievements
   const achievement1 = AllAchievements(0);
   var i;
   var result = [];
-  result[0] = Achievement(achievement1);
+  result[0] = <Achievement achievement = {achievement1.achievement} showName = {1} />
   var temp;
   for (i = 0; i < (achievement1.totalNumberOfAchievements - 1); i++) {
 
     temp = AllAchievements(i + 1);
-    result[i + 1] = Achievement(temp);
+    result[i + 1] = <Achievement achievement = {temp.achievement} showName = {1} />
   }
 
 
@@ -30,7 +30,7 @@ const AchievementBox = () => {
       {/* Creating the card/box to contain the achievements */}
       <Card className="achievementBoxCardMain " >
         <Card.Body className="achievementBoxCardBody card-columns">
-          <div class="row row-cols-md-3">
+          <div className="row row-cols-md-3">
             {result}
           </div>
         </Card.Body>
@@ -39,4 +39,4 @@ const AchievementBox = () => {
 
   );
 }
-export default AchievementBox;
+export default AllAchievementBox;
