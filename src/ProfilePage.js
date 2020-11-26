@@ -2,9 +2,10 @@ import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import Streak from "./Components/Streak";
 import "./ProfilePage.css";
+import GameSettings from "./Components/GameSettings";
 
 
-const ProfilePage = () => {
+const ProfilePage = (props) => {
   const { user, isAuthenticated, isLoading } = useAuth0();
 
   if (isLoading) {
@@ -13,14 +14,15 @@ const ProfilePage = () => {
 
   return (
     isAuthenticated && (
-      <div class="profileMain">
-        <div class="profileCard">
-          <div class="profileImageCard">
-            <img src={user.picture} alt={user.name} class="avatar"/>
+      <div className="profileMain">
+        <div className="profileCard">
+          <div className="profileImageCard">
+            <img src={user.picture} alt={user.name} className="avatar"/>
           </div>
           <h2>{user.name}</h2>
           <p>{user.email}</p>
-          <Streak/>
+          <Streak {...props} />
+          <GameSettings {...props}/>
         </div>
     </div>
     )
