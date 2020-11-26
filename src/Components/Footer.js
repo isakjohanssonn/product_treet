@@ -18,7 +18,7 @@ const Footer = () => {
           <Link className="footerLink" to="/measurements" ><span><ListGroup.Item action ><FaClock></FaClock>
           </ListGroup.Item></span></Link>
 
-          <Link className="footerLink" to="/collectibledemo" ><span><ListGroup.Item action  ><FaStar></FaStar>
+          <Link className="footerLink" to="/goals" ><span><ListGroup.Item action  ><FaStar></FaStar>
           </ListGroup.Item></span></Link>
 
           <Link className="footerLink" to="/profile" ><span><ListGroup.Item action ><FaUserAlt></FaUserAlt>
