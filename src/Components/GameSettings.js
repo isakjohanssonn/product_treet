@@ -88,7 +88,6 @@ const GameSettings = (props) => {
         </Card>
         <Button className="saveButton" onClick={() => history.goBack()}>Save</Button>
       </div>
-      <h3>{level}</h3>
       <Footer/>
     </div>
      )
