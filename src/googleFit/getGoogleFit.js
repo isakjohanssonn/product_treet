@@ -2,15 +2,8 @@ import React, { useState, Component, useEffect } from "react";
 import { Alert } from 'react-bootstrap';
 import GoogleLogin from 'react-google-login';
 
-
-/*const GetGoogleFit = (date, time, bloodGlucose, activity) => {
-    alert(date, time, bloodGlucose, activity)
-    return (true)
-}*/
-
 const responseGoogle = (response) => {
   console.log(response);
-
 }
 
 const GetGoogleFit = () => {
@@ -18,9 +11,14 @@ const GetGoogleFit = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState();
   const [today, setDate] = React.useState(new Date());
+  var steps = 0;
+  var timeMs = 0;
+  var date = new Date();
 
-  function getUrl() { /*Function that sets the current day in format required by Google*/
+ /*Function that sets the current day in format required by Google URL's*/
+  function getUrl() {
     var currentDate = new Date();
+    date = currentDate.toLocaleDateString('zh-Hans-CN');
     var eDateTime = currentDate.toLocaleDateString('zh-Hans-CN').replaceAll('/','-')+'T23:59:59';
     var sDateTime = currentDate.toLocaleDateString('zh-Hans-CN').replaceAll('/','-')+'T00:00:00';
     var googleUrl = 'https://www.googleapis.com/fitness/v1/users/me/sessions?startTime=' +
@@ -28,9 +26,9 @@ const GetGoogleFit = () => {
     return googleUrl;
   }
 
+/*Function that GETs activity sessions recorded today*/
   function getGoogleData(response) {
-    var url = "https://www.googleapis.com/fitness/v1/users/me/sessions?startTime=2020-10-01T00:00:00.000Z&endTime=2020-11-20T23:59:59.999Z";
-    /*Temp lösning ^^, jobbar på att lösa det faktiska var url = getUrl()*/
+    var url = getUrl();
     console.log(url);
     fetch(url, {
         method: 'GET',
@@ -44,8 +42,7 @@ const GetGoogleFit = () => {
             (result) => {
                 setIsLoaded(true);
                 console.log(result);
-                extractSession(result);
-              /*  setItems(obj);*/
+                getSessionData(result, response);
             },
             (error) => {
                 setIsLoaded(true);
@@ -55,19 +52,55 @@ const GetGoogleFit = () => {
         )
   }
 
-  function extractSession(result) {
+/*Function that selects all walks (activityType=7) and selects the latest. Then the time for that activity is calculated
+ and nr of steps for that activity (walk) is fetched from Google Fit API.*/
+  function getSessionData(result, response) {
+    var latestSession = null;
     console.log(result);
     for (var i in result.session) {
-      console.log(i);
-      if (i.activityType == 7) {
-        console.log(i);
+      if (result.session[i].activityType == 7) {
+        if(!latestSession || result.session[i].endTimeMillis > latestSession.endTimeMillis) {
+          latestSession = result.session[i];
+        }
       }
-
     }
-    var listSessions = result.filter(session => session.activityType === '7');
+    console.log(latestSession);
 
+    if(latestSession) {
+      timeMs = latestSession.endTimeMillis - latestSession.startTimeMillis;
+      /*Fetches the steps for the latest session*/
+      fetch('https://fitness.googleapis.com/fitness/v1/users/me/dataset:aggregate', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${response.accessToken}`,
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            "aggregateBy": [{
+              "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:estimated_steps"
+            }],
+            "startTimeMillis": `${latestSession.startTimeMillis}`,
+            "endTimeMillis": `${latestSession.endTimeMillis}`
+          })
+      })
+          .then(res => res.json())
+          .then(
+              (result) => {
+                  setIsLoaded(true);
+                  steps = result.bucket[0].dataset[0].point[0].value[0].intVal;
+                  /*SEND STEPS, DATE AND TIME IN MS HERE.*/
+                  console.log("Steps: " + steps + ", Time: " + timeMs + ", Date: " + date);
+              },
+              (error) => {
+                  setIsLoaded(true);
+                  setError(error);
+                  console.log(error);
+              }
+          )
+    } else {
+      console.log("Error: There are no activities of type 7 (walk) recorded today");
+    }
   }
-
   return (
     <div>
       <GoogleLogin
@@ -84,58 +117,6 @@ const GetGoogleFit = () => {
       <p>Här kan man hämta data från Google Fit</p>
     </div>
   )
-}
-
-const GetGoogleData = (accToken) => {
-  const [error, setError] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [items, setItems] = useState();
-
-  var url = 'https://www.googleapis.com/fitness/v1/users/me/dataSources';
-  console.log(accToken);
-  useEffect(() => {
-      fetch(url, {
-          method: 'GET',
-          headers: {
-            'Authorization': `Bearer ${accToken}`,
-            'Accept': 'application/json'
-          },
-      })
-          .then(res => res.json())
-          .then(
-              (result) => {
-                  setIsLoaded(true);
-                  console.log(result);
-                /*  setItems(obj);*/
-              },
-              (error) => {
-                  setIsLoaded(true);
-                  setError(error);
-                  console.log(error);
-              }
-          )
-  }, [])
-
-  return (
-      <div>
-        <p>API req</p>
-      </div>
-  )
-}
-
-/*Gets activity data for the last week*/
-export const getAggregatedDataBody = (dataType, endTime) => {
-  const requestBody = {
-    "aggregateBy": [{
-      "dataTypeName": dataType
-    }],
-    "bucketByTime": {
-      "durationMillis": 86400000
-    },
-    "endTimeMillis": endTime,
-    "startTimeMillis": endTime - (7*86400000)
-  }
-  return requestBody;
 }
 
 export default GetGoogleFit;
