@@ -12,15 +12,15 @@ const AchievementPage = (props) => {
    // if you only wish to pass it to a child component, add {...props} when calling the component.
    // For an example, look on the ProfilePage.js
 
-
-  //Hard coded achievements that have been reached
-  const achievements = [0, 1];
+  const {reachedAchievements, currentStreak} = props;
   return (
     <div>
       <Navigationbar title={'Achievement'} />
       <br /><br />
-      <AchievementBox reachedAchievements={achievements} />
-      <ComingAchievementBox lastAchievement={achievements[achievements.length - 1]} />
+      <AchievementBox reachedAchievements={reachedAchievements} />
+      <ComingAchievementBox lastAchievement=
+      {reachedAchievements[reachedAchievements.length - 1]}
+      currentStreak = {currentStreak} />
       <AllAchievementsBox />
       <Footer />
     </div>
