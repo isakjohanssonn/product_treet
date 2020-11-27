@@ -30,7 +30,7 @@ const Main = () => {
     const [level, setLevel] = useState(3);
 
     // This works, in this case the level that is retrieved from openEHR is 1, so after fetch is complete the page rerenders to display game with level 1
-    //GetGameLevel(setLevel);
+    GetGameLevel(setLevel);
 
     // const { isAuthenticated, isLoading } = useAuth0();
     // if (isLoading) {
