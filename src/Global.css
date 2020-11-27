@@ -29,17 +29,16 @@ height: 25vw;
 
 
 
-/*   .logoutDiv {
-      display: flex;
-      align-content: center; 
+  .logoutDiv {
+    /*   display: flex;
+      align-content: center; */
   }
- */
 
-  /* .logoutButton {
-      display: flex;
-      align-self: center; 
+  .logoutButton {
+/*       display: flex;
+      align-self: center; */
   }
- */
+
   
 
 /* ------------------------------------------*/

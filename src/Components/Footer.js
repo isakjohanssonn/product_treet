@@ -5,8 +5,7 @@ import {FaUserAlt, FaStar, FaClock, FaHome} from 'react-icons/fa'
 
 import "./Footer.css"
 import "./Navigationbar"
-import "../global.css"
-
+import "../Global.css"
 const Footer = () => {
 
 
