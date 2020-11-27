@@ -19,7 +19,7 @@ function NewMeasurement(props) {
     const {activity, id} = props;
     const [value, setValue] = useState();
     const history = useHistory();
-
+    const {currentStreak, setCurrentStreak} = props;
     const handleChange = (e) => {
         setValue(e.target.value);
     };
@@ -28,6 +28,7 @@ function NewMeasurement(props) {
         setCompleted(id, `${value} ${UnitTypes[activity]}`);
 
         history.push('/successfullysaved', {value});
+        setCurrentStreak(currentStreak + 1);
 
     }
 

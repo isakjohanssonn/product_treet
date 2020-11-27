@@ -12,13 +12,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // Try installing bootstrap icons in the terminal with the command "npm install react-bootstrap-icons --save"
 
 const ComingAchievementBox = (props) => {
-  const { lastAchievement, showOne } = props;
-
+  const { lastAchievement, showOne, currentStreak } = props;
   const achievement1 = AllAchievements(lastAchievement + 1);
   //If only one should show, send in showOne as true
   if (showOne) {
     return (
-      <UpcomingAchievement achievement={achievement1.achievement} upcoming={1} showScore={1} />
+      <UpcomingAchievement achievement={achievement1.achievement}
+       upcoming={1} showScore={1} currentStreak = {currentStreak}/>
     )
   }
   const achievement2 = AllAchievements(lastAchievement + 2);
@@ -31,9 +31,12 @@ const ComingAchievementBox = (props) => {
         <Card.Body className="achievementBoxCardBody card-columns">
 
           {/*This are the achievements displayed */}
-          <UpcomingAchievement achievement={achievement1.achievement} upcoming={1} showName={1} />
-          <UpcomingAchievement achievement={achievement2.achievement} upcoming={1} showName={1} />
-          <UpcomingAchievement achievement={achievement3.achievement} upcoming={1} showName={1} />
+          <UpcomingAchievement achievement={achievement1.achievement} 
+          upcoming={1} showName={1} currentStreak = {currentStreak}/>
+          <UpcomingAchievement achievement={achievement2.achievement} 
+          upcoming={1} showName={1} currentStreak = {currentStreak}/>
+          <UpcomingAchievement achievement={achievement3.achievement} 
+          upcoming={1} showName={1} currentStreak = {currentStreak}/>
 
           {/* The arrow */}
           <ArrowRight viewBox="0 0 16 16" className="pull-right arrowAchivement" fill="currentColor" />
