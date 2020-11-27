@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { createBrowserHistory } from 'history'
@@ -18,6 +18,7 @@ import Tree from './Tree'
 // import History from './History'
 import Forest from './Forest'
 import { useAuth0 } from "@auth0/auth0-react";
+import GetGameLevel from './openEHR/GetGameLvl';
 
 //Main now makes sure no one can reach code if not loggedin (commented away for ease in dev).
 //TESTER : to test: uncomment row 30-43 + 100. Now you cannot go anywhere else than /login if not loggedin
@@ -27,6 +28,10 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const Main = () => {
     const [level, setLevel] = useState(3);
+
+    // This works, in this case the level that is retrieved from openEHR is 1, so after fetch is complete the page rerenders to display game with level 1
+    //GetGameLevel(setLevel);
+
     // const { isAuthenticated, isLoading } = useAuth0();
     // if (isLoading) {
     //     return <div>Loading ...</div>;
