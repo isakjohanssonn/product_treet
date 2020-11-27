@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ListGroup } from 'react-bootstrap';
 import "./Navigationbar.css";
+import "../Global.css";
 import { useAuth0 } from "@auth0/auth0-react";
 import { FiLogOut } from 'react-icons/fi';
 import { HiArrowLeft } from 'react-icons/hi';
@@ -35,12 +36,12 @@ const NavigationBar = (props) => {
   }
 
   return (
-    <ListGroup horizontal className="mainDiv">
+    <ListGroup horizontal className="mainDiv topNavMainDiv">
       <div className="backbutton">
       {BackButton()}
       </div>
       <div className="title">
-        <h3> {gtitle} </h3>
+        <h3 className="navh3"> {gtitle} </h3>
       </div>
       <div id="logout">
         <button className="navbutton" id="logout" onClick={() => logout({ returnTo: 'http://localhost:3000/login' })}><FiLogOut></FiLogOut></button>
