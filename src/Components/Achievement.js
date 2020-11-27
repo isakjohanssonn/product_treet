@@ -8,8 +8,7 @@ import ProgressBar from 'react-bootstrap/ProgressBar'
 
 const Achievement = (props) => {
 
-    const { achievement, upcoming, showScore, showName } = props;
-    const currentStreak = 12;
+    const { achievement, upcoming, showScore, showName, currentStreak } = props;
 
     if (achievement) {
         if (showName) {
