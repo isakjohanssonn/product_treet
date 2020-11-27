@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ListGroup } from 'react-bootstrap';
 import "./Navigationbar.css";
-import "../Global.css";
+import "../global.css";
 import { useAuth0 } from "@auth0/auth0-react";
 import { FiLogOut } from 'react-icons/fi';
 import { HiArrowLeft } from 'react-icons/hi';
@@ -40,11 +40,11 @@ const NavigationBar = (props) => {
       <div className="backbutton">
       {BackButton()}
       </div>
-      <div className="title">
-        <h3 className="navh3"> {gtitle} </h3>
+      <div className="title topNavTitle">
+        <h3> {gtitle} </h3>
       </div>
-      <div id="logout">
-        <button className="navbutton" id="logout" onClick={() => logout({ returnTo: 'http://localhost:3000/login' })}><FiLogOut></FiLogOut></button>
+      <div classname="logoutDiv" id="logout">
+        <button className="navbutton logoutButton" id="logout" onClick={() => logout({ returnTo: 'http://localhost:3000/login' })}><FiLogOut className="logOutIcon"></FiLogOut></button>
       </div>
     </ListGroup >
   );

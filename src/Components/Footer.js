@@ -5,23 +5,24 @@ import {FaUserAlt, FaStar, FaClock, FaHome} from 'react-icons/fa'
 
 import "./Footer.css"
 import "./Navigationbar"
+import "../global.css"
 
 const Footer = () => {
 
 
   return (
-      <div className="footerDiv">
+      <div className="footerDiv footerMainDiv">
         <ListGroup horizontal>
-          <Link className="footerLink" to="/" ><span><ListGroup.Item action ><FaHome></FaHome>
+          <Link className="footerLink" to="/" ><span className="footerItem"><ListGroup.Item action ><FaHome className="footerIcons"></FaHome>
           </ListGroup.Item></span></Link>
 
-          <Link className="footerLink" to="/measurements" ><span><ListGroup.Item action ><FaClock></FaClock>
+          <Link className="footerLink" to="/measurements" ><span><ListGroup.Item action ><FaClock className="footerIcons"></FaClock>
           </ListGroup.Item></span></Link>
 
-          <Link className="footerLink" to="/goals" ><span><ListGroup.Item action  ><FaStar></FaStar>
+          <Link className="footerLink" to="/goals" ><span><ListGroup.Item action  ><FaStar className="footerIcons"></FaStar>
           </ListGroup.Item></span></Link>
 
-          <Link className="footerLink" to="/profile" ><span><ListGroup.Item action ><FaUserAlt></FaUserAlt>
+          <Link className="footerLink" to="/profile" ><span><ListGroup.Item action ><FaUserAlt className="footerIcons"></FaUserAlt>
           </ListGroup.Item></span></Link>
 
         </ListGroup>
