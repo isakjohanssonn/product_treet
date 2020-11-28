@@ -5,10 +5,8 @@ import "./UpcomingTree.css"
 
 export const UpcomingTree = (props) => {
   const current_tree = props.current_tree;
-  const age = props.age;
-  const isUpcoming = props.isUpcoming;
-  const testTree = getTree(current_tree, age, false, isUpcoming);
-
+  const testTree = getTree(current_tree, 0, false, true, false);
+ /*gör om dessa kort så att de länkar till trädvyn*/
   return (
     <div>
       <div>

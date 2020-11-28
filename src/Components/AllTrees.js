@@ -83,10 +83,15 @@ export const allTrees = [{
 }
 ]
 
-export function getTree(tree, currentAge, isSick, isUpcoming) {
+export function getTree(tree, currentAge, isSick, isUpcoming, isFullyGrown) {
 
     if (isUpcoming) {
         return allTrees[tree].upcoming_tree;
+    }
+
+    if (isFullyGrown)
+    {
+        return allTrees[tree].old_tree;
     }
 
     if (isSick) {

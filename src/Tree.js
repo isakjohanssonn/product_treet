@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-import { GrowingTree, GetDescription } from "./Components/GrowingTree";
-import { getTreeName } from "./Components/AllTrees";
+import { GrowingTree } from "./Components/GrowingTree";
+import { getTreeName, getTreeDescription } from "./Components/AllTrees";
 import Navigationbar from './Components/Navigationbar';
 import Footer from './Components/Footer';
 
@@ -40,6 +40,23 @@ const GetAchievmentInfo = () => {
         </div>
     );
 }
+
+const GetDescription = (props) => {
+    const testTreeDescription = getTreeDescription(3);
+    return (
+      <div>
+        <div>
+          <Card className="achievementBoxCardMain" >
+            <Card.Header className="achievementBoxCardHeader">Tree Info</Card.Header>
+            <Card.Body className="achievementBoxCardBody card-columns">
+              {testTreeDescription}
+            </Card.Body>
+          </Card>
+        </div>
+      </div>
+    );
+  }
+  
 
 export default Tree;
 

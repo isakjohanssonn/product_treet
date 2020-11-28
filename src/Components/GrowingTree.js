@@ -7,10 +7,9 @@ import Tree from "../Tree"
 import { Link } from "react-router-dom"
 
 export const GrowingTree = (props) => {
-  const printTree = props
-  const age = 7;
-  const current_tree = 3;
-  const testTree = getTree(current_tree, age, false, false);
+  const age = props.age;
+  const current_tree = props.current_tree;
+  const testTree = getTree(current_tree, age, false, false, false);
   const testTreeAge = getTreeAge(current_tree);
 
   return (
@@ -34,21 +33,6 @@ export const GrowingTree = (props) => {
   );
 }
 
-export const GetDescription = (props) => {
-  const testTreeDescription = getTreeDescription(3);
-  return (
-    <div>
-      <div>
-        <Card className="achievementBoxCardMain" >
-          <Card.Header className="achievementBoxCardHeader">Tree Info</Card.Header>
-          <Card.Body className="achievementBoxCardBody card-columns">
-            {testTreeDescription}
-          </Card.Body>
-        </Card>
-      </div>
-    </div>
-  );
-}
 
 
 export default GrowingTree;

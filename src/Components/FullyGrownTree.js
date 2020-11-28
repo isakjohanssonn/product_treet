@@ -5,11 +5,12 @@ import "./FullyGrownTree.css"
 
 export const FullyGrownTree = (props) => {
   const current_tree = props.current_tree;
-  const age = props.age;
-  const isUpcoming = props.isUpcoming;
-  const testTree = getTree(current_tree, age, false, isUpcoming);
+  const testTree = getTree(current_tree, 0, false, false, true);
+
+
 
   return (
+
     <div>
       <div>
         <Card className="FullyGrownTreeCardMain text-center" >
