@@ -19,6 +19,7 @@ const GetGoogleFit = () => {
   function getUrl() {
     var currentDate = new Date();
     date = currentDate.toLocaleDateString('zh-Hans-CN');
+    console.log(date);
     var eDateTime = currentDate.toLocaleDateString('zh-Hans-CN').replaceAll('/','-')+'T23:59:59';
     var sDateTime = currentDate.toLocaleDateString('zh-Hans-CN').replaceAll('/','-')+'T00:00:00';
     var googleUrl = 'https://www.googleapis.com/fitness/v1/users/me/sessions?startTime=' +
@@ -29,7 +30,6 @@ const GetGoogleFit = () => {
 /*Function that GETs activity sessions recorded today*/
   function getGoogleData(response) {
     var url = getUrl();
-    console.log(url);
     fetch(url, {
         method: 'GET',
         headers: {
@@ -41,7 +41,6 @@ const GetGoogleFit = () => {
         .then(
             (result) => {
                 setIsLoaded(true);
-                console.log(result);
                 getSessionData(result, response);
             },
             (error) => {
@@ -56,7 +55,6 @@ const GetGoogleFit = () => {
  and nr of steps for that activity (walk) is fetched from Google Fit API.*/
   function getSessionData(result, response) {
     var latestSession = null;
-    console.log(result);
     for (var i in result.session) {
       if (result.session[i].activityType == 7) {
         if(!latestSession || result.session[i].endTimeMillis > latestSession.endTimeMillis) {
@@ -64,7 +62,6 @@ const GetGoogleFit = () => {
         }
       }
     }
-    console.log(latestSession);
 
     if(latestSession) {
       timeMs = latestSession.endTimeMillis - latestSession.startTimeMillis;
@@ -88,8 +85,7 @@ const GetGoogleFit = () => {
               (result) => {
                   setIsLoaded(true);
                   steps = result.bucket[0].dataset[0].point[0].value[0].intVal;
-                  /*SEND STEPS, DATE AND TIME IN MS HERE.*/
-                  console.log("Steps: " + steps + ", Time: " + timeMs + ", Date: " + date);
+                  /*SEND STEPS = "steps", DATE = "date" () AND TIME IN MS = "timeMs" HERE.*/
               },
               (error) => {
                   setIsLoaded(true);
