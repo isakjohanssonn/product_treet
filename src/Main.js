@@ -99,7 +99,13 @@ const Main = () => {
                                 <Route path="/Tree" component={Tree} />
                                 {/* <Route path="/history" component={History} /> */}
                                 <Route path="/goals" component={GoalsPage} />
-                                <Route path="/diabetes" component={DiabetesPage} />
+                                <Route path="/diabetes" 
+                                        render={(props) => (
+                                        <DiabetesPage {...props} level={level}
+                                        reachedAchievements = {reachedAchievements} 
+                                        currentStreak = {currentStreak}
+                                        longestStreak = {longestStreak}/>
+                                    )} />
                                 <Route path="/forest" component={Forest} />
                                 <Route path="/addmeddata" render={(props) =>
                                  (<AddMedDataNew {...props} currentStreak = {currentStreak}
