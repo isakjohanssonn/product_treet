@@ -7,9 +7,10 @@
     background-color: white;
     color: grey;
     border-color: grey;
-    width: 100%;
-    height: 80%;
+    width: 8rem;
+    height: 8rem;
     padding: 0;
+    margin-top: 1rem;
     border-radius: 0.5em;
 }
 
@@ -24,4 +25,10 @@
     height: 100%;
     width: 50%;
     text-align: center;
+}
+
+.tree-image-slider {
+    width: 70%;
+    margin: auto;
+    pointer-events: none;
 }
