@@ -1,0 +1,44 @@
+.test{
+    display:flex;
+    align-items:baseline;
+    justify-content: space-between;
+}
+
+.row{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+.Icon{
+    font-size: 34px;
+    font-weight: bold;
+}
+
+.Icon2{
+    font-size: 20px;
+    margin-right: 10px;
+    font-weight: bolder;
+}
+
+.test {
+    justify-content: space-between;
+}
+
+.topDate {
+    justify-content: space-around;
+    font-size: 20px;
+    display:flex;
+    align-items:center;
+    margin-top: -4px;
+
+}
+
+.toptop {
+    margin-top: 72px;
+    justify-content: space-around;
+    display:flex;
+
+
+}
