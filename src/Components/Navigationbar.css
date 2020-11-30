@@ -1,7 +1,7 @@
 /* .mainDiv {
   width: 100%;
   z-index: 999;
-  background-color: white;
+  background-color: #3f87cf;
   background-repeat: repeat;
   background-attachment: scroll;
   background-position: 0% 0%;
@@ -20,6 +20,7 @@
   font-size: 2rem;
   background-color: transparent;
   border: none;
+  color:white
 }
 
 /* .title {
@@ -29,6 +30,7 @@
   margin-bottom: auto;
   padding-top: 3px;
   padding-bottom: 3px;
+  color: white;
 }
  */
 /* #logout {
