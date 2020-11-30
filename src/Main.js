@@ -19,6 +19,7 @@ import Tree from './Tree'
 // import History from './History'
 import Forest from './Forest'
 import { useAuth0 } from "@auth0/auth0-react";
+import MeasurementData from "./Components/MeasurementData";
 import CalcAchievements from './Components/CalcAchievements'
 import CalcStreak from './Components/CalcStreak'
 
@@ -33,7 +34,7 @@ const Main = () => {
     //The current streak increases when a new measurment is entered in newmeasurment
     const [currentStreak, setCurrentStreak] = useState(14);
     const [longestStreak, setLongestStreak] = useState(14);
-    //The achievements that have been reached. 
+    //The achievements that have been reached.
     const [reachedAchievements, setReachedAchievements] = useState([0, 1]);
     //Calculates if another achievement have been gained, then adds it to reachedachievements
     CalcAchievements(currentStreak, reachedAchievements, setReachedAchievements);
@@ -64,7 +65,7 @@ const Main = () => {
                                     exact
                                     render={(props) => (
                                         <Home {...props} level={level}
-                                        reachedAchievements = {reachedAchievements} 
+                                        reachedAchievements = {reachedAchievements}
                                         currentStreak = {currentStreak}
                                         longestStreak = {longestStreak}/>
                                     )}
@@ -86,11 +87,11 @@ const Main = () => {
                                 />
                                 {/* <Route path="/newmeasurement" component={NewMeasurement} /> */}
                                 <Route path="/measurements" component={Measurements} />
-                                <Route path="/allmeasurements" component={AllMeasurements} />
+                                <Route path="/allmeasurements" component={MeasurementData} />
                                 <Route
                                     path='/achievement'
                                     render={(props) => (
-                                        <AchivementPage {...props} level={level} 
+                                        <AchivementPage {...props} level={level}
                                         reachedAchievements = {reachedAchievements}
                                         currentStreak = {currentStreak}/>
                                     )}

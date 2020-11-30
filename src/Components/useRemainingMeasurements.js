@@ -1,21 +1,21 @@
 import {useState} from "react";
 
 //Added this to make things easier and to minimize the risk of typing-errors.
+//this hook contains all measurements to take today:
+// How to use:
+// const {measurements, setCompleted} = useRemainingMeasurements();
+
 export const MeasurementsTypes = {
     BloodSugar: "Blood sugar",
-    Activity: "Go for a walk",
+    Activity: "Activity",
 };
 
-function getBloodSugarTime(sugarTime, i) {
-    return parseInt(sugarTime[i].split(":")[0], 10);
-}
-
 const data = [
-    {id: 0, activity: MeasurementsTypes.BloodSugar, time: "08:00", completed: true, value: "3 mmol/L"},
-    {id: 1, activity: MeasurementsTypes.BloodSugar, time: "18:00", completed: false, value: null},
-    {id: 2, activity: MeasurementsTypes.BloodSugar, time: "21:00", completed: false, value: null},
-    {id: 3, activity: MeasurementsTypes.BloodSugar, time: "12:00", completed: true, value: "6 mmol/L"},
-    {id: 4, activity: MeasurementsTypes.Activity, time: "18:00", completed: false, value: null},
+    {id: 0, type: MeasurementsTypes.BloodSugar, time: 8, completed: false, value: null},
+    {id: 1, type: MeasurementsTypes.BloodSugar, time: 18, completed: false, value: null},
+    {id: 2, type: MeasurementsTypes.BloodSugar, time: 21, completed: false, value: null},
+    {id: 3, type: MeasurementsTypes.BloodSugar, time: 12, completed: false, value: null},
+    {id: 4, type: MeasurementsTypes.Activity, time: 18, completed: false, value: null},
 ]
 
 const useRemainingMeasurements = () => {
