@@ -35,12 +35,10 @@ function getTime(time) {
   return timeString;
 }
 
-const date = new Date();
-const fromDate = [date.getDate(), date.getMonth(), date.getFullYear()].join("/");
-let d = new Date();
-d.setDate(d.getDate() - 7);
-const toDate = [d.getDate(), d.getMonth(), d.getFullYear()].join("/");
+let today = new Date();
+today.setDate(today.getDate() - 7);
 
+const toDate = d => [d.getDate(), d.getMonth()+1, d.getFullYear()].join("/");
 
 function MeasurementData() {
   const history = useHistory();
@@ -67,14 +65,14 @@ function MeasurementData() {
 
       <div>
         <div className="topDate">
-          <div>{fromDate}</div>
+          <div>{toDate(new Date())}</div>
           <AiOutlineLine/>
-          <div>{toDate}</div>
+          <div>{toDate(today)}</div>
         </div>
       </div>
     </div>
 
-    <ListGroup className="ruta">
+    <ListGroup style={{marginBottom: 20}}>
       {measurements.map((measurement, index) => {
         const {id, time, type, value, date} = measurement;
         const ActualIcon = IconTypes[type];
@@ -91,7 +89,7 @@ function MeasurementData() {
             <div>
               <FaCalendarAlt className="Icon2"/>
               {TimeString}
-              {date}
+              {toDate(date)}
             </div>
             <MdModeEdit className="Icon"/>
           </div>

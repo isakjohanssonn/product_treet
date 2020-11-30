@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import "./NewMeasurement.css";
 import Form from 'react-bootstrap/Form'
 import {Button, Card} from "react-bootstrap";
-import useRemainingMeasurements from "./useRemainingMeasurements";
 import {useHistory} from "react-router-dom";
 import useMeasurementHistory, {MeasurementsTypes} from "./useMeasurementHistory"
 
@@ -17,10 +16,11 @@ const UnitTypes = {
 };
 
 function NewMeasurement(props) {
-  const {type, id, setCompleted, from, time, completed} = props;
+  const {type, id, setCompleted, from, time, completed, currentStreak, setCurrentStreak} = props;
   const [value, setValue] = useState();
   const history = useHistory();
-  const {measurements, addMeasurement} = useMeasurementHistory();
+  const {addMeasurement} = useMeasurementHistory();
+  const [error, setError] = useState('');
 
   const handleChange = (e) => {
     setValue(e.target.value);
@@ -28,14 +28,17 @@ function NewMeasurement(props) {
 
   //"from" determines from what page we came from. if 0 we come from /home and 1 is from /history.
   const onClick = () => {
-    setCompleted(id, value);
-    if (from === 0 && !completed) {
-      const date = new Date();
-      const realDate = [date.getDate(), date.getMonth(), date.getFullYear()].join("/");
-      addMeasurement(time, realDate, type, value);
+    if (value) {
+      setCompleted(id, value);
+      if (from === 0 && !completed) {
+        addMeasurement(time, new Date(), type, value);
+        setCurrentStreak(currentStreak + 1);
+      }
+      from === 0 ? history.push('/successfullysaved', {value}) : history.push('/measurements');
+    } else {
+      setError('Value needed to submit form');
     }
-    from === 0 ? history.push('/successfullysaved', {value}) : history.push('/measurements');
-    }
+  }
 
 
   return (
@@ -48,6 +51,7 @@ function NewMeasurement(props) {
               <Form.Control placeholder="..." type={'number'} onChange={handleChange}/>
               <p className="form-label">{UnitTypes[type]}</p>
             </div>
+            {error && <p style={{color: 'red'}}>{error}</p>}
           </Form.Group>
         </Card.Body>
       </Card>

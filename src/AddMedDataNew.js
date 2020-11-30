@@ -9,8 +9,8 @@ export default function AddMedDataNew(props) {
   const {state} = props.location;
   let type, id, completed, from, onClick, time;
 
-  const { setCompleted } = useRemainingMeasurements();
-  const { setValue } = useMeasurementHistory();
+  const {setCompleted} = useRemainingMeasurements();
+  const {setValue} = useMeasurementHistory();
   const {currentStreak, setCurrentStreak} = props;
 
   onClick = setCompleted;
@@ -51,8 +51,9 @@ export default function AddMedDataNew(props) {
         type={type}
         from={from}
         completed={completed}
+        currentStreak={currentStreak}
+        setCurrentStreak={setCurrentStreak}
       />
-      currentStreak = {currentStreak} setCurrentStreak = {setCurrentStreak}/>
     </div>
   )
 }

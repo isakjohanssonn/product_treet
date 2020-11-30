@@ -11,16 +11,16 @@ export const MeasurementsTypes = {
 };
 
 const data = [
-  {id: 0, time: 9, date: "29/11/2020", type: MeasurementsTypes.BloodSugar, value: 7.8},
-  {id: 1, time: 12, date: "29/11/2020", type: MeasurementsTypes.Activity, value: 7877},
-  {id: 2, time: 15, date: "29/11/2020", type: MeasurementsTypes.BloodSugar, value: 8.2},
-  {id: 3, time: 18, date: "29/11/2020", type: MeasurementsTypes.BloodSugar, value: 4.7},
-  {id: 4, time: 8, date: "30/11/2020", type: MeasurementsTypes.BloodSugar, value: 4.9},
-  {id: 5, time: 12, date: "30/11/2020", type: MeasurementsTypes.Activity, value: 5555},
-  {id: 6, time: 15, date: "30/11/2020", type: MeasurementsTypes.BloodSugar, value: 5.3},
-  {id: 7, time: 18, date: "30/11/2020", type: MeasurementsTypes.BloodSugar, value: 5.9},
-  {id: 8, time: 8, date: "01/12/2020", type: MeasurementsTypes.BloodSugar, value: 5.9},
-  {id: 9, time: 12, date: "01/12/2020", type: MeasurementsTypes.BloodSugar, value: 6.8}
+  {id: 0, time: 9, date: new Date(2020,10,29), type: MeasurementsTypes.BloodSugar, value: 7.8},
+  {id: 1, time: 12, date:  new Date(2020,10,29), type: MeasurementsTypes.Activity, value: 7877},
+  {id: 2, time: 15, date:  new Date(2020,10,29), type: MeasurementsTypes.BloodSugar, value: 8.2},
+  {id: 3, time: 18, date:  new Date(2020,10,29), type: MeasurementsTypes.BloodSugar, value: 4.7},
+  {id: 4, time: 8, date:  new Date(2020,10,30), type: MeasurementsTypes.BloodSugar, value: 4.9},
+  {id: 5, time: 12, date: new Date(2020,10,30), type: MeasurementsTypes.Activity, value: 5555},
+  {id: 6, time: 15, date: new Date(2020,10,30), type: MeasurementsTypes.BloodSugar, value: 5.3},
+  {id: 7, time: 18, date: new Date(2020,10,30), type: MeasurementsTypes.BloodSugar, value: 5.9},
+  {id: 8, time: 8, date: new Date(2020,11,1), type: MeasurementsTypes.BloodSugar, value: 5.9},
+  {id: 9, time: 12, date: new Date(2020,11,1), type: MeasurementsTypes.BloodSugar, value: 6.8}
 
 ]
 
