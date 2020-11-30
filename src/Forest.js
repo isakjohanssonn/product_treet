@@ -54,8 +54,8 @@ const UpcomingTrees = (props) =>
 export function forestParameters()
 {
     const is_sick = false;
-    const tree = 5;
-    const age = 10;
+    const tree = 3;
+    const age = 22;
     return [tree, age, is_sick];
 }
 
