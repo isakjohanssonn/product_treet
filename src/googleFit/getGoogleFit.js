@@ -105,7 +105,9 @@ const GetGoogleFit = () => {
     <div>
       <GoogleLogin
         clientId="654593297019-orbp64i7cajsh577k1lm6bnf5abo2roh.apps.googleusercontent.com"
-        buttonText="Add Measurement"
+        render={renderProps => (
+          <button onClick={renderProps.onClick} disabled={renderProps.disabled}>Add Measurement</button>
+        )}
         onSuccess={getGoogleData}
         onFailure={responseGoogle}
         cookiePolicy={'single_host_origin'}
@@ -114,7 +116,6 @@ const GetGoogleFit = () => {
             "https://www.googleapis.com/auth/fitness.blood_glucose.read",
           ].join(" ")}
       />
-      <p>Här kan man hämta data från Google Fit</p>
     </div>
   )
 }
