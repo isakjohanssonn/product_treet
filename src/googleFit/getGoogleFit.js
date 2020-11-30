@@ -19,7 +19,6 @@ const GetGoogleFit = () => {
   function getUrl() {
     var currentDate = new Date();
     date = currentDate.toLocaleDateString('zh-Hans-CN');
-    console.log(date);
     var eDateTime = currentDate.toLocaleDateString('zh-Hans-CN').replaceAll('/','-')+'T23:59:59';
     var sDateTime = currentDate.toLocaleDateString('zh-Hans-CN').replaceAll('/','-')+'T00:00:00';
     var googleUrl = 'https://www.googleapis.com/fitness/v1/users/me/sessions?startTime=' +
@@ -85,7 +84,7 @@ const GetGoogleFit = () => {
               (result) => {
                   setIsLoaded(true);
                   steps = result.bucket[0].dataset[0].point[0].value[0].intVal;
-                  /*SEND STEPS = "steps", DATE = "date" () AND TIME IN MS = "timeMs" HERE.*/
+                  /*SEND STEPS = "steps" (int), DATE = "date" (YYYY/MM/DD) AND TIME IN MS = "timeMs" HERE.*/
               },
               (error) => {
                   setIsLoaded(true);
