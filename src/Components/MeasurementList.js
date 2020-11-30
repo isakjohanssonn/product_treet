@@ -54,22 +54,24 @@ function MeasurementList() {
                     className="listItem"
                     key={'measurement' + index}
                     style={completedStyle}>
-
-                    <h6><b>{header}</b></h6>
-                    <div className="firstDivAlign">
-                        <div className="time">
-                            <div className={"activity"}>
-                                <AiOutlineClockCircle className="icon"/>
-                                {time}
+                    <div className="measurementCardContent">
+                        <div className="measurementCardContentLeft">
+                            <h6 className="measurementCardHeader"><b>{header}</b></h6>
+                            <div className="firstDivAlign">
+                                <div className="time">
+                                    <div className={"activity"}>
+                                        <AiOutlineClockCircle className="icon"/>
+                                        {time}
+                                    </div>
+                                </div>
+                                <div>
+                                    <ActualIcon className={"activityIcon"}/> {activity}
+                                </div>
+                                <div style={{display: 'flex',marginTop:'10px'}}>
+                                    {value && value}
+                                </div>
                             </div>
                         </div>
-                        <div>
-                            <ActualIcon className={"activityIcon"}/> {activity}
-                        </div>
-                        <div style={{display: 'flex',marginTop:'10px'}}>
-                             {value && value}
-                        </div>
-                    </div>
                     <div className="secondDivAlign">
                         <div>
                             {completed &&(
@@ -94,42 +96,7 @@ function MeasurementList() {
                             )}
                         </div>
                     </div>
-                    {/* <div className="time">
-                        <div className={"activity"}>
-                            <AiOutlineClockCircle className="icon"/>
-                            {time}
-                        </div>
-                        <div>
-                            <div>
-                            {completed &&(
-                                <div className="activity">
-                                    <p>Lawrence</p>
-                                </div>
-                            )}
-                            </div>
-                            <StatusIcon
-                                onClick={!completed ? goToAddMedData : undefined}
-                                className="statusIcon"
-                            />
-                        </div>
                     </div>
-                    <div className="activity">
-                        <div>
-                            <ActualIcon className={"activityIcon"}/> {activity}
-                        </div>
-                        <div>
-                            {completed &&(
-                                <div className="activity">
-                                    <p>Edit</p>
-                                    <MdModeEdit
-                                        onClick={completed ? goToAddMedData : undefined}
-                                        className="statusIcon"/>
-                                </div>
-                            )}
-                        </div>
-                    </div> */}
-
-                    
                 </ListGroup.Item>
             })}
         </ListGroup>
