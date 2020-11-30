@@ -18,7 +18,9 @@ import Tree from './Tree'
 // import History from './History'
 import Forest from './Forest'
 import { useAuth0 } from "@auth0/auth0-react";
-import GetGameLevel from './openEHR/GetGameLvl';
+//import GetGameLevel from './openEHR/GetGameLvl';
+//import PostGameLevel from './openEHR/PostGameLvl';
+
 
 //Main now makes sure no one can reach code if not loggedin (commented away for ease in dev).
 //TESTER : to test: uncomment row 30-43 + 100. Now you cannot go anywhere else than /login if not loggedin
@@ -29,8 +31,15 @@ import GetGameLevel from './openEHR/GetGameLvl';
 const Main = () => {
     const [level, setLevel] = useState(3);
 
+
+    // openEHR
     // This works, in this case the level that is retrieved from openEHR is 1, so after fetch is complete the page rerenders to display game with level 1
-    GetGameLevel(setLevel);
+    // GetGameLevel(setLevel);
+
+    // This does not have an appropriate rest-route yet
+    // useEffect(() => {
+    //     PostGameLevel(level);
+    // }, [level]);
 
     // const { isAuthenticated, isLoading } = useAuth0();
     // if (isLoading) {
