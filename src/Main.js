@@ -6,6 +6,7 @@ import { Redirect } from 'react-router-dom';
 import Intro from './Intro'
 import Home from "./Home";
 import Login from "./Login";
+import GetGoogleFit from './googleFit/getGoogleFit'
 import ProfilePage from "./ProfilePage";
 import Measurements from "./Components/Measurements";
 import AllMeasurements from "./Components/AllMeasurements";
@@ -23,8 +24,8 @@ import CalcStreak from './Components/CalcStreak'
 
 //Main now makes sure no one can reach code if not loggedin (commented away for ease in dev).
 //TESTER : to test: uncomment row 30-43 + 100. Now you cannot go anywhere else than /login if not loggedin
-//upon login you come to /intro (Intro.js), here Matthew will implement a design that explains the App. 
-// When you log out, you will be redirected to /login. Profile is still hidden behind loggin since it does not print relevant data without loggin token. 
+//upon login you come to /intro (Intro.js), here Matthew will implement a design that explains the App.
+// When you log out, you will be redirected to /login. Profile is still hidden behind loggin since it does not print relevant data without loggin token.
 
 
 const Main = () => {
@@ -69,6 +70,7 @@ const Main = () => {
                                     )}
                                 />
                                 <Route path="/login" component={Login} />
+                                <Route path="/googleFit" component={GetGoogleFit} />
                                 <Route path="/intro"
                                     exact
                                     render={(props) => (
