@@ -9,6 +9,7 @@ export default function AddMedDataNew(props) {
     let activity;
     let id;
     let completed;
+    const {currentStreak, setCurrentStreak} = props;
 
     if (state) {
         // State will determine how we got here. If state is undefined show error page
@@ -27,7 +28,8 @@ export default function AddMedDataNew(props) {
         <div>
             <Navigationbar title={title}/>
             <DateAndCalendar/>
-            <NewMeasurement id={id} activity={activity}/>
+            <NewMeasurement id={id} activity={activity} 
+            currentStreak = {currentStreak} setCurrentStreak = {setCurrentStreak}/>
         </div>
     )
 }

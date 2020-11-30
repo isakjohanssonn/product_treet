@@ -11,9 +11,10 @@ import ComingAchievementBox from "./ComingAchievementBox";
 export default function Streak(props) {
 
   const {level} = props;
-  const [streak, setStreak] = useState(1);
-  const [longest, setLongest] = useState(5);
-  const achievements = [0, 1];
+  const {reachedAchievements} = props;
+  const {currentStreak, longestStreak} = props;
+  
+  
 
 
   const Game = () => {
@@ -23,7 +24,7 @@ export default function Streak(props) {
           <Card.Body className="body">
             <div className="verticalCenter" >
               <h3> Longest Streak</h3>
-              <h4>{longest} days </h4>
+              <h4>{longestStreak} days </h4>
             </div>
           </Card.Body>
         </Card>
@@ -32,7 +33,9 @@ export default function Streak(props) {
       return (
         <Card border="secondary" className="streakCardWithin">
           <Card.Body>
-          <ComingAchievementBox lastAchievement={achievements[achievements.length - 1]} showOne = {1} />
+          <ComingAchievementBox lastAchievement=
+          {reachedAchievements[reachedAchievements.length - 1]}
+           showOne = {1} currentStreak = {currentStreak}/>
           </Card.Body>
         </Card>
       );
@@ -55,7 +58,7 @@ export default function Streak(props) {
             <Card.Body className="body">
               <div className="verticalCenter" >
                 <h3>Current Streak</h3>
-                <h4>{streak} days </h4>
+                <h4>{currentStreak} days </h4>
               </div>
             </Card.Body>
           </Card>

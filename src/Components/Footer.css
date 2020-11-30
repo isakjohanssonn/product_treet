@@ -1,4 +1,4 @@
-.footerDiv {
+/* .footerDiv {
   height:51px; 
   width: 100%; 
   background-image: none;
@@ -8,15 +8,15 @@
   position: fixed;
   bottom: -2pt;
   left: 0pt;
-}
+} */
 
-.footerLink {
+/* .footerLink {
   width: 25%; 
-  background-color: #3f87cf;
-}
+  height: 25vw;
+} */
 
-.list-group-item {
+/* .list-group-item {
   display: table-cell;
   vertical-align: middle;
   text-align: center;
-}
+} */
