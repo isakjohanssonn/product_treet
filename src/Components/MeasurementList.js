@@ -1,8 +1,8 @@
 import React from "react";
 import "./MeasurementList.css";
 import ListGroup from "react-bootstrap/ListGroup";
-import {AiOutlineClockCircle,AiOutlineHeart} from "react-icons/all";
-import {BsGraphUp, IoMdWalk, BsPlusCircleFill, FaCheckCircle, MdModeEdit, FaHeart} from "react-icons/all";
+import {AiOutlineClockCircle} from "react-icons/all";
+import {BsGraphUp, IoMdWalk, BsPlusCircleFill, FaCheckCircle, MdModeEdit, SiGooglefit} from "react-icons/all";
 import {useHistory} from "react-router-dom";
 import useRemainingMeasurements, {MeasurementsTypes} from "./useRemainingMeasurements";
 
@@ -76,7 +76,7 @@ function MeasurementList() {
                         <div>
                             {completed &&(
                                 <div className="activity" style={{marginLeft:'42px'}}>
-                                    <FaHeart style={{fontSize:"30px"}}/>
+                                    <SiGooglefit style={{fontSize:"30px"}}/>
                                 </div>
                             )}
                         </div>
