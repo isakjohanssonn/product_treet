@@ -35,11 +35,10 @@ export default function AddMedDataNew(props) {
 
   let title = completed ? "Edit Measurement" : 'New Measurement';
 
-  if ((!completed) && from===1){
+  if ((!completed) && from === 1) {
     title = "Edit Measurement";
   }
 
-  console.log(from)
   return (
 
     <div>

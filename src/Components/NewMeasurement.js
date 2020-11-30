@@ -28,6 +28,7 @@ function NewMeasurement(props) {
 
   //"from" determines from what page we came from. if 0 we come from /home and 1 is from /history.
   const onClick = () => {
+    setCompleted(id, value);
     if (from === 0 && !completed) {
       const date = new Date();
       const realDate = [date.getDate(), date.getMonth(), date.getFullYear()].join("/");
