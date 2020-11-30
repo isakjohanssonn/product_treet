@@ -15,17 +15,19 @@ const Home = (props) => {
     const text = remainingAmount === 0 ? "All done!" : remainingAmount + " remaining";
 
     return (
-        <div>
+        <div className="homePage">
             <Navigationbar title={'Home'}/>
-            <DateAndCalendar/>
-            <Streak {...props} />
+                <div className="scrollable">
+                <DateAndCalendar/>
+                <Streak {...props} />
 
-            <div className="topDiv">
-                <h4>Today's measurements</h4>
-                <h4>{text}</h4>
-            </div>
+                <div className="topDiv">
+                    <h4>Today's measurements</h4>
+                    <h4>{text}</h4>
+                </div>
 
-            <MeasurementList/>
+                <MeasurementList/>
+                </div>
             <Footer/>
         </div>
     );

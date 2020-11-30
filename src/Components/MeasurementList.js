@@ -67,7 +67,7 @@ function MeasurementList() {
                                 <div>
                                     <ActualIcon className={"activityIcon"}/> {activity}
                                 </div>
-                                <div style={{display: 'flex',marginTop:'10px'}}>
+                                <div style={{display: 'flex',marginTop:'10px',marginLeft:'20px'}}>
                                     {value && value}
                                 </div>
                             </div>
