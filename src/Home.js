@@ -8,7 +8,7 @@ import DateAndCalendar from "./Components/DateAndCalendar";
 import './Home.css'
 import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import { GrowingTree } from "./Components/GrowingTree";
+import GrowingTree from "./Components/GrowingTree";
 
 const Home = (props) => {
     const {remainingAmount} = useRemainingMeasurements();

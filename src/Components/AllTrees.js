@@ -1,10 +1,9 @@
 import React from "react"
-
 import Oak1 from "../img/oak1.svg";
 import Oak3 from "../img/sicktree.png"
 import Spruce4 from "../img/young_dead_spruce.jpg";
 import Spruce5 from "../img/dead_spruce.png"
-import AppleTreeSapling from "../img/appletree-sapling-anim.svg"
+import Sapling from "../img/appletree-sapling-anim.svg"
 import AppleTree from "../img/appletree-full-anim.svg"
 import AppleTreeYoung from "../img/appletree-young-anim.svg"
 import CherryTree from "../img/cherrytree.svg"
@@ -19,12 +18,11 @@ import UpcomingHangingTree from "../img/upcoming-hangingtree.svg"
 import UpcomingTallTree from "../img/upcoming-talltree.svg"
 import UpcomingYellowTree from "../img/upcoming-yellowtree.svg"
 
-
 export const allTrees = [{
     name: "Hanging tree",
     desc: "This is a hanging tree.",
-    timeToGrow: 30,
-    sapling: Oak1,
+    timeToGrow: 10,
+    sapling: Sapling,
     young_tree: HangingTree,
     old_tree: HangingTree,
     young_sick_tree: Oak3,
@@ -33,8 +31,8 @@ export const allTrees = [{
 }, {
     name: "Yellow tree",
     desc: "This is a yellow tree.",
-    timeToGrow: 30,
-    sapling: Oak1,
+    timeToGrow: 15,
+    sapling: Sapling,
     young_tree: YellowTree,
     old_tree: YellowTree,
     young_sick_tree: Oak3,
@@ -43,8 +41,8 @@ export const allTrees = [{
 }, {
     name: "Tall tree",
     desc: "This is a tall tree.",
-    timeToGrow: 30,
-    sapling: Oak1,
+    timeToGrow: 20,
+    sapling: Sapling,
     young_tree: TallTree,
     old_tree: TallTree,
     young_sick_tree: Oak3,
@@ -53,8 +51,8 @@ export const allTrees = [{
 }, {
     name: "Apple tree",
     desc: "Description about the apple tree.",
-    timeToGrow: 10,
-    sapling: AppleTreeSapling,
+    timeToGrow: 25,
+    sapling: Sapling,
     young_tree: AppleTreeYoung,
     old_tree: AppleTree,
     young_sick_tree: Spruce4,
@@ -63,8 +61,8 @@ export const allTrees = [{
 }, {
     name: "Cherry tree",
     desc: "This is an cherry tree.",
-    timeToGrow: 20,
-    sapling: Oak1,
+    timeToGrow: 30,
+    sapling: Sapling,
     young_tree: CherryTree,
     old_tree: CherryTree,
     young_sick_tree: Oak3,
@@ -73,8 +71,8 @@ export const allTrees = [{
 }, {
     name: "Purple tree",
     desc: "This is a purple tree.",
-    timeToGrow: 30,
-    sapling: Oak1,
+    timeToGrow: 35,
+    sapling: Sapling,
     young_tree: PurpleTree,
     old_tree: PurpleTree,
     young_sick_tree: Oak3,
@@ -127,5 +125,9 @@ export function getTreeAge(tree) {
 
 export function getTreeDescription(tree) {
     return allTrees[tree].desc;
+}
+
+export function getNumberTypesOfTrees() {
+    return allTrees.length;
 }
 
