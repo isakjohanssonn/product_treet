@@ -1,8 +1,5 @@
 import React from "react"
-import Oak1 from "../img/oak1.svg";
-import Oak3 from "../img/sicktree.png"
-import Spruce4 from "../img/young_dead_spruce.jpg";
-import Spruce5 from "../img/dead_spruce.png"
+import SickTree from "../img/sicktree.png"
 import Sapling from "../img/appletree-sapling-anim.svg"
 import AppleTree from "../img/appletree-full-anim.svg"
 import AppleTreeYoung from "../img/appletree-young-anim.svg"
@@ -25,8 +22,8 @@ export const allTrees = [{
     sapling: Sapling,
     young_tree: HangingTree,
     old_tree: HangingTree,
-    young_sick_tree: Oak3,
-    old_sick_tree: Oak3,
+    young_sick_tree: SickTree,
+    old_sick_tree: SickTree,
     upcoming_tree: UpcomingHangingTree
 }, {
     name: "Yellow tree",
@@ -35,8 +32,8 @@ export const allTrees = [{
     sapling: Sapling,
     young_tree: YellowTree,
     old_tree: YellowTree,
-    young_sick_tree: Oak3,
-    old_sick_tree: Oak3,
+    young_sick_tree: SickTree,
+    old_sick_tree: SickTree,
     upcoming_tree: UpcomingYellowTree
 }, {
     name: "Tall tree",
@@ -45,8 +42,8 @@ export const allTrees = [{
     sapling: Sapling,
     young_tree: TallTree,
     old_tree: TallTree,
-    young_sick_tree: Oak3,
-    old_sick_tree: Oak3,
+    young_sick_tree: SickTree,
+    old_sick_tree: SickTree,
     upcoming_tree: UpcomingTallTree
 }, {
     name: "Apple tree",
@@ -55,8 +52,8 @@ export const allTrees = [{
     sapling: Sapling,
     young_tree: AppleTreeYoung,
     old_tree: AppleTree,
-    young_sick_tree: Spruce4,
-    old_sick_tree: Spruce5,
+    young_sick_tree: SickTree,
+    old_sick_tree: SickTree,
     upcoming_tree: UpcomingAppleTree
 }, {
     name: "Cherry tree",
@@ -65,8 +62,8 @@ export const allTrees = [{
     sapling: Sapling,
     young_tree: CherryTree,
     old_tree: CherryTree,
-    young_sick_tree: Oak3,
-    old_sick_tree: Oak3,
+    young_sick_tree: SickTree,
+    old_sick_tree: SickTree,
     upcoming_tree: UpcomingCherryTree
 }, {
     name: "Purple tree",
@@ -75,8 +72,8 @@ export const allTrees = [{
     sapling: Sapling,
     young_tree: PurpleTree,
     old_tree: PurpleTree,
-    young_sick_tree: Oak3,
-    old_sick_tree: Oak3,
+    young_sick_tree: SickTree,
+    old_sick_tree: SickTree,
     upcoming_tree: UpcomingPurpleTree
 }
 ]
