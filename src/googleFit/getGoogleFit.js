@@ -1,19 +1,21 @@
-import React, { useState, Component, useEffect } from "react";
-import { Alert } from 'react-bootstrap';
+import React, { useState } from "react";
 import GoogleLogin from 'react-google-login';
 
 const responseGoogle = (response) => {
   console.log(response);
 }
 
-const GetGoogleFit = () => {
+const GetGoogleFit = (props) => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState();
   const [today, setDate] = React.useState(new Date());
-  var steps = 0;
   var timeMs = 0;
   var date = new Date();
+  const {steps, setSteps} = props;
+  //const {steps, setSteps, time, setTime} = props;
+  // in line 67 change to setTime("code") instead of timeMS = "code", as line 87
+  //Add props sent to a useState hook from newMEasurement.
 
  /*Function that sets the current day in format required by Google URL's*/
   function getUrl() {
@@ -83,7 +85,7 @@ const GetGoogleFit = () => {
           .then(
               (result) => {
                   setIsLoaded(true);
-                  steps = result.bucket[0].dataset[0].point[0].value[0].intVal;
+                  setSteps(result.bucket[0].dataset[0].point[0].value[0].intVal);
                   /*SEND STEPS = "steps" (int), DATE = "date" (YYYY/MM/DD) AND TIME IN MS = "timeMs" HERE.*/
               },
               (error) => {
