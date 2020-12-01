@@ -10,8 +10,8 @@
     top: -2pt;
     left: 0pt;
     margin-top: 0px;
-padding-top: 0.35rem;
-height: 25vw;
+    padding-top: 0.35rem;
+    height: 5rem;
 
     display: flex;
     justify-content: space-between;
@@ -59,7 +59,7 @@ bottom: -2pt;
 
 .list-group-item-action {
     background-image: radial-gradient(#2E96E4, #1D76C5);
- height: 25vw;
+ height: 6rem;
  width: 25vw;
  display: table-cell;
  vertical-align: middle;
@@ -77,6 +77,8 @@ bottom: -2pt;
 /* -----------------All fonts----------------*/
 body {
     font-family: Arial, Helvetica, sans-serif;
+    padding-top: 6rem;
+    padding-bottom: 7rem;
 }
 h3 {
     font-size: 25px;
