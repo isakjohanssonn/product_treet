@@ -30,12 +30,12 @@ export default function SuccessfullySaved(props) {
 
 
     return (
-        <div className="savedMeasurementView" style={{textAlign: 'center'}}>
+        <div className="savedMeasurementView" >
             <Navigationbar title={'Saved Measurement'}/>
             <DateAndCalendar/>
             
                 You have successfully saved a new meausurement!
-                <br></br>
+                
 
 
                 <div style={{display: 'flex', width: '100%'}}>
@@ -52,13 +52,13 @@ export default function SuccessfullySaved(props) {
                 </Card> 
                 </div>
 
-                <br></br>
+                
                 You're not quite there,
                 but getting close every day!
-                <br></br>
+                
                 <Streak {...props} />
                 
-                <br></br>
+                
                 <Button className="measurementButtons" onClick={onClick}>FINISH</Button>
                 
             <Footer/>
