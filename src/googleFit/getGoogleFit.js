@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import GoogleLogin from 'react-google-login';
+import {Button} from 'react-bootstrap'
 
 const responseGoogle = (response) => {
   console.log(response);
@@ -12,7 +13,7 @@ const GetGoogleFit = (props) => {
   const [today, setDate] = React.useState(new Date());
   var timeMs = 0;
   var date = new Date();
-  const {steps, setSteps} = props;
+  const {value, setValue} = props;
   //const {steps, setSteps, time, setTime} = props;
   // in line 67 change to setTime("code") instead of timeMS = "code", as line 87
   //Add props sent to a useState hook from newMEasurement.
@@ -57,7 +58,7 @@ const GetGoogleFit = (props) => {
   function getSessionData(result, response) {
     var latestSession = null;
     for (var i in result.session) {
-      if (result.session[i].activityType == 7) {
+      if (result.session[i].activityType === 7) {
         if(!latestSession || result.session[i].endTimeMillis > latestSession.endTimeMillis) {
           latestSession = result.session[i];
         }
@@ -85,7 +86,7 @@ const GetGoogleFit = (props) => {
           .then(
               (result) => {
                   setIsLoaded(true);
-                  setSteps(result.bucket[0].dataset[0].point[0].value[0].intVal);
+                  setValue(result.bucket[0].dataset[0].point[0].value[0].intVal);
                   /*SEND STEPS = "steps" (int), DATE = "date" (YYYY/MM/DD) AND TIME IN MS = "timeMs" HERE.*/
               },
               (error) => {
@@ -103,7 +104,7 @@ const GetGoogleFit = (props) => {
       <GoogleLogin
         clientId="654593297019-orbp64i7cajsh577k1lm6bnf5abo2roh.apps.googleusercontent.com"
         render={renderProps => (
-          <button onClick={renderProps.onClick} disabled={renderProps.disabled}>Add Measurement</button>
+          <Button onClick={renderProps.onClick} disabled={renderProps.disabled || value !== "..."}>Import Data From Google Fit</Button>
         )}
         onSuccess={getGoogleData}
         onFailure={responseGoogle}

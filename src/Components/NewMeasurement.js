@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form'
 import { Button, Card } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import useMeasurementHistory, { MeasurementsTypes } from "./useMeasurementHistory"
-import { ArrowReturnRight } from "react-bootstrap-icons";
+import GetGoogleFit from '../googleFit/getGoogleFit'
 
 
 const HeaderTexts = {
@@ -25,7 +25,7 @@ function GetPreviousMeasurement(props) {
   var i;
 
   for (i = temp; i > 0; i--) {
-    if (measurements[i - 1].type == type) {
+    if (measurements[i - 1].type === type) {
       return (measurements[i - 1].value)
     }
   }
@@ -34,7 +34,7 @@ function GetPreviousMeasurement(props) {
 
 function NewMeasurement(props) {
   const { type, id, setCompleted, from, time, completed, currentStreak, setCurrentStreak } = props;
-  const [value, setValue] = useState();
+  const [value, setValue] = useState("...");
   const history = useHistory();
   const { addMeasurement } = useMeasurementHistory();
   const [error, setError] = useState('');
@@ -66,11 +66,14 @@ function NewMeasurement(props) {
           <Form.Group>
             <Form.Label >{HeaderTexts[type]}</Form.Label>
             <div className="EnterThings">
-              <Form.Control placeholder="..." type={'number'} onChange={handleChange} />
+              <Form.Control placeholder={value} type={'number'} onChange={handleChange} />
               <p className="form-label">{UnitTypes[type]}</p>
             </div>
             {error && <p style={{ color: 'red' }}>{error}</p>}
           </Form.Group>
+          {type === "Activity" &&
+            <GetGoogleFit value={value} setValue={setValue} />
+          }
         </Card.Body>
       </Card>
 
