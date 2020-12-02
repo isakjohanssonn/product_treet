@@ -6,6 +6,8 @@ const responseGoogle = (response) => {
   console.log(response);
 }
 
+//For testers: Install google fit app on mobile, add activity "prommenad" on current day, Use Login TDDC88company4@gmail.com, pwr: TreetCo4. 
+//Now click import from google, same login. 
 const GetGoogleFit = (props) => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -14,9 +16,7 @@ const GetGoogleFit = (props) => {
   var timeMs = 0;
   var date = new Date();
   const {value, setValue} = props;
-  //const {steps, setSteps, time, setTime} = props;
-  // in line 67 change to setTime("code") instead of timeMS = "code", as line 87
-  //Add props sent to a useState hook from newMEasurement.
+
 
  /*Function that sets the current day in format required by Google URL's*/
   function getUrl() {
