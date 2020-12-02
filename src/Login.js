@@ -1,20 +1,16 @@
 import React from "react";
 import "./Login.css";
+import "./Global.css"
 import { useAuth0 } from "@auth0/auth0-react";
+import { Button } from 'react-bootstrap'
 
 const LoginButton = () => {
   const { loginWithRedirect } = useAuth0();
-
-  return <button onClick={() => loginWithRedirect({ returnTo: "https://localhost:3000/intro"})}>Log In</button>;
-};
-
-const LogoutButton = () => {
-  const { logout } = useAuth0();
-
+  document.title = "Welcome";
   return (
-    <button onClick={() => logout({ returnTo: 'http://localhost:3000/login' })}>
-      Log Out
-    </button>
+    <div className="buttonDiv">
+      <Button className="LoginButton" onClick={() => loginWithRedirect({ returnTo: "https://localhost:3000/intro" })}>Login</Button>
+    </div>
   );
 };
 
@@ -22,9 +18,14 @@ export default function Login() {
 
   return (
     <div className="Login">
-      {LoginButton()}
-      {LogoutButton()}
-      <p>Här kan man logga in och logga ut mha auth0</p>
-    </div>
+      <div className="topNavMainDiv">
+        <h3>TREET </h3>
+      </div>
+      <div className="topMargin">
+        <img src="/static/media/hangingtree-anim.3dd4666e.svg" className="treeimage"></img>
+        {LoginButton()}
+      </div >
+    </div >
+
   );
 }
