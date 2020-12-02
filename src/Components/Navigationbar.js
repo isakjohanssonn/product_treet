@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ListGroup } from 'react-bootstrap';
 import "./Navigationbar.css";
-import "../Global.css";
 import { useAuth0 } from "@auth0/auth0-react";
 import { FiLogOut } from 'react-icons/fi';
 import { HiArrowLeft } from 'react-icons/hi';
