@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuth0 } from "@auth0/auth0-react";
 import "../ProfilePage.css";
 import NavigationBar from "./Navigationbar";
@@ -20,14 +20,15 @@ import GetGameLvl from'../openEHR/GetGameLvl';
 const GameSettings = (props) => {
   const {level, onClick} = props;
   const history = useHistory();
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  const { user } = useAuth0();
+  const [templvl, setTemplvl] = useState(level);
 
-  if (isLoading) {
-    return <div>Loading ...</div>;
-  }
+  useEffect(() => {
+    onClick(templvl);
+}, [templvl]);
+
 
   return (
-    isAuthenticated && (
     <div>
       <NavigationBar title={"Gamification Level"}/>
       <div className="profileMain">
@@ -50,8 +51,8 @@ const GameSettings = (props) => {
                 name="formHorizontalRadios"
                 id="formHorizontalRadios1"
                 aria-describedby="lvl1"
-                onClick={() => onClick(1)}
-                checked={level === 1}
+                onClick={() => setTemplvl(1)}
+                checked={templvl === 1}
               />
               <Form.Text id="lvl1" muted>
                 <h4>No Gameification</h4>
@@ -64,8 +65,8 @@ const GameSettings = (props) => {
                 name="formHorizontalRadios"
                 id="formHorizontalRadios2"
                 aria-describedby="lvl2"
-                onClick={() => onClick(2)}
-                checked={level === 2}
+                onClick={() => setTemplvl(2)}
+                checked={templvl === 2}
               />
               <Form.Text id="lvl2" muted>
                 <h4>Goal related badges and streak counter connected to trees</h4>
@@ -76,8 +77,8 @@ const GameSettings = (props) => {
                 name="formHorizontalRadios"
                 id="formHorizontalRadios3"
                 aria-describedby="lvl3"
-                onClick={() => onClick(3)}
-                checked={level === 3}
+                onClick={() => setTemplvl(3)}
+                checked={templvl === 3}
               />
               <Form.Text id="lvl3" muted>
                 <h4>Goal related badges and streak counter connected to trees</h4>
@@ -86,11 +87,10 @@ const GameSettings = (props) => {
             </Form.Group>
           </Card.Body>
         </Card>
-        <Button className="saveButton" onClick={() => history.goBack()}>Save</Button>
+        <Button className="saveButton" onClick={() =>  history.goBack()}>Save</Button>
       </div>
       <Footer/>
     </div>
-     )
   );
 };
 
