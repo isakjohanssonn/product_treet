@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { createBrowserHistory } from 'history'
@@ -19,6 +19,9 @@ import Tree from './Tree'
 // import History from './History'
 import Forest from './Forest'
 import { useAuth0 } from "@auth0/auth0-react";
+import GetGameLevel from './openEHR/GetGameLvl';
+import PostGameLevel from './openEHR/PostGameLvl';
+
 import MeasurementData from "./Components/MeasurementData";
 import CalcAchievements from './Components/CalcAchievements'
 import CalcStreak from './Components/CalcStreak'
@@ -30,6 +33,7 @@ import CalcStreak from './Components/CalcStreak'
 
 
 const Main = () => {
+
     const [level, setLevel] = useState(2);
     //The current streak increases when a new measurment is entered in newmeasurment
     const [currentStreak, setCurrentStreak] = useState(14);
@@ -40,6 +44,32 @@ const Main = () => {
     CalcAchievements(currentStreak, reachedAchievements, setReachedAchievements);
     //Calculates if the longest streak has changed
     CalcStreak(currentStreak, longestStreak, setLongestStreak);
+
+
+
+    // openEHR
+
+    // This works, in this case the level that is retrieved from openEHR is 1, so after fetch is complete the page rerenders to display game with level 1
+    /*
+    
+    GetGameLevel(setLevel);
+
+    const didMount = useRef(false);
+
+    useEffect(() => {
+        console.log(didMount.current);
+        console.log(level);
+
+        if (!didMount.current) {
+            didMount.current = true;
+        } else {
+            PostGameLevel(level);
+        }
+    }, [level, didMount]);
+    */
+
+
+    
     // const { isAuthenticated, isLoading } = useAuth0();
     // if (isLoading) {
     //     return <div>Loading ...</div>;
