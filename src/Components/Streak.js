@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Card } from "react-bootstrap"
 import "./Streak.css"
 import GrowingTree from './GrowingTree'
