@@ -6,6 +6,7 @@ import { Redirect } from 'react-router-dom';
 import Intro from './Intro'
 import Home from "./Home";
 import Login from "./Login";
+import GetGoogleFit from './googleFit/getGoogleFit'
 import ProfilePage from "./ProfilePage";
 import Measurements from "./Components/Measurements";
 import AllMeasurements from "./Components/AllMeasurements";
@@ -21,17 +22,33 @@ import { useAuth0 } from "@auth0/auth0-react";
 import GetGameLevel from './openEHR/GetGameLvl';
 import PostGameLevel from './openEHR/PostGameLvl';
 
+import MeasurementData from "./Components/MeasurementData";
+import CalcAchievements from './Components/CalcAchievements'
+import CalcStreak from './Components/CalcStreak'
 
 //Main now makes sure no one can reach code if not loggedin (commented away for ease in dev).
 //TESTER : to test: uncomment row 30-43 + 100. Now you cannot go anywhere else than /login if not loggedin
-//upon login you come to /intro (Intro.js), here Matthew will implement a design that explains the App. 
-// When you log out, you will be redirected to /login. Profile is still hidden behind loggin since it does not print relevant data without loggin token. 
+//upon login you come to /intro (Intro.js), here Matthew will implement a design that explains the App.
+// When you log out, you will be redirected to /login. Profile is still hidden behind loggin since it does not print relevant data without loggin token.
 
 
 const Main = () => {
-    const [level, setLevel] = useState(3);
+
+    const [level, setLevel] = useState(2);
+    //The current streak increases when a new measurment is entered in newmeasurment
+    const [currentStreak, setCurrentStreak] = useState(14);
+    const [longestStreak, setLongestStreak] = useState(14);
+    //The achievements that have been reached.
+    const [reachedAchievements, setReachedAchievements] = useState([0, 1]);
+    //Calculates if another achievement have been gained, then adds it to reachedachievements
+    CalcAchievements(currentStreak, reachedAchievements, setReachedAchievements);
+    //Calculates if the longest streak has changed
+    CalcStreak(currentStreak, longestStreak, setLongestStreak);
+
+
 
     // openEHR
+
     // This works, in this case the level that is retrieved from openEHR is 1, so after fetch is complete the page rerenders to display game with level 1
     /*
     
@@ -51,6 +68,8 @@ const Main = () => {
     }, [level, didMount]);
     */
 
+
+    
     // const { isAuthenticated, isLoading } = useAuth0();
     // if (isLoading) {
     //     return <div>Loading ...</div>;
@@ -75,10 +94,14 @@ const Main = () => {
                                     path='/'
                                     exact
                                     render={(props) => (
-                                        <Home {...props} level={level} setLevel={setLevel}/>
+                                        <Home {...props} level={level}
+                                        reachedAchievements = {reachedAchievements}
+                                        currentStreak = {currentStreak}
+                                        longestStreak = {longestStreak}/>
                                     )}
                                 />
                                 <Route path="/login" component={Login} />
+                                <Route path="/googleFit" component={GetGoogleFit} />
                                 <Route path="/intro"
                                     exact
                                     render={(props) => (
@@ -94,12 +117,13 @@ const Main = () => {
                                 />
                                 {/* <Route path="/newmeasurement" component={NewMeasurement} /> */}
                                 <Route path="/measurements" component={Measurements} />
-                                <Route path="/allmeasurements" component={AllMeasurements} />
-                                <Route path="/achievement" component={AchivementPage} />
+                                <Route path="/allmeasurements" component={MeasurementData} />
                                 <Route
-                                    path='/collectibledemo'
+                                    path='/achievement'
                                     render={(props) => (
-                                        <AchivementPage {...props} level={level} />
+                                        <AchivementPage {...props} level={level}
+                                        reachedAchievements = {reachedAchievements}
+                                        currentStreak = {currentStreak}/>
                                     )}
                                 />
                                 <Route path="/successfullysaved" component={SuccessfullySaved} />
@@ -108,7 +132,9 @@ const Main = () => {
                                 <Route path="/goals" component={GoalsPage} />
                                 <Route path="/diabetes" component={DiabetesPage} />
                                 <Route path="/forest" component={Forest} />
-                                <Route path="/addmeddata" component={AddMedDataNew} />
+                                <Route path="/addmeddata" render={(props) =>
+                                 (<AddMedDataNew {...props} currentStreak = {currentStreak}
+                                    setCurrentStreak = {setCurrentStreak} />)} />
                                 <Route>
                                     <Redirect to="/" />
                                     {/* Added this row so if a a route fails/doesn't exist it redirects us to homepage anyway.  */}

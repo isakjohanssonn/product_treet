@@ -1,15 +1,13 @@
 //Renders an achievement. As props it takes a achievement that it displays, and a boolean upcoming that says if the achievement
 //should be shown with a progressbar or not, boolean showScore that if true shows like 7/10, showName that shows the name if true
 // If the achievement is null it doesnt render anything.
-import placeholder from "../images/placeholderHexagon.png";
 import React from 'react';
 import "./Achievement.css";
 import ProgressBar from 'react-bootstrap/ProgressBar'
 
 const Achievement = (props) => {
 
-    const { achievement, upcoming, showScore, showName } = props;
-    const currentStreak = 12;
+    const { achievement, upcoming, showScore, showName, currentStreak } = props;
 
     if (achievement) {
         if (showName) {
@@ -21,7 +19,7 @@ const Achievement = (props) => {
             }
             return (
                 <div className="upcoming-achievement-card">
-                    <img src={placeholder} className="placeholder" />
+                    <img src={achievement.Icon} className="placeholder" />
                     <ProgressBar now={(currentStreak / achievement.Requirement) * 100} className="progressbar" />
                     <div className="achievement-label">{name}</div>
                     {score}
@@ -31,7 +29,7 @@ const Achievement = (props) => {
         else {
             return (
                 <div className="upcoming-achievement-card">
-                    <img src={placeholder} className="placeholder" />
+                    <img src={achievement.Icon} className="placeholder" />
                     <div className="achievement-label">{name}</div>
                 </div>);
         }

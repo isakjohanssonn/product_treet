@@ -47,3 +47,7 @@
 .body {
     display: flex;
 }
+
+.card-body {
+    padding: 0;
+}

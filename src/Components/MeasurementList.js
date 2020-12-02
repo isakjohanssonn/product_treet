@@ -2,13 +2,19 @@ import React from "react";
 import "./MeasurementList.css";
 import ListGroup from "react-bootstrap/ListGroup";
 import {AiOutlineClockCircle} from "react-icons/all";
-import {BsGraphUp, IoMdWalk, BsPlusCircleFill, FaCheckCircle, MdModeEdit} from "react-icons/all";
+import {BsGraphUp, IoMdWalk, BsPlusCircleFill, FaCheckCircle, MdModeEdit, SiGooglefit} from "react-icons/all";
 import {useHistory} from "react-router-dom";
-import useRemainingMeasurements, {MeasurementsTypes} from "./useRemainingMeasurements";
+import useRemainingMeasurements from "./useRemainingMeasurements";
+import {MeasurementsTypes} from "./useMeasurementHistory"
 
 const IconTypes = {
     [MeasurementsTypes.BloodSugar]: BsGraphUp,
     [MeasurementsTypes.Activity]: IoMdWalk,
+};
+
+const UnitTypes = {
+    [MeasurementsTypes.BloodSugar]: " mmol/L",
+    [MeasurementsTypes.Activity]: " steps",
 };
 
 const Headers = {
@@ -25,12 +31,27 @@ function getHeader(completed, type) {
     return header;
 }
 
+function getTime (time) {
+    let timeString = time+":00 ";
+
+    if (time<10) {
+        timeString = "0"+time+":00 ";
+        return timeString;
+    }
+    return timeString;
+}
+
 // TODO: When the real data is in, make sure to sort data on:
 //  1. Time first,
 //  2. completed measurement second
 function MeasurementList() {
     const history = useHistory();
-    const {measurements} = useRemainingMeasurements();
+    const {measurements, setCompleted} = useRemainingMeasurements();
+
+    //sorting function that sorts by time
+    measurements.sort((a, b) => {
+        if (a.time  < b.time) return -1;
+    });
 
     // Sorting function that makes sure all the none completed measurements end up first
     measurements.sort((a, b) => {
@@ -40,52 +61,64 @@ function MeasurementList() {
     return <div>
         <ListGroup className="ruta">
             {measurements.map((measurement, index) => {
-                const {activity, time, completed, id, value} = measurement;
-
-                const ActualIcon = IconTypes[activity];
-                const header = getHeader(completed, activity);
+                const {type, time, completed, id, value} = measurement;
+                const ActualIcon = IconTypes[type];
+                const header = getHeader(completed, type);
                 const StatusIcon = completed ? FaCheckCircle : BsPlusCircleFill;
-
-                const goToAddMedData = () => history.push('/addmeddata', {activity, id, completed});
-
+                const goToAddMedData = () => history.push('/addmeddata', {time, type, id, completed, from: 0});
                 const completedStyle = completed ? {backgroundColor: '#bdd8f1'} : null;
+                const unit = completed? value + UnitTypes[type] : null;
+                const text = type===MeasurementsTypes.Activity ? "Go for a walk" : "Blood Sugar";
+                const TimeString = getTime(time);
 
                 return <ListGroup.Item
+                    name="measurement"
                     className="listItem"
                     key={'measurement' + index}
                     style={completedStyle}
+                    onClick={!completed ? goToAddMedData : undefined}
                 >
-                    <h5>{header}</h5>
-                    <div className="time">
-                        <div className={"activity"}>
-                            <AiOutlineClockCircle className="icon"/>
-                            {time}
+                    <div className="measurementCardContent">
+                        <div className="measurementCardContentLeft">
+                            <h6 className="measurementCardHeader"><b>{header}</b></h6>
+                            <div className="firstDivAlign">
+                                <div className="time">
+                                    <div className={"activity"}>
+                                        <AiOutlineClockCircle className="icon"/>
+                                        {TimeString}
+                                    </div>
+                                </div>
+                                <div>
+                                    <ActualIcon className={"activityIcon"}/> {text}
+                                </div>
+                                <div style={{display: 'flex',marginTop:'10px',marginLeft:'20px'}}>
+                                    {unit}
+                                </div>
+                            </div>
                         </div>
+                    <div className="secondDivAlign">
                         <div>
-                            <StatusIcon
+                            {completed &&(
+                                <div className="activity" style={{marginLeft:'42px'}}>
+                                    <SiGooglefit style={{fontSize:"30px"}}/>
+                                </div>
+                            )}
+                        </div>
+                        <div className="divDistance">
+                            <StatusIcon style={{marginLeft:'40px'}}
                                 onClick={!completed ? goToAddMedData : undefined}
                                 className="statusIcon"
                             />
                         </div>
-                    </div>
-                    <div className="activity">
-                        <div>{activity}
-                            <ActualIcon className={"activityIcon"}/>
-                        </div>
-                        <div>
-                            {completed && (
+                        <div className="divDistance">
+                            {completed &&(
                                 <div className="activity">
-                                    <p>Edit</p>
-                                    <MdModeEdit
+                                    <MdModeEdit style={{marginLeft:'40px'}}
                                         onClick={completed ? goToAddMedData : undefined}
                                         className="statusIcon"/>
                                 </div>
-                            )}
-                        </div>
+                            )}</div>
                     </div>
-
-                    <div style={{display: 'flex'}}>
-                        {value && value}
                     </div>
                 </ListGroup.Item>
             })}

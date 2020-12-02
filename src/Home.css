@@ -7,3 +7,11 @@
 h4 {
   font-size: 1rem;
 }
+
+.homePage {
+  display: inline list-item;
+}
+
+.scrollable {
+  padding-bottom: 1rem;
+}

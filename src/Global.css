@@ -1,0 +1,98 @@
+/* -----------Top navigation bar-------------*/
+.topNavMainDiv {
+    width: 100%;
+    z-index: 999;
+    background-repeat: repeat;
+    background-attachment: scroll;
+    background-position: 0% 0%;
+    background-image: linear-gradient(#2E96E4, #1D76C5);
+    position: fixed;
+    top: -2pt;
+    left: 0pt;
+    margin-top: 0px;
+    padding-top: 0.35rem;
+    height: 5rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logOutIcon {
+      color: white;
+      align-items: center;
+      margin-top: 0rem;
+      padding-bottom: 0.2rem;
+  }
+
+
+
+
+
+  /* .logoutDiv {
+      display: flex;
+      align-content: center;
+  } */
+
+  /* .logoutButton {
+      display: flex;
+      align-self: center;
+  } */
+
+  
+
+/* ------------------------------------------*/
+
+
+/* -----------------Footer-------------------*/
+/* Fix icon colors */
+.footerMainDiv {
+position: fixed;
+bottom: 0pt;
+left: 0pt;
+background-image: none;
+background-repeat: repeat;
+background-attachment: scroll;
+background-position: 0% 0%;
+bottom: -2pt;
+}
+
+.list-group-item-action {
+    background-image: radial-gradient(#2E96E4, #1D76C5);
+ height: 6rem;
+ width: 25vw;
+ display: table-cell;
+ vertical-align: middle;
+ text-align: center;
+}
+
+.footerIcons {
+    color: white;
+    width: 7vw;
+    height: 7vw;
+}
+
+/* ------------------------------------------*/
+
+/* -----------------All fonts----------------*/
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 6rem;
+    padding-bottom: 7rem;
+}
+h3 {
+    font-size: 25px;
+    color: #585858;
+}
+
+/* h4 {
+   
+}
+ */
+.topNavMainDiv h3{
+    color: white;
+}
+
+/* ------------------------------------------*/
+
+
