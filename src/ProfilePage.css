@@ -13,6 +13,35 @@
     text-align: center; 
 }
 
+.profileBoxIcon {
+    color: black;
+    width: 6vw;
+    height: 6vw;
+}
+
+.iconDiv {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:3em;
+    margin: 1em;
+    margin-left: 0.5em;
+}
+
+.cardHeader {
+    display:flex;
+    align-items:center;
+    margin-top: 0em;
+}
+
+.button {
+    all: unset;
+    width: 100%;
+}
+
+.topBlock {
+    height: 5em;
+}
 /*.profileImageCard {
     margin: auto;
     width: 100%;
