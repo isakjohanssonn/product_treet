@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { Card } from "react-bootstrap"
 import "./Streak.css"
 import GrowingTree from './GrowingTree'
 import ComingAchievementBox from "./ComingAchievementBox";
+import {forestParameters} from "../Forest";
 
 
 // This function prints the streakdiv. Depending on the hook: gamelvl (soon to be imported from EHR, hard coded at the moment)
@@ -14,9 +15,6 @@ export default function Streak(props) {
   const {reachedAchievements} = props;
   const {currentStreak, longestStreak} = props;
   
-  
-
-
   const Game = () => {
     if (level === 1) {
       return (
@@ -40,12 +38,17 @@ export default function Streak(props) {
         </Card>
       );
     } else {
+      var parameters = [];
+      parameters = forestParameters();
+      const tree = parameters[0];
+      const current_age = parameters[1];
+      const is_sick = parameters[2]
       return (
         <Card border="secondary" className="streakCardWithin">
           <Card.Body>
-            <GrowingTree />
+            <GrowingTree age={current_age} current_tree={tree} is_sick={is_sick} is_animated={false}/>
           </Card.Body>
-        </Card >
+        </Card>
       );
     }
   }
@@ -62,7 +65,6 @@ export default function Streak(props) {
               </div>
             </Card.Body>
           </Card>
-
         </Card.Body>
       </Card>
     </div>

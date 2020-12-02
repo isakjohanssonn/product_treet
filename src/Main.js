@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { createBrowserHistory } from 'history'
@@ -19,9 +19,13 @@ import Tree from './Tree'
 // import History from './History'
 import Forest from './Forest'
 import { useAuth0 } from "@auth0/auth0-react";
+import GetGameLevel from './openEHR/GetGameLvl';
+import PostGameLevel from './openEHR/PostGameLvl';
+
 import MeasurementData from "./Components/MeasurementData";
 import CalcAchievements from './Components/CalcAchievements'
 import CalcStreak from './Components/CalcStreak'
+import GameSettings from './Components/GameSettings';
 
 //Main now makes sure no one can reach code if not loggedin (commented away for ease in dev).
 //TESTER : to test: uncomment row 30-43 + 100. Now you cannot go anywhere else than /login if not loggedin
@@ -30,6 +34,7 @@ import CalcStreak from './Components/CalcStreak'
 
 
 const Main = () => {
+
     const [level, setLevel] = useState(2);
     //The current streak increases when a new measurment is entered in newmeasurment
     const [currentStreak, setCurrentStreak] = useState(14);
@@ -40,6 +45,21 @@ const Main = () => {
     CalcAchievements(currentStreak, reachedAchievements, setReachedAchievements);
     //Calculates if the longest streak has changed
     CalcStreak(currentStreak, longestStreak, setLongestStreak);
+
+    // openEHR
+    GetGameLevel(setLevel);
+
+    const didMount = useRef(false);
+
+    useEffect(() => {
+        if (!didMount.current) {
+            didMount.current = true;
+        } else {
+            PostGameLevel(level);
+        }
+    }, [level, didMount]);
+
+
     // const { isAuthenticated, isLoading } = useAuth0();
     // if (isLoading) {
     //     return <div>Loading ...</div>;
@@ -111,6 +131,11 @@ const Main = () => {
                                 <Route path="/addmeddata" render={(props) =>
                                  (<AddMedDataNew {...props} currentStreak = {currentStreak}
                                     setCurrentStreak = {setCurrentStreak} />)} />
+                                     <Route
+                                    path='/gamesettings'
+                                    render={(props) => (
+                                        <GameSettings {...props} level={level} onClick={setLevel} />
+                                    )}/>
                                 <Route>
                                     <Redirect to="/" />
                                     {/* Added this row so if a a route fails/doesn't exist it redirects us to homepage anyway.  */}
