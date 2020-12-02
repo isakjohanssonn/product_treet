@@ -45,31 +45,20 @@ const Main = () => {
     //Calculates if the longest streak has changed
     CalcStreak(currentStreak, longestStreak, setLongestStreak);
 
-
-
     // openEHR
-
-    // This works, in this case the level that is retrieved from openEHR is 1, so after fetch is complete the page rerenders to display game with level 1
-    /*
-    
     GetGameLevel(setLevel);
 
     const didMount = useRef(false);
 
     useEffect(() => {
-        console.log(didMount.current);
-        console.log(level);
-
         if (!didMount.current) {
             didMount.current = true;
         } else {
             PostGameLevel(level);
         }
     }, [level, didMount]);
-    */
 
 
-    
     // const { isAuthenticated, isLoading } = useAuth0();
     // if (isLoading) {
     //     return <div>Loading ...</div>;
