@@ -3,7 +3,7 @@ import "./Slider.css";
 import Button from 'react-bootstrap/Button';
 import { Link } from "react-router-dom";
 import { getTree } from "./AllTrees";
-import placeholder from "../images/placeholderHexagon.png";
+import GoldenStar from "../img/achievementsimg/golden_star.png";
 
 const Slider = () => {
 
@@ -20,7 +20,7 @@ const Slider = () => {
         <Link to="/achievement" className="slider-link">
             <Button className="slider-button">
               <div className="image-holder">
-                <object className="tree-image-slider" type="image/png" data={placeholder}/>
+                <object className="tree-image-slider" type="image/png" data={GoldenStar}/>
               </div>
               Achievements
             </Button>
