@@ -16,15 +16,34 @@
     width: 50%;
     overflow: hidden;
     list-style: none;
+    
 }
 
 .Rtable-cell2 {
     box-sizing: border-box;
     flex-grow: 1;
-    width: 25%;
+    width: 33%;
     overflow: hidden;
     list-style: none;
 }
+
+.Rtable-cell3 {
+    box-sizing: border-box;
+    flex-grow: 1;
+    width: 17%;
+    overflow: hidden;
+    list-style: none;
+}
+
+.arrowForest {
+    font-size: 300%;
+  }
+
+.ForestGrowingCard{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
 
 
 .Rtable-cell--alignTop, 

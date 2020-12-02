@@ -4,6 +4,9 @@ import Navigationbar from "./Components/Navigationbar";
 import './SuccessfullySaved.css';
 import Button from "react-bootstrap/Button";
 import {useHistory} from "react-router-dom";
+import Streak from "./Components/Streak";
+import Footer from './Components/Footer';
+import { Card } from "react-bootstrap";
 
 export default function SuccessfullySaved(props) {
 
@@ -27,39 +30,38 @@ export default function SuccessfullySaved(props) {
 
 
     return (
-        <div>
+        <div className="savedMeasurementView" >
             <Navigationbar title={'Saved Measurement'}/>
             <DateAndCalendar/>
-            <div className="container">
+            
                 You have successfully saved a new meausurement!
+                
+
 
                 <div style={{display: 'flex', width: '100%'}}>
-                    <div className={'box'}>
-                        <p>Saved</p>
-                        <p>{value}</p>
-                    </div>
-                    <div className={'box'}>
-                        <p>Saved</p>
-                        <p>XX unit</p>
-                    </div>
+                <Card className="savedMeasurementBox">
+                        Saved
+                        <p><pl>{value}</pl> unit </p>
+                </Card> 
+
+                <div style={{display: 'flex', width: '5%'}}></div>
+
+                <Card className="savedMeasurementBox">
+                        Goal
+                        <p><pl>XX</pl> unit</p>
+                </Card> 
                 </div>
 
+                
                 You're not quite there,
-                but getting close every day
-
-                <div style={{display: 'flex', width: '100%'}}>
-                    <div className={'box'}>
-                        <p>Träd</p>
-                        <p>Träd</p>
-                    </div>
-                    <div className={'box'}>
-                        <p>Saved</p>
-                        <p>XX unit</p>
-                    </div>
-                </div>
-
-                <Button onClick={onClick}>Finish</Button>
-            </div>
+                but getting close every day!
+                
+                <Streak {...props} />
+                
+                
+                <Button className="measurementButtons" onClick={onClick}>FINISH</Button>
+                
+            <Footer/>
         </div>
     )
 }
