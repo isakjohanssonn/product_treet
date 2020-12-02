@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { createBrowserHistory } from 'history'
@@ -18,8 +18,8 @@ import Tree from './Tree'
 // import History from './History'
 import Forest from './Forest'
 import { useAuth0 } from "@auth0/auth0-react";
-//import GetGameLevel from './openEHR/GetGameLvl';
-//import PostGameLevel from './openEHR/PostGameLvl';
+import GetGameLevel from './openEHR/GetGameLvl';
+import PostGameLevel from './openEHR/PostGameLvl';
 
 
 //Main now makes sure no one can reach code if not loggedin (commented away for ease in dev).
@@ -31,15 +31,25 @@ import { useAuth0 } from "@auth0/auth0-react";
 const Main = () => {
     const [level, setLevel] = useState(3);
 
-
     // openEHR
     // This works, in this case the level that is retrieved from openEHR is 1, so after fetch is complete the page rerenders to display game with level 1
-    // GetGameLevel(setLevel);
+    /*
+    
+    GetGameLevel(setLevel);
 
-    // This does not have an appropriate rest-route yet
-    // useEffect(() => {
-    //     PostGameLevel(level);
-    // }, [level]);
+    const didMount = useRef(false);
+
+    useEffect(() => {
+        console.log(didMount.current);
+        console.log(level);
+
+        if (!didMount.current) {
+            didMount.current = true;
+        } else {
+            PostGameLevel(level);
+        }
+    }, [level, didMount]);
+    */
 
     // const { isAuthenticated, isLoading } = useAuth0();
     // if (isLoading) {
@@ -65,7 +75,7 @@ const Main = () => {
                                     path='/'
                                     exact
                                     render={(props) => (
-                                        <Home {...props} level={level} />
+                                        <Home {...props} level={level} setLevel={setLevel}/>
                                     )}
                                 />
                                 <Route path="/login" component={Login} />

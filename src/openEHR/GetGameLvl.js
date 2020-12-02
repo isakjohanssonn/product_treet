@@ -11,7 +11,7 @@ const GetGameLevel = (setLevel) => {
     fetch(url, {
       method: 'GET',
       headers: headers,
-    }).then(res => res.json()).then(res => parseInt(res[res.length - 1]["#1"]["value"])).then(res => setLevel(res));
+    }).then(res => res.json()).then(res => parseInt(res[0]["#1"]["value"])).then(res => setLevel(res));
 
 } 
 
