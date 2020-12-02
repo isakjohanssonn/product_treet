@@ -25,6 +25,7 @@ import PostGameLevel from './openEHR/PostGameLvl';
 import MeasurementData from "./Components/MeasurementData";
 import CalcAchievements from './Components/CalcAchievements'
 import CalcStreak from './Components/CalcStreak'
+import GameSettings from './Components/GameSettings';
 
 //Main now makes sure no one can reach code if not loggedin (commented away for ease in dev).
 //TESTER : to test: uncomment row 30-43 + 100. Now you cannot go anywhere else than /login if not loggedin
@@ -124,6 +125,11 @@ const Main = () => {
                                 <Route path="/addmeddata" render={(props) =>
                                  (<AddMedDataNew {...props} currentStreak = {currentStreak}
                                     setCurrentStreak = {setCurrentStreak} />)} />
+                                     <Route
+                                    path='/gamesettings'
+                                    render={(props) => (
+                                        <GameSettings {...props} level={level} onClick={setLevel} />
+                                    )}/>
                                 <Route>
                                     <Redirect to="/" />
                                     {/* Added this row so if a a route fails/doesn't exist it redirects us to homepage anyway.  */}
