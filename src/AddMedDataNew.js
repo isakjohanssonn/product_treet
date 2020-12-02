@@ -4,14 +4,16 @@ import DateAndCalendar from "./Components/DateAndCalendar";
 import Navigationbar from "./Components/Navigationbar";
 import useRemainingMeasurements from "./Components/useRemainingMeasurements";
 import useMeasurementHistory from "./Components/useMeasurementHistory";
+import Footer from './Components/Footer';
+
 
 export default function AddMedDataNew(props) {
-  const {state} = props.location;
+  const { state } = props.location;
   let type, id, completed, from, onClick, time;
 
-  const {setCompleted} = useRemainingMeasurements();
-  const {setValue} = useMeasurementHistory();
-  const {currentStreak, setCurrentStreak} = props;
+  const { setCompleted } = useRemainingMeasurements();
+  const { setValue } = useMeasurementHistory();
+  const { currentStreak, setCurrentStreak } = props;
 
   onClick = setCompleted;
 
@@ -41,9 +43,10 @@ export default function AddMedDataNew(props) {
 
   return (
 
-    <div>
-      <Navigationbar title={title}/>
-      <DateAndCalendar/>
+    <div className="addMedDataNew">
+
+      <Navigationbar title={title} />
+      <DateAndCalendar />
       <NewMeasurement
         id={id}
         time={time}
@@ -54,6 +57,7 @@ export default function AddMedDataNew(props) {
         currentStreak={currentStreak}
         setCurrentStreak={setCurrentStreak}
       />
+      <Footer />
     </div>
   )
 }
