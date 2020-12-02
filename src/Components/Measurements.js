@@ -8,6 +8,7 @@ import GraphActivity from './GraphActivity';
 import GraphBloodSugar from './GraphBloodSugar';
 import { BsGraphUp, IoMdWalk } from "react-icons/all";
 import { ArrowRight } from 'react-bootstrap-icons';
+import GraphActivityExtended from './GraphActivityExt';
 
 const Measurements = () => {
 
@@ -32,7 +33,7 @@ const Measurements = () => {
       
       {/* Card containing Activity Graph */}
       <div>
-        <Link to="/allmeasurements" style={{ color: "black" }}>
+       {/* <Link to="/allmeasurements" style={{ color: "black" }}> */}
           <Card>
             <Card.Body style={{ paddingLeft: 10, paddingRight: 10, paddingBottom: 10 }}>
               <div id="lineup-wrapper">
@@ -43,7 +44,7 @@ const Measurements = () => {
               <GraphActivity />
             </Card.Body>
           </Card>
-        </Link>
+       {/* </Link> */}
 
         <br />
 
@@ -55,11 +56,14 @@ const Measurements = () => {
               <h4 style={{ display: "inline-block", marginLeft: 4, marginTop: "2.5%", verticalAlign: "middle" }}>Blood Sugar</h4>
               <ArrowRight style={{ float: "right", marginTop: 2, height: "9%", width: "10%" }} viewBox="0 0 16 16" className="pull-right arrowAchivement" fill="black" />
             </div>
-
             <GraphBloodSugar />
           </Card.Body>
         </Card>
+
+        <GraphActivityExtended />
       </div>
+
+
 
       <Footer />
     </div>

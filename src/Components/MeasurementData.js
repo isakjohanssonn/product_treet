@@ -55,6 +55,8 @@ function MeasurementData() {
       return -1;
   });
 
+  console.log(measurements);
+
   return <div>
     <Navigationbar title={'History'}/>
     <div>
@@ -74,7 +76,7 @@ function MeasurementData() {
 
     <ListGroup style={{marginBottom: 20}}>
       {measurements.map((measurement, index) => {
-        const {id, time, type, value, date} = measurement;
+        const {id, time, type, value, date, printDate} = measurement;
         const ActualIcon = IconTypes[type];
         const ActualValue = getValue(type, value);
         const goToAddMedData = () => history.push('/addmeddata', {type, id, from: 1});

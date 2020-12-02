@@ -1,6 +1,8 @@
 import React from "react";
 import { LineChart, XAxis, ReferenceLine, Line, ResponsiveContainer, Tooltip } from 'recharts';
 import { Card } from "react-bootstrap";
+import useMeasurementHistory, {MeasurementsTypes} from "./useMeasurementHistory";
+
 
 export default function GraphBloodSugar() {
 
@@ -10,7 +12,7 @@ export default function GraphBloodSugar() {
   var goalPrecision;  // The float precision of the set goal in the "Goal" card
   var latestValue = 0;  // The latest value shown in the "Latest" card
   var latestPrecision;   // The float precision of the latest value in the "Latest" card
-  var unit = "mg/dL";      // Unit to be shown in the "Goal" and "Latest" cards
+  var unit = "mmol/L";      // Unit to be shown in the "Goal" and "Latest" cards
 
   // ::: Seed Variables :::
   var startseed = 0;    // Index to start displaying values from in the graph
@@ -22,67 +24,37 @@ export default function GraphBloodSugar() {
   const dataReadyForGraph = [];
 
   // ::: Input data from measurements - Mock version :::
-  const MeasurementsTypes = {
-    BloodSugar: "BloodSugar",
-    Activity: "Activity",
-  };
+  
 
-  const data = [
-    { id: 0, time: '09:00', date: " 25/11/2020", type: MeasurementsTypes.Activity, value: 3.4 },
-    { id: 1, time: '09:00', date: " 26/11/2020", type: MeasurementsTypes.Activity, value: 7.8 },
-    { id: 3, time: '09:00', date: " 26/11/2020", type: MeasurementsTypes.BloodSugar, value: 10.0 },
-    { id: 4, time: '09:00', date: " 26/11/2020", type: MeasurementsTypes.BloodSugar, value: 15.0 },
-    { id: 5, time: '09:00', date: " 26/11/2020", type: MeasurementsTypes.BloodSugar, value: 15.0 },
-    { id: 6, time: '09:00', date: " 27/11/2020", type: MeasurementsTypes.Activity, value: 12.0 },
-    { id: 7, time: '09:00', date: " 27/11/2020", type: MeasurementsTypes.Activity, value: 20.0 },
-    { id: 8, time: '09:00', date: " 27/11/2020", type: MeasurementsTypes.Activity, value: 10.8 },
-    { id: 9, time: '09:00', date: " 28/11/2020", type: MeasurementsTypes.Activity, value: 1.2 },
-    { id: 10, time: '09:00', date: " 29/11/2020", type: MeasurementsTypes.Activity, value: 13.8 },
-    { id: 11, time: '09:00', date: " 29/11/2020", type: MeasurementsTypes.Activity, value: 20.8 },
-    { id: 12, time: '09:00', date: " 30/11/2020", type: MeasurementsTypes.Activity, value: 55.8 },
-    { id: 13, time: '09:00', date: " 31/11/2020", type: MeasurementsTypes.Activity, value: 1.8 },
-    { id: 14, time: '09:00', date: " 1/12/2020", type: MeasurementsTypes.Activity, value: 50.8 },
-    { id: 15, time: '09:00', date: " 2/12/2020", type: MeasurementsTypes.BloodSugar, value: 3.1 },
-    { id: 16, time: '13:00', date: " 5/12/2020", type: MeasurementsTypes.BloodSugar, value: 10.8 },
-  ];
+  const {measurements} = useMeasurementHistory();
+
 
   // sortMeasurementType takes the input data array and sorts out the MeasurementType to be displayed
   // in this case "blood sugar"
   // output: new array sortedData[]
 
   function sortMeasurementType() {
-    for (let i = 0; i < data.length; i++) {
-      if (data[i].type === MeasurementsTypes.BloodSugar) {
-        sortedData.push(data[i]);
+    for (let i = 0; i < measurements.length; i++) {
+      if (measurements[i].type === MeasurementsTypes.BloodSugar) {
+        sortedData.push(measurements[i]);
       }
     }
   }
   sortMeasurementType();
-
-  // dateFormat formats the date string value of each measurement
-  // from " 26/11/2020" to "26/11"
-  // output: sortedData[]
-
-  function dateFormat() {
-    for (let i = 0; i < sortedData.length; i++) {
-      sortedData[i].date = sortedData[i].date.trim();
-    }
-    for (let i = 0; i < sortedData.length; i++) {
-      sortedData[i].date = sortedData[i].date.substr(0, sortedData[i].date.length - 5);
-    }
-  }
-  dateFormat();
 
   // Since blood sugar levels have different reference levels in different times of the day
   // there can't be a function summing up the measurements for a day. 
   // sortByTime sorts the measurements taken before lunch to be displayed in the graph
   // output: sortedByTime[]
   function sortByTime() {
+    console.log("sorted:", sortedData);
     for (let i = 0; i < sortedData.length; i++) {
-        var x = parseInt(sortedData[i].time.substr(0, sortedData[i].time.length - 3));
-
+        var x = sortedData[i].time;
+      console.log("tiden på den vi e inne på", x);
+      
         if (x < 12) {
             sortedByTime.push(sortedData[i]);
+            
         } 
     }
   }
@@ -92,13 +64,8 @@ export default function GraphBloodSugar() {
   // and sets the float precision for output in "Latest" card
 
   function getLatestValue() {
-
     latestValue = sortedByTime[sortedByTime.length - 1].value;
-    if (latestValue < 10.0) {
-      latestPrecision = 2;
-    } else {
-      latestPrecision = 3;
-    }
+
   }
   getLatestValue();
 
@@ -136,8 +103,9 @@ export default function GraphBloodSugar() {
                 <LineChart data={dataReadyForGraph} margin={{ top: 10, right: 10, left: 10, bottom: 0 }}>
                 <ReferenceLine y={maxGoal} stroke="#d1d1d1" strokeDasharray="5 5" />
                   <ReferenceLine y={minGoal} stroke="#d1d1d1" strokeDasharray="5 5" />
-                  <XAxis tick={false} dataKey="date" />
+                  <XAxis tick={false} dataKey="printDate" />
                   <Line dot={false} dataKey="value" stroke="#898989" strokeWidth={2} color="black" />
+                <Tooltip/>
                 </LineChart>
               </ResponsiveContainer>
               {/* End of recharts LineChart */}
@@ -152,7 +120,7 @@ export default function GraphBloodSugar() {
               <Card className="latestValueCard" style={{ width: "48%", height: 50, display: "inline-block" }}>
                 <Card.Body className="latestValueCardBody" style={{ paddingTop: "0px", paddingLeft: "5px", paddingRight: "5px", paddingTop: "4%", height: "100%" }}>
                   <h4 style={{ textAlign: "center" }}>
-                    {latestValue.toPrecision(latestPrecision)} {unit}
+                    {latestValue} {unit}
                     <br />
                   Latest
                   </h4>

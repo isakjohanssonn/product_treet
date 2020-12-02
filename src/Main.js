@@ -34,7 +34,6 @@ import GameSettings from './Components/GameSettings';
 
 
 const Main = () => {
-
     const [level, setLevel] = useState(2);
     //The current streak increases when a new measurment is entered in newmeasurment
     const [currentStreak, setCurrentStreak] = useState(14);
@@ -120,10 +119,10 @@ const Main = () => {
                                 <Route path="/Tree" component={Tree} />
                                 {/* <Route path="/history" component={History} /> */}
                                 <Route path="/goals" component={GoalsPage} />
-                                <Route path="/diabetes" 
+                                <Route path="/diabetes"
                                         render={(props) => (
                                         <DiabetesPage {...props} level={level}
-                                        reachedAchievements = {reachedAchievements} 
+                                        reachedAchievements = {reachedAchievements}
                                         currentStreak = {currentStreak}
                                         longestStreak = {longestStreak}/>
                                     )} />
