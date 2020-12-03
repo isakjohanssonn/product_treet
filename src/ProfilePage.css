@@ -31,7 +31,14 @@
 .cardHeader {
     display:flex;
     align-items:center;
-    margin-top: 0em;
+    margin: 0em;
+
+}
+.cardHeaderCenter {
+    display:flex;
+    align-items:center;
+    margin: 0em;
+    text-align: center;
 }
 
 .button {
@@ -42,6 +49,21 @@
 .topBlock {
     height: 5em;
 }
+.scrollable {
+    padding-bottom: 1rem;
+  }
+  .centeredCardTitle {
+    font-size: 1.1rem;
+    color: grey;
+    text-align: center;
+    background-color: white;
+    margin-left: 0rem;
+    margin-bottom: 0px;
+    border: none;
+    padding: 0px;
+    margin-top: 20px;
+  }
+
 /*.profileImageCard {
     margin: auto;
     width: 100%;
