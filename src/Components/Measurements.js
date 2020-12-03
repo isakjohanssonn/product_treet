@@ -1,78 +1,67 @@
 import React from "react";
 import "./Measurements.css";
-import Streak from "./Streak";
-import Dropdown from 'react-bootstrap/Dropdown';
-import Button from 'react-bootstrap/Button';
+import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { LineChart, XAxis, Line, ResponsiveContainer } from 'recharts';
 import Navigationbar from './Navigationbar';
 import Footer from './Footer';
+import GraphActivity from './GraphActivity';
+import GraphBloodSugar from './GraphBloodSugar';
+import { BsGraphUp, IoMdWalk } from "react-icons/all";
+import { ArrowRight } from 'react-bootstrap-icons';
 
 const Measurements = () => {
 
-  const data = [
-    {
-      name: 'Mon', value: 4000,
-    },
-    {
-      name: 'Tue', value: 3000,
-    },
-    {
-      name: 'Wed', value: 2000,
-    },
-    {
-      name: 'Thu', value: 2780,
-    },
-    {
-      name: 'Fri', value: 1890,
-    },
-    {
-      name: 'Sat', value: 2390,
-    },
-    {
-      name: 'Sun', value: 3490,
-    },
-  ];
-
   return (
     <div>
-      <Navigationbar title={'Measurements'} />
-      <div className="topButtons">
-        <Dropdown>
-          <Dropdown.Toggle className="topButton" id="dropdown-basic">
-            Type
-            </Dropdown.Toggle>
+      <Navigationbar title={'History'} />
 
-          <Dropdown.Menu>
-            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-        <Link to="/allmeasurements">
-          <Button className="topButton" id='allMeasurements'>All measurements</Button>
-        </Link>
-      </div>
+      <Link to="/allmeasurements">
+        <Card style={{ marginTop: 80, height: 50, paddingTop: 0 }}>
+          <Card.Body style={{ paddingLeft: 10, paddingRight: 10 }}>
+            <div style={{ width: "85%", display: "inline-block" }}>
+              <h4 style={{ marginTop: "2.5%", color: "black", verticalAlign: "middle", position: "relative", display: "inline-block" }}>All measurements</h4>
+            </div>
+            <div style={{ display: "inline-block", width: "10%" }}>
+              <ArrowRight style={{ marginTop: 0, width: 50, height: "width"}} viewBox="0 0 16 16" className="pull-right arrowAchivement" fill="black" />
+            </div>
+          </Card.Body>
+        </Card>
+      </Link>
 
+      <br />
+      
+      {/* Card containing Activity Graph */}
       <div>
-        <ResponsiveContainer width="100%" height={200}>
-          <LineChart data={data} margin={{ top: 40, right: 30, left: 30, bottom: 0 }}>
-            <XAxis dataKey="name" />
-            <Line dot={false} type="monotone" dataKey="value" stroke="#8884d8" color="black" />
-          </LineChart>
-        </ResponsiveContainer>
-      </div>
-      <div>
-        <Streak />
+       <Link to="/activity" style={{ color: "black" }}>
+          <Card>
+            <Card.Body style={{ paddingLeft: 10, paddingRight: 10, paddingBottom: 10 }}>
+              <div id="lineup-wrapper">
+                <IoMdWalk style={{ width: "8%", height: "8%", display: "inline-block" }} />
+                <h4 style={{ display: "inline-block", marginTop: "2.5%", verticalAlign: "middle" }}>Activity</h4>
+                <ArrowRight style={{ float: "right", marginTop: 2, width: "10%", height: "10%" }} viewBox="0 0 16 16" className="pull-right arrowAchivement" fill="black" />
+              </div>
+              <GraphActivity from={0} /> 
+            </Card.Body>
+          </Card>
+       </Link>
+
+        <br />
+
+        {/* Card containing Blood Sugar Graph */}
+        <Card>
+          <Card.Body style={{ paddingLeft: 10, paddingRight: 10, paddingBottom: 10 }}>
+            <div id="lineup-wrapper">
+              <BsGraphUp style={{ marginLeft: 4, width: "6%", height: "6%", fontWeight: "bold", display: "inline-block" }} />
+              <h4 style={{ display: "inline-block", marginLeft: 4, marginTop: "2.5%", verticalAlign: "middle" }}>Blood Sugar (Before meal)</h4>
+              <ArrowRight style={{ float: "right", marginTop: 2, height: "9%", width: "10%" }} viewBox="0 0 16 16" className="pull-right arrowAchivement" fill="black" />
+            </div>
+            <GraphBloodSugar from={0}/>
+          </Card.Body>
+        </Card>
       </div>
 
 
-      <div className="bottomButtons">
-        <Button className="bottomButton">Recent Measurements</Button>
-        <Link to="/allmeasurements">
-          <Button className="bottomButton">All Measurements</Button>
-        </Link>
-      </div>
+
       <Footer />
     </div>
   );

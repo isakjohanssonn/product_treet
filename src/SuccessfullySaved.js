@@ -8,6 +8,11 @@ import Streak from "./Components/Streak";
 import Footer from './Components/Footer';
 import { Card } from "react-bootstrap";
 
+
+//IMPORTANT: how to import the graph components.
+// For activitygraph <GraphActivity from={1} />
+// For BloodsugarGraph <GraphBloodsugar from={1} />
+
 export default function SuccessfullySaved(props) {
 
     const {state} = props.location;
@@ -33,34 +38,34 @@ export default function SuccessfullySaved(props) {
         <div className="savedMeasurementView" >
             <Navigationbar title={'Saved Measurement'}/>
             <DateAndCalendar/>
-            
+
                 You have successfully saved a new meausurement!
-                
+
 
 
                 <div style={{display: 'flex', width: '100%'}}>
                 <Card className="savedMeasurementBox">
                         Saved
                         <p><pl>{value}</pl> unit </p>
-                </Card> 
+                </Card>
 
                 <div style={{display: 'flex', width: '5%'}}></div>
 
                 <Card className="savedMeasurementBox">
                         Goal
                         <p><pl>XX</pl> unit</p>
-                </Card> 
+                </Card>
                 </div>
 
-                
+
                 You're not quite there,
                 but getting close every day!
-                
+
                 <Streak {...props} />
-                
-                
+
+
                 <Button className="measurementButtons" onClick={onClick}>FINISH</Button>
-                
+
             <Footer/>
         </div>
     )

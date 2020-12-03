@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./NewMeasurement.css";
 import Form from 'react-bootstrap/Form'
-import { Button, Card } from "react-bootstrap";
-import { useHistory } from "react-router-dom";
-import useMeasurementHistory, { MeasurementsTypes } from "./useMeasurementHistory"
+import {Button, Card} from "react-bootstrap";
+import {useHistory} from "react-router-dom";
+import useMeasurementHistory, {MeasurementsTypes} from "./useMeasurementHistory"
 import GetGoogleFit from '../googleFit/getGoogleFit'
 
 
@@ -48,7 +48,12 @@ function NewMeasurement(props) {
     if (value) {
       setCompleted(id, value);
       if (from === 0 && !completed) {
-        addMeasurement(time, new Date(), type, value);
+
+        const date = new Date();
+        const printDate = [date.getDate(),date.getMonth()+1].join("/");
+
+        addMeasurement(time, date, printDate, type, value);
+
         setCurrentStreak(currentStreak + 1);
       }
       from === 0 ? history.push('/successfullysaved', { value }) : history.push('/measurements');

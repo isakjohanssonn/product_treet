@@ -26,6 +26,7 @@ import MeasurementData from "./Components/MeasurementData";
 import CalcAchievements from './Components/CalcAchievements'
 import CalcStreak from './Components/CalcStreak'
 import GameSettings from './Components/GameSettings';
+import Activity from './Components/Activity'
 
 //Main now makes sure no one can reach code if not loggedin (commented away for ease in dev).
 //TESTER : to test: uncomment row 30-43 + 100. Now you cannot go anywhere else than /login if not loggedin
@@ -34,7 +35,6 @@ import GameSettings from './Components/GameSettings';
 
 
 const Main = () => {
-
     const [level, setLevel] = useState(2);
     //The current streak increases when a new measurment is entered in newmeasurment
     const [currentStreak, setCurrentStreak] = useState(14);
@@ -108,6 +108,7 @@ const Main = () => {
                                 {/* <Route path="/newmeasurement" component={NewMeasurement} /> */}
                                 <Route path="/measurements" component={Measurements} />
                                 <Route path="/allmeasurements" component={MeasurementData} />
+                                <Route path="/activity" component={Activity} />
                                 <Route
                                     path='/achievement'
                                     render={(props) => (
@@ -120,10 +121,10 @@ const Main = () => {
                                 <Route path="/Tree" component={Tree} />
                                 {/* <Route path="/history" component={History} /> */}
                                 <Route path="/goals" component={GoalsPage} />
-                                <Route path="/diabetes" 
+                                <Route path="/diabetes"
                                         render={(props) => (
                                         <DiabetesPage {...props} level={level}
-                                        reachedAchievements = {reachedAchievements} 
+                                        reachedAchievements = {reachedAchievements}
                                         currentStreak = {currentStreak}
                                         longestStreak = {longestStreak}/>
                                     )} />
