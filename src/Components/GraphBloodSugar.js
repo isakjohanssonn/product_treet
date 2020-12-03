@@ -1,14 +1,15 @@
 import React from "react";
-import { LineChart, XAxis, ReferenceLine, Line, ResponsiveContainer, Tooltip } from 'recharts';
+import { LineChart, XAxis, YAxis, ReferenceLine, Line, ResponsiveContainer, Tooltip } from 'recharts';
 import { Card } from "react-bootstrap";
 import useMeasurementHistory, {MeasurementsTypes} from "./useMeasurementHistory";
 
 
-export default function GraphBloodSugar() {
+export default function GraphBloodSugar(props) {
 
   // ::: Reference Line Variables :::
-  const minGoal = 5;     // The set min. goal and the bottom reference line in the graph 
-  const maxGoal = 10;    // The set max. goal and the top reference line in the graph
+  const {from} = props;
+  const minGoal = 6.0;     // The set min. goal and the bottom reference line in the graph 
+  const maxGoal = 8.0;    // The set max. goal and the top reference line in the graph
   var goalPrecision;  // The float precision of the set goal in the "Goal" card
   var latestValue = 0;  // The latest value shown in the "Latest" card
   var latestPrecision;   // The float precision of the latest value in the "Latest" card
@@ -47,10 +48,8 @@ export default function GraphBloodSugar() {
   // sortByTime sorts the measurements taken before lunch to be displayed in the graph
   // output: sortedByTime[]
   function sortByTime() {
-    console.log("sorted:", sortedData);
     for (let i = 0; i < sortedData.length; i++) {
         var x = sortedData[i].time;
-      console.log("tiden på den vi e inne på", x);
       
         if (x < 12) {
             sortedByTime.push(sortedData[i]);
@@ -87,8 +86,8 @@ export default function GraphBloodSugar() {
   }
   sliceArrayForGraph();
 
+  if(from===0) {
   return (
-
     <div>
 
       {/* Start of wrapper card */}
@@ -104,6 +103,7 @@ export default function GraphBloodSugar() {
                 <ReferenceLine y={maxGoal} stroke="#d1d1d1" strokeDasharray="5 5" />
                   <ReferenceLine y={minGoal} stroke="#d1d1d1" strokeDasharray="5 5" />
                   <XAxis tick={false} dataKey="printDate" />
+                  <YAxis hide={true} type="number" domain={[3.0, 10.0]}/>
                   <Line dot={false} dataKey="value" stroke="#898989" strokeWidth={2} color="black" />
                 <Tooltip/>
                 </LineChart>
@@ -147,4 +147,30 @@ export default function GraphBloodSugar() {
 
     </div>
   )
+}
+else {
+  return (
+    <div>
+          <Card id="graphBloodSugarCard">
+            <Card.Body id="graphBloodSugarCardBody" style={{ padding: "0px" }}>
+            <h4 style={{textAlign: "center", color: "#898989", marginTop: "8px"}}>Weekly graph</h4>
+              {/*Start of recharts LineChart */}
+              <ResponsiveContainer width="100%" height={120}>
+                <LineChart data={dataReadyForGraph} margin={{ top: 10, right: 10, left: 10, bottom: 0 }}>
+                <ReferenceLine y={maxGoal} stroke="#d1d1d1" strokeDasharray="5 5" />
+                  <ReferenceLine y={minGoal} stroke="#d1d1d1" strokeDasharray="5 5" />
+                  <XAxis tick={false} dataKey="printDate" />
+                  <Line dot={false} dataKey="value" stroke="#898989" strokeWidth={2} color="black" />
+                <Tooltip/>
+                </LineChart>
+              </ResponsiveContainer>
+              {/* End of recharts LineChart */}
+
+            </Card.Body>
+          </Card>
+
+         
+    </div>
+  )
+}
 }

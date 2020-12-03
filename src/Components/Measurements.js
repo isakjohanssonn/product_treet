@@ -8,7 +8,6 @@ import GraphActivity from './GraphActivity';
 import GraphBloodSugar from './GraphBloodSugar';
 import { BsGraphUp, IoMdWalk } from "react-icons/all";
 import { ArrowRight } from 'react-bootstrap-icons';
-import GraphActivityExtended from './GraphActivityExt';
 
 const Measurements = () => {
 
@@ -33,7 +32,7 @@ const Measurements = () => {
       
       {/* Card containing Activity Graph */}
       <div>
-       {/* <Link to="/allmeasurements" style={{ color: "black" }}> */}
+       <Link to="/activity" style={{ color: "black" }}>
           <Card>
             <Card.Body style={{ paddingLeft: 10, paddingRight: 10, paddingBottom: 10 }}>
               <div id="lineup-wrapper">
@@ -41,10 +40,10 @@ const Measurements = () => {
                 <h4 style={{ display: "inline-block", marginTop: "2.5%", verticalAlign: "middle" }}>Activity</h4>
                 <ArrowRight style={{ float: "right", marginTop: 2, width: "10%", height: "10%" }} viewBox="0 0 16 16" className="pull-right arrowAchivement" fill="black" />
               </div>
-              <GraphActivity />
+              <GraphActivity from={0} /> 
             </Card.Body>
           </Card>
-       {/* </Link> */}
+       </Link>
 
         <br />
 
@@ -53,14 +52,12 @@ const Measurements = () => {
           <Card.Body style={{ paddingLeft: 10, paddingRight: 10, paddingBottom: 10 }}>
             <div id="lineup-wrapper">
               <BsGraphUp style={{ marginLeft: 4, width: "6%", height: "6%", fontWeight: "bold", display: "inline-block" }} />
-              <h4 style={{ display: "inline-block", marginLeft: 4, marginTop: "2.5%", verticalAlign: "middle" }}>Blood Sugar</h4>
+              <h4 style={{ display: "inline-block", marginLeft: 4, marginTop: "2.5%", verticalAlign: "middle" }}>Blood Sugar (Before meal)</h4>
               <ArrowRight style={{ float: "right", marginTop: 2, height: "9%", width: "10%" }} viewBox="0 0 16 16" className="pull-right arrowAchivement" fill="black" />
             </div>
-            <GraphBloodSugar />
+            <GraphBloodSugar from={0}/>
           </Card.Body>
         </Card>
-
-        <GraphActivityExtended />
       </div>
 
 

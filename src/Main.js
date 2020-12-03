@@ -26,6 +26,7 @@ import MeasurementData from "./Components/MeasurementData";
 import CalcAchievements from './Components/CalcAchievements'
 import CalcStreak from './Components/CalcStreak'
 import GameSettings from './Components/GameSettings';
+import Activity from './Components/Activity'
 
 //Main now makes sure no one can reach code if not loggedin (commented away for ease in dev).
 //TESTER : to test: uncomment row 30-43 + 100. Now you cannot go anywhere else than /login if not loggedin
@@ -107,6 +108,7 @@ const Main = () => {
                                 {/* <Route path="/newmeasurement" component={NewMeasurement} /> */}
                                 <Route path="/measurements" component={Measurements} />
                                 <Route path="/allmeasurements" component={MeasurementData} />
+                                <Route path="/activity" component={Activity} />
                                 <Route
                                     path='/achievement'
                                     render={(props) => (

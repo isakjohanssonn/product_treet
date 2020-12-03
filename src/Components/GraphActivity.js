@@ -3,10 +3,10 @@ import { LineChart, XAxis, ReferenceLine, Line, ResponsiveContainer, Tooltip } f
 import { Card } from "react-bootstrap";
 import useMeasurementHistory from "./useMeasurementHistory";
 
-export default function GraphActivity() {
-
+export default function GraphActivity(props) {
+  const {from} = props;
   // ::: Reference Line Variables :::
-  const minGoal = 1000;     // The set goal and the reference line in the graph 
+  const minGoal = 5000;     // The set goal and the reference line in the graph 
   var goalPrecision;  // The float precision of the set goal in the "Goal" card
   var latestValue = 0;  // The latest value shown in the "Latest" card
   var latestPrecision;   // The float precision of the latest value in the "Latest" card
@@ -29,6 +29,8 @@ export default function GraphActivity() {
   };
 
   const {measurements} = useMeasurementHistory();
+  const test = measurements.slice();
+  
   
 
   // sortActivity takes the input data array and sorts out the MeasurementType to be displayed
@@ -36,78 +38,48 @@ export default function GraphActivity() {
   // output: new array sortedData[]
 
   function sortActivity() {
-    for (let i = 0; i < measurements.length; i++) {
-      if (measurements[i].type === MeasurementsTypes.Activity) {
-        sortedData.push(measurements[i]);
+    for (let i = 0; i < test.length; i++) {
+      if (test[i].type === MeasurementsTypes.Activity) {
+        sortedData.push(test[i]);
       }
     }
   }
   sortActivity();
 
+  sortedData.sort((a, b) => {
+    if (a.date < b.date) return -1;
+  });
 
-  // mergeDates looks for data measured in the same day and adds these together
-  // to be able to display the total measurements for each day in the graph
-  // output: summedData[]
-
-  function mergeDates() {
-    sortedData.forEach(el => {
-      
-      if (summedData.length === 0) {
-        delete el.id;
-        summedData.push(el);
-      }
-      else {
-        const get = () => {
-          for (let i = 0; i < summedData.length; i++) {
-            if (summedData[i].printDate === el.printDate) {
-              return { stat: true, id: i };
-            }
-          }
-        }
-        let i = get();
-        if (i) { 
-          summedData[i.id].value += parseInt(el.value);
-        }
-        else {
-          delete el.id;
-          summedData.push(el);
-        }
-      }
-    });
-  }
-  mergeDates();
 
   // getLatestValue retrieves the latest measurement value
-
-  function getLatestValue() {
-    latestValue = summedData[summedData.length - 1].value;
-  }
-  getLatestValue();
+  
 
   // sliceArrayForGraph slices the summedData array and
   // pushes the values to display in the Graph to a new array 
   // output: dataReadyForGraph[]
 
   function sliceArrayForGraph() {
-    if (summedData.length < seed) {
-      for (let i = 0; i < (summedData.length); i++) {
-        dataReadyForGraph.push(summedData[i]);
+    if (sortedData.length < seed) {
+      for (let i = 0; i < (sortedData.length); i++) {
+        dataReadyForGraph.push(sortedData[i]);
       }
     } else {
-      startseed = ((summedData.length) - seed);
-      for (let y = startseed; y < (summedData.length); y++) {
-        dataReadyForGraph.push(summedData[y]);
+      startseed = ((sortedData.length) - seed);
+      for (let y = startseed; y < (sortedData.length); y++) {
+        dataReadyForGraph.push(sortedData[y]);
       }
     }
   }
   sliceArrayForGraph();
 
-  dataReadyForGraph.sort((a, b) => {
-    if (a.date < b.date) return -1;
-  });
+  function getLatestValue() {
+    latestValue = sortedData[sortedData.length - 1].value;
+  }
+  getLatestValue();
+  
 
+  if (from===0) {
   return (
-
     <div>
 
       {/* Start of wrapper card */}
@@ -164,4 +136,29 @@ export default function GraphActivity() {
 
     </div>
   )
+}
+
+else {
+  return (
+    <div>
+     
+          <Card id="graphActivityCard">
+            <Card.Body id="graphActivityCardBody" style={{ padding: "0px" }}>
+            <h4 style={{textAlign: "center", color: "#898989", marginTop: "8px"}}>Weekly graph</h4>
+              {/*Start of recharts LineChart */}
+              <ResponsiveContainer width="100%" height={120}>
+                <LineChart data={dataReadyForGraph} margin={{ top: 10, right: 10, left: 10, bottom: 0 }}>
+                  <ReferenceLine y={minGoal} stroke="#d1d1d1" strokeDasharray="5 5" />
+                  <XAxis tick={false} dataKey="printDate" />
+                  <Line dot={false} dataKey="value" stroke="#898989" strokeWidth={2} color="black" />
+                  <Tooltip/>
+                </LineChart>
+              </ResponsiveContainer>
+              {/* End of recharts LineChart */}
+
+            </Card.Body>
+          </Card>
+        </div>
+  )
+}
 }
