@@ -17,7 +17,7 @@ export const ProfileBox = (props) => {
   return (
     <div>
 
-      <Card className="boxCardMain " >
+      <Card className="boxCardMain standardBorder" >
         <Card.Body className="cardBody card-columns">
           <div className="iconDiv">
             {icon}

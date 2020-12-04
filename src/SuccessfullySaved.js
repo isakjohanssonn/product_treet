@@ -1,4 +1,5 @@
 import React from "react";
+import "./Global.css";
 import DateAndCalendar from "./Components/DateAndCalendar";
 import Navigationbar from "./Components/Navigationbar";
 import './SuccessfullySaved.css';
@@ -35,7 +36,7 @@ export default function SuccessfullySaved(props) {
 
 
     return (
-        <div className="savedMeasurementView" >
+        <div className="savedMeasurementView scrollable" >
             <Navigationbar title={'Saved Measurement'}/>
             <DateAndCalendar/>
 
