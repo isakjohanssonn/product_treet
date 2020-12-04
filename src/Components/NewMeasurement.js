@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form'
 import {Button, Card} from "react-bootstrap";
 import {useHistory} from "react-router-dom";
 import useMeasurementHistory, {MeasurementsTypes} from "./useMeasurementHistory"
+import useRemainingMeasurements from "./useRemainingMeasurements";
 import GetGoogleFit from '../googleFit/getGoogleFit'
 
 
@@ -21,6 +22,7 @@ const UnitTypes = {
 function GetPreviousMeasurement(props) {
   const { type } = props;
   const { measurements } = useMeasurementHistory();
+  
   var temp = measurements.length
   var i;
 
@@ -38,6 +40,7 @@ function NewMeasurement(props) {
   const history = useHistory();
   const { addMeasurement } = useMeasurementHistory();
   const [error, setError] = useState('');
+  const { remainingAmount } = useRemainingMeasurements();
 
   const handleChange = (e) => {
     setValue(e.target.value);
@@ -53,8 +56,11 @@ function NewMeasurement(props) {
         const printDate = [date.getDate(),date.getMonth()+1].join("/");
 
         addMeasurement(time, date, printDate, type, value);
-
-        setCurrentStreak(currentStreak + 1);
+        console.log("Remaining amount: " + remainingAmount);
+        if (remainingAmount - 1 == 0)
+        {
+           setCurrentStreak(currentStreak + 1);
+        }
       }
       from === 0 ? history.push('/successfullysaved', { value }) : history.push('/measurements');
     } else {
