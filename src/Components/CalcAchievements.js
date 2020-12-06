@@ -1,6 +1,7 @@
 import AllAchievements from "./AllAchievements";
 const CalcAchievements = (currentStreak, reachedAchievement, setReachedAchievement) =>
 {
+    console.log("arrayen i calcachievments är ", reachedAchievement);
     var nextAchievementID;
     if(reachedAchievement.length != 0)
     {

@@ -19,8 +19,8 @@ import Tree from './Tree'
 // import History from './History'
 import Forest from './Forest'
 import { useAuth0 } from "@auth0/auth0-react";
-import GetGameLevel from './openEHR/GetGameLvl';
-import PostGameLevel from './openEHR/PostGameLvl';
+import GetInfo from './openEHR/GetInfo';
+import PostInfo from './openEHR/PostInfo';
 
 
 import MeasurementData from "./Components/MeasurementData";
@@ -48,25 +48,27 @@ const Main = () => {
     //Calculates if the longest streak has changed
     CalcStreak(currentStreak, longestStreak, setLongestStreak);
 
+   //Calculating start info for currentTree, to be used in the forest and tree
+   const [currentTree, setCurrentTree] = useState(3);
+   const [treeAge, setTreeAge] = useState(currentStreak);
+   const [isSickTree, setIsSickTree] = useState(false);
+   CalcTree(treeAge, currentTree, setCurrentTree, setTreeAge);
+
     // openEHR
 
     const didMount = useRef(false);
 
     useEffect(() => {
         if (!didMount.current) {
-            GetGameLevel(setLevel);
+            GetInfo(setLevel, setCurrentStreak, setLongestStreak, setCurrentTree, setTreeAge, setIsSickTree, setReachedAchievements);
             didMount.current = true;
         } else {
-            PostGameLevel(level);
+            PostInfo(level, currentStreak, longestStreak, currentTree, treeAge, isSickTree, reachedAchievements);
         }
-    }, [level, didMount]);
+    }, [level, currentStreak, longestStreak, currentTree, treeAge, isSickTree, reachedAchievements, didMount]);
 
 
-    //Calculating start info for currentTree, to be used in the forest and tree
-    const [currentTree, setCurrentTree] = useState(3);
-    const [treeAge, setTreeAge] = useState(currentStreak);
-    const [isSickTree, setIsSickTree] = useState(false);
-    CalcTree(treeAge, currentTree, setCurrentTree, setTreeAge);
+ 
 
 
     const { isAuthenticated, isLoading } = useAuth0();
