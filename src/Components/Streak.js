@@ -12,9 +12,11 @@ import { forestParameters } from "../Forest";
 // Author: O. Olsson & A. Cederblad
 export default function Streak(props) {
 
-  const { level } = props;
-  const { reachedAchievements } = props;
-  const { currentStreak, longestStreak } = props;
+  const {level} = props;
+  const {reachedAchievements} = props;
+  const {currentStreak, longestStreak} = props;
+  const {is_sick, tree, treeAge} = props;
+ 
 
   const Game = () => {
     if (level === 1) {
@@ -39,15 +41,15 @@ export default function Streak(props) {
         </Card>
       );
     } else {
-      var parameters = [];
-      parameters = forestParameters();
-      const tree = parameters[0];
-      const current_age = parameters[1];
-      const is_sick = parameters[2]
+      // var parameters = [];
+      // parameters = forestParameters();
+      // const tree = parameters[0];
+      // const current_age = parameters[1];
+      // const is_sick = parameters[2]
       return (
         <Card className="streakCardWithin standardBorder">
           <Card.Body>
-            <GrowingTree age={current_age} current_tree={tree} is_sick={is_sick} is_animated={false} />
+            <GrowingTree age={treeAge} current_tree={tree} is_sick={is_sick} is_animated={false}/>
           </Card.Body>
         </Card>
       );

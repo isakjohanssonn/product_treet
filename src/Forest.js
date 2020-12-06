@@ -60,12 +60,18 @@ export function forestParameters()
     return [tree, age, is_sick];
 }
 
-const Forest = () => {
-    var parameters = [];
-    parameters = forestParameters();
-    const tree = parameters[0];
-    const current_age = parameters[1];
-    const is_sick = parameters[2];
+
+//Forest ska ta in parametrar som kommer från main. Main hämtar från ehr och om åldern är över trädets ålder så ändra uppdatera nuvarande träd.
+const Forest = (props) => {
+    const {is_sick, tree, current_age} = props;
+
+    console.log("har vi nan text");
+    console.log("is sick ar nu ", is_sick, " och tree ar ", tree, " current age ", current_age);
+    // var parameters = [];
+    // parameters = forestParameters();
+    // const tree = parameters[0];
+    // const current_age = parameters[1];
+    // const is_sick = parameters[2];
     const testTreeName = getTreeName(tree);
 
     return (

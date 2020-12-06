@@ -11,10 +11,10 @@ export const MeasurementsTypes = {
 };
 
 const data = [
-    {id: 0, type: MeasurementsTypes.Activity, time: 18, completed: false, value: null},
-    {id: 1, type: MeasurementsTypes.BloodSugar, time: 8, completed: false, value: null},
-    {id: 2, type: MeasurementsTypes.BloodSugar, time: 18, completed: false, value: null},
-    {id: 3, type: MeasurementsTypes.BloodSugar, time: 21, completed: false, value: null},
+    {id: 0, type: MeasurementsTypes.Activity, time: 18, completed: true, value: null},
+    {id: 1, type: MeasurementsTypes.BloodSugar, time: 8, completed: true, value: null},
+    {id: 2, type: MeasurementsTypes.BloodSugar, time: 18, completed: true, value: null},
+    {id: 3, type: MeasurementsTypes.BloodSugar, time: 21, completed: true, value: null},
     {id: 4, type: MeasurementsTypes.BloodSugar, time: 12, completed: false, value: null},
 ]
 

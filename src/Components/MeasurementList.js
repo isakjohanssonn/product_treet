@@ -44,9 +44,11 @@ function getTime (time) {
 // TODO: When the real data is in, make sure to sort data on:
 //  1. Time first,
 //  2. completed measurement second
-function MeasurementList() {
+function MeasurementList(props) {
+    const {treeAge, current_tree, is_sick} = props;
     const history = useHistory();
     const {measurements, setCompleted} = useRemainingMeasurements();
+    const {remainingAmount} = props;
 
     //sorting function that sorts by time
     measurements.sort((a, b) => {
