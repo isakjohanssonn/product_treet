@@ -19,13 +19,15 @@ const NavigationBar = (props) => {
   }, [gtitle]);
 
   const BackButton = () => {
-    if (gtitle == 'Home' ){ 
+    if (gtitle === 'Home' ){ 
       return null  
-    } else if (gtitle == 'Goals'){
+    } else if (gtitle === 'Goals'){
       return null
-    } else if (gtitle == 'History'){
+    } else if (gtitle === 'Welcome'){
       return null
-    } else if (gtitle == 'Profile'){
+    } else if (gtitle === 'History'){
+      return null
+    } else if (gtitle === 'Profile'){
       return null
     } else {
       return (
@@ -42,7 +44,7 @@ const NavigationBar = (props) => {
       <div className="title topNavTitle">
         <h3> {gtitle} </h3>
       </div>
-      <div classname="logoutDiv" id="logout">
+      <div className="logoutDiv" id="logout">
         <button className="navbutton logoutButton" id="logout" onClick={() => logout({ returnTo: 'http://localhost:3000/login' })}><FiLogOut className="logOutIcon"></FiLogOut></button>
       </div>
     </ListGroup >
