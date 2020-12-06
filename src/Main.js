@@ -22,6 +22,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import GetGameLevel from './openEHR/GetGameLvl';
 import PostGameLevel from './openEHR/PostGameLvl';
 
+
 import MeasurementData from "./Components/MeasurementData";
 import CalcAchievements from './Components/CalcAchievements'
 import CalcStreak from './Components/CalcStreak'
@@ -120,7 +121,8 @@ const Main = () => {
                                 <Route path="/successfullysaved" component={SuccessfullySaved} />
                                 <Route path="/Tree" component={Tree} />
                                 {/* <Route path="/history" component={History} /> */}
-                                <Route path="/goals" component={GoalsPage} />
+                                <Route path="/goals" render = {(props) =>
+                                    (<GoalsPage level = {level}/> )}/>
                                 <Route path="/diabetes"
                                         render={(props) => (
                                         <DiabetesPage {...props} level={level}

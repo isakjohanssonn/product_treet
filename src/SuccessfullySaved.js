@@ -45,14 +45,14 @@ export default function SuccessfullySaved(props) {
 
 
                 <div style={{display: 'flex', width: '100%'}}>
-                <Card className="savedMeasurementBox">
+                <Card className="savedMeasurementBox standardBorder">
                         Saved
                         <p><pl>{value}</pl> unit </p>
                 </Card>
 
                 <div style={{display: 'flex', width: '5%'}}></div>
 
-                <Card className="savedMeasurementBox">
+                <Card className="savedMeasurementBox standardBorder">
                         Goal
                         <p><pl>XX</pl> unit</p>
                 </Card>

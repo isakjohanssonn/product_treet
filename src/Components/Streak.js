@@ -1,5 +1,6 @@
 import React from "react";
 import { Card } from "react-bootstrap"
+import "../Global.css";
 import "./Streak.css"
 import GrowingTree from './GrowingTree'
 import ComingAchievementBox from "./ComingAchievementBox";
@@ -18,7 +19,7 @@ export default function Streak(props) {
   const Game = () => {
     if (level === 1) {
       return (
-        <Card border="secondary" className="streakCardWithin">
+        <Card border="secondary" className="streakCardWithin standardBorder">
           <Card.Body className="body">
             <div className="verticalCenter" >
               <h3> Longest Streak</h3>
@@ -29,7 +30,7 @@ export default function Streak(props) {
       );
     } else if (level === 2) {
       return (
-        <Card border="secondary" className="streakCardWithin">
+        <Card border="secondary" className="streakCardWithin standardBorder">
           <Card.Body>
           <ComingAchievementBox lastAchievement=
           {reachedAchievements[reachedAchievements.length - 1]}
@@ -44,7 +45,7 @@ export default function Streak(props) {
       const current_age = parameters[1];
       const is_sick = parameters[2]
       return (
-        <Card border="secondary" className="streakCardWithin">
+        <Card className="streakCardWithin standardBorder">
           <Card.Body>
             <GrowingTree age={current_age} current_tree={tree} is_sick={is_sick} is_animated={false}/>
           </Card.Body>
@@ -54,7 +55,7 @@ export default function Streak(props) {
   }
   return (
     <div>
-      <Card border="secondary" className="mainCard" id="StreakCard">
+      <Card className="mainCard standardBorder" id="StreakCard">
         <Card.Body className="streakCardBody">
           {Game()}
           <Card border="secondary" className="streakCardWithin" id="middleLine">
