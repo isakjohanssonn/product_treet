@@ -149,7 +149,10 @@ const Main = () => {
                                         <DiabetesPage {...props} level={level}
                                         reachedAchievements = {reachedAchievements}
                                         currentStreak = {currentStreak}
-                                        longestStreak = {longestStreak}/>
+                                        longestStreak = {longestStreak}
+                                        is_sick = {isSickTree}
+                                        tree = {currentTree}
+                                        treeAge = {treeAge}/>
                                     )} />
                                 
                                 {/*<Route path="/forest" component={Forest} />*/}
