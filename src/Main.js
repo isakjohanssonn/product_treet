@@ -28,6 +28,7 @@ import CalcAchievements from './Components/CalcAchievements'
 import CalcStreak from './Components/CalcStreak'
 import GameSettings from './Components/GameSettings';
 import Activity from './Components/Activity'
+import { CalcTree } from "./Components/CalcTreeInfo";
 
 //Main now makes sure no one can reach code if not loggedin (commented away for ease in dev).
 //TESTER : to test: uncomment row 30-43 + 100. Now you cannot go anywhere else than /login if not loggedin
@@ -38,8 +39,8 @@ import Activity from './Components/Activity'
 const Main = () => {
     const [level, setLevel] = useState(2);
     //The current streak increases when a new measurment is entered in newmeasurment
-    const [currentStreak, setCurrentStreak] = useState(14);
-    const [longestStreak, setLongestStreak] = useState(14);
+    const [currentStreak, setCurrentStreak] = useState(24);
+    const [longestStreak, setLongestStreak] = useState(24);
     //The achievements that have been reached.
     const [reachedAchievements, setReachedAchievements] = useState([0, 1]);
     //Calculates if another achievement have been gained, then adds it to reachedachievements
@@ -59,6 +60,13 @@ const Main = () => {
             PostGameLevel(level);
         }
     }, [level, didMount]);
+
+
+    //Calculating start info for currentTree, to be used in the forest and tree
+    const [currentTree, setCurrentTree] = useState(3);
+    const [treeAge, setTreeAge] = useState(currentStreak);
+    const [isSickTree, setIsSickTree] = useState(false);
+    CalcTree(treeAge, currentTree, setCurrentTree, setTreeAge);
 
 
     // const { isAuthenticated, isLoading } = useAuth0();
@@ -88,7 +96,11 @@ const Main = () => {
                                         <Home {...props} level={level}
                                         reachedAchievements = {reachedAchievements}
                                         currentStreak = {currentStreak}
-                                        longestStreak = {longestStreak}/>
+                                        longestStreak = {longestStreak}
+                                        is_sick = {isSickTree}
+                                        tree = {currentTree}
+                                        treeAge = {treeAge}
+                                        />
                                     )}
                                 />
                                 <Route path="/login" component={Login} />
@@ -118,7 +130,16 @@ const Main = () => {
                                         currentStreak = {currentStreak}/>
                                     )}
                                 />
-                                <Route path="/successfullysaved" component={SuccessfullySaved} />
+                                <Route path="/successfullysaved" 
+                                render={(props) => (
+                                    <SuccessfullySaved {...props} 
+                                    currentStreak = {currentStreak}
+                                    setCurrentStreak = {setCurrentStreak}
+                                    is_sick = {isSickTree}
+                                    tree = {currentTree}
+                                    treeAge = {treeAge}/>
+                                    )} />
+
                                 <Route path="/Tree" component={Tree} />
                                 {/* <Route path="/history" component={History} /> */}
                                 <Route path="/goals" render = {(props) =>
@@ -130,10 +151,22 @@ const Main = () => {
                                         currentStreak = {currentStreak}
                                         longestStreak = {longestStreak}/>
                                     )} />
-                                <Route path="/forest" component={Forest} />
+                                
+                                {/*<Route path="/forest" component={Forest} />*/}
+                                <Route path="/forest"
+                                    exact
+                                    render={(props) => (
+                                        <Forest {...props} is_sick={isSickTree} tree={currentTree} current_age={treeAge}/>
+                                    )}
+                                />
                                 <Route path="/addmeddata" render={(props) =>
-                                 (<AddMedDataNew {...props} currentStreak = {currentStreak}
-                                    setCurrentStreak = {setCurrentStreak} />)} />
+                                 (<AddMedDataNew {...props} 
+                                    currentStreak = {currentStreak}
+                                    setCurrentStreak = {setCurrentStreak} 
+                                    treeAge = {treeAge}
+                                    setTreeAge = {setTreeAge}           
+                                     />)} />
+                                     
                                      <Route
                                     path='/gamesettings'
                                     render={(props) => (
@@ -148,7 +181,6 @@ const Main = () => {
                         </div>
                     </Router>
                 </React.Fragment>
-
             </>
         );
   //  }

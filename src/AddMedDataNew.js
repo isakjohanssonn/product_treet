@@ -10,10 +10,13 @@ import Footer from './Components/Footer';
 export default function AddMedDataNew(props) {
   const { state } = props.location;
   let type, id, completed, from, onClick, time;
-
   const { setCompleted } = useRemainingMeasurements();
   const { setValue } = useMeasurementHistory();
+  const {remainingAmount} = props;
   const { currentStreak, setCurrentStreak } = props;
+  const { treeAge, setTreeAge } = props;
+
+
 
   onClick = setCompleted;
 
@@ -56,7 +59,9 @@ export default function AddMedDataNew(props) {
         completed={completed}
         currentStreak={currentStreak}
         setCurrentStreak={setCurrentStreak}
-      />
+        treeAge={treeAge}
+        setTreeAge={setTreeAge}
+/>
       <Footer />
     </div>
   )
