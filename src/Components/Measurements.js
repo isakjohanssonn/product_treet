@@ -1,4 +1,5 @@
 import React from "react";
+import '../Global.css';
 import "./Measurements.css";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -16,10 +17,11 @@ const Measurements = () => {
       <Navigationbar title={'History'} />
 
       <Link to="/allmeasurements">
-        <Card style={{ marginTop: 80, height: 50, paddingTop: 0 }}>
+        <Card className = "standardBorder" style={{ marginTop: 80, height: 50, paddingTop: 2 }}>
           <Card.Body style={{ paddingLeft: 10, paddingRight: 10 }}>
             <div style={{ width: "85%", display: "inline-block" }}>
-              <h4 style={{ marginTop: "2.5%", color: "black", verticalAlign: "middle", position: "relative", display: "inline-block" }}>All measurements</h4>
+              <h4 style={{ marginTop: "2.5%", color: "black", verticalAlign: "middle", position: "relative", display: "inline-block" }}>
+                All measurements</h4>
             </div>
             <div style={{ display: "inline-block", width: "10%" }}>
               <ArrowRight style={{ marginTop: 0, width: 50, height: "width"}} viewBox="0 0 16 16" className="pull-right arrowAchivement" fill="black" />
@@ -33,7 +35,7 @@ const Measurements = () => {
       {/* Card containing Activity Graph */}
       <div>
        <Link to="/activity" style={{ color: "black" }}>
-          <Card>
+          <Card className = "standardBorder">
             <Card.Body style={{ paddingLeft: 10, paddingRight: 10, paddingBottom: 10 }}>
               <div id="lineup-wrapper">
                 <IoMdWalk style={{ width: "8%", height: "8%", display: "inline-block" }} />
@@ -48,7 +50,7 @@ const Measurements = () => {
         <br />
 
         {/* Card containing Blood Sugar Graph */}
-        <Card>
+        <Card className = "standardBorder">
           <Card.Body style={{ paddingLeft: 10, paddingRight: 10, paddingBottom: 10 }}>
             <div id="lineup-wrapper">
               <BsGraphUp style={{ marginLeft: 4, width: "6%", height: "6%", fontWeight: "bold", display: "inline-block" }} />

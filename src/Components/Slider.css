@@ -1,17 +1,17 @@
 .slider {
     position: relative;
     top: 66px;
+    text-align: center;
 }
 
 .slider-button {
     background-color: white;
     color: grey;
-    border-color: grey;
-    width: 9rem;
-    height: 6.5rem;
-    padding: 0;
+    width: 9.5rem;
+    height: 7rem;
+    padding: 0.5rem;
+    margin: 0.5rem;
     margin-top: 1rem;
-    border-radius: 0.5em;
 }
 
 .slider-button:hover {

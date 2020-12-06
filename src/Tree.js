@@ -5,6 +5,7 @@ import { getTreeName, getTreeAge, getTreeDescription } from "./Components/AllTre
 import Navigationbar from './Components/Navigationbar';
 import Footer from './Components/Footer';
 import { useLocation} from "react-router-dom";
+import './Global.css';
 
 const Tree = () => {
     const location = useLocation();
@@ -19,7 +20,7 @@ const Tree = () => {
             <br></br><br></br>
             <br></br><br></br>
             
-                <h5 className="text-center">{testTreeName}</h5>
+                <h4 className="text-center">{testTreeName}</h4>
                 <GrowingTree age={current_age} current_tree={tree} is_animated={true}/>
                 <GetDescription tree={tree}/>
                 <GetAchievmentInfo tree={tree}/>
@@ -35,10 +36,10 @@ const GetAchievmentInfo = (props) => {
   return (
         <div>
             <div>
-                <Card className="achievementBoxCardMain" >
-                    <Card.Header className="achievementBoxCardHeader">How to achieve</Card.Header>
+                <Card className="boxCardMain standardBorder" >
+                    <Card.Header >How to achieve</Card.Header>
                     <Card.Body className="achievementBoxCardBody card-columns">
-                      This tree is received when you have maintained an activity streak for {age} days.
+                      <h4>This tree is received when you have maintained an activity streak for {age} days.</h4>
                     </Card.Body>
                 </Card>
             </div>
@@ -52,10 +53,10 @@ const GetDescription = (props) => {
     return (
       <div>
         <div>
-          <Card className="achievementBoxCardMain" >
-            <Card.Header className="achievementBoxCardHeader">Tree Info</Card.Header>
+          <Card className="boxCardMain standardBorder" >
+            <Card.Header >Tree Info</Card.Header>
             <Card.Body className="achievementBoxCardBody card-columns">
-              {testTreeDescription}
+              <h4>{testTreeDescription}</h4>
             </Card.Body>
           </Card>
         </div>

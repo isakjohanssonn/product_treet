@@ -2,6 +2,7 @@ import React from "react";
 import { LineChart, XAxis, ReferenceLine, Line, ResponsiveContainer, Tooltip } from 'recharts';
 import { Card } from "react-bootstrap";
 import useMeasurementHistory from "./useMeasurementHistory";
+import '../Global.css';
 
 export default function GraphActivity(props) {
   const {from} = props;
@@ -83,10 +84,10 @@ export default function GraphActivity(props) {
     <div>
 
       {/* Start of wrapper card */}
-      <Card className="graphWrapper" style={{ border: "none" }}>
-        <Card.Body className="graphWrapperBody" style={{ border: "none", padding: "0px" }}>
+      <Card className="graphWrapper standardBorder" style={{ border: "none" }}>
+        <Card.Body className="graphWrapperBody" style={{ border: "none", padding: "0px", width: "100%" }}>
 
-          <Card id="graphActivityCard">
+          <Card id="graphActivityCard" className = "standardBorder">
             <Card.Body id="graphActivityCardBody" style={{ padding: "0px" }}>
 
               {/*Start of recharts LineChart */}
@@ -106,7 +107,7 @@ export default function GraphActivity(props) {
           {/* Start of box cards below graph, "Latest" and "Goal"*/}
           <Card className="infoCardsWrapper" style={{ border: "none", marginTop: 10 }}>
             <Card.Body className="infoCardsWrapperBody" style={{ border: "none", padding: "0px" }}>
-              <Card className="latestValueCard" style={{ width: "48%", height: 50, display: "inline-block" }}>
+              <Card className="latestValueCard standardBorder" style={{ width: "48%", height: 50, display: "inline-block" }}>
                 <Card.Body className="latestValueCardBody" style={{ paddingTop: "0px", paddingLeft: "5px", paddingRight: "5px", paddingTop: "4%", height: "100%" }}>
                   <h4 style={{ textAlign: "center" }}>
                     {latestValue} {unit}
@@ -116,7 +117,7 @@ export default function GraphActivity(props) {
                 </Card.Body>
               </Card>
 
-              <Card className="goalValueCard" style={{ float: "right", width: "48%", height: 50, display: "inline-block" }}>
+              <Card className="goalValueCard standardBorder" style={{ float: "right", width: "48%", height: 50, display: "inline-block" }}>
                 <Card.Body className="goalValueCardBody" style={{ paddingTop: "0px", paddingLeft: "5px", paddingRight: "5px", paddingTop: "4%", height: "100%" }}>
                   <h4 style={{ textAlign: "center" }}>
                     {minGoal.toPrecision(goalPrecision)} {unit}

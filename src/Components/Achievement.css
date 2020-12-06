@@ -1,13 +1,13 @@
 .placeholder {
-    height : 6em;
-    width: 6em;
+    height : auto;
+    width: 4em;
     margin: auto;
     margin-bottom: 0.8em;
     
 }
 
 .progressbar {
-    width: 7em;
+    width: 4em;
     height : 0.5em;
     margin: auto;
 }

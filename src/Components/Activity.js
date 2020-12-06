@@ -1,19 +1,12 @@
 import React, { useState } from "react";
+import "../Global.css";
 import "./Measurements.css";
 import "./Activity.css";
-import Streak from "./Streak";
 import { Card } from "react-bootstrap";
-import Dropdown from 'react-bootstrap/Dropdown';
-import Button from 'react-bootstrap/Button';
-import { Link } from "react-router-dom";
-import { LineChart, XAxis, Line, ResponsiveContainer } from 'recharts';
 import Navigationbar from './Navigationbar';
 import Footer from './Footer';
-import GraphActivity from './GraphActivity';
-import GraphBloodSugar from './GraphBloodSugar';
 import GraphActivityExtended from './GraphActivityExt';
-import { BsGraphUp, IoMdWalk, MdModeEdit, FaCalendarAlt, AiOutlineArrowRight, AiOutlineLine } from "react-icons/all";
-import { ArrowRight } from 'react-bootstrap-icons';
+import { IoMdWalk, MdModeEdit, FaCalendarAlt, AiOutlineArrowRight, AiOutlineLine } from "react-icons/all";
 import useMeasurementHistory, { MeasurementsTypes } from "./useMeasurementHistory";
 import ListGroup from "react-bootstrap/ListGroup";
 import { useHistory } from "react-router-dom";
@@ -106,9 +99,9 @@ const Activity = () => {
       <Navigationbar title={'Activity'} />
 
 
-      <Card className="infoCardsWrapper" style={{ border: "none", marginTop: "74px" }}>
+      <Card className="infoCardsWrapper standardBorder" style={{ border: "none", marginTop: "74px" }}>
         <Card.Body className="infoCardsWrapperBody" style={{ border: "none", padding: "0px" }}>
-          <Card className="latestValueCard" style={{ width: "48%", height: 50, display: "inline-block" }}>
+          <Card className="latestValueCard standardBorder" style={{ width: "48%", height: 50, display: "inline-block" }}>
             <Card.Body className="latestValueCardBody" style={{ paddingTop: "0px", paddingLeft: "5px", paddingRight: "5px", paddingTop: "4%", height: "100%" }}>
               <h4 style={{ textAlign: "center" }}>
                 {latestValue} {unit}
@@ -118,7 +111,7 @@ const Activity = () => {
             </Card.Body>
           </Card>
 
-          <Card className="goalValueCard" style={{ float: "right", width: "48%", height: 50, display: "inline-block" }}>
+          <Card className="goalValueCard standardBorder" style={{ float: "right", width: "48%", height: 50, display: "inline-block" }}>
             <Card.Body className="goalValueCardBody" style={{ paddingTop: "0px", paddingLeft: "5px", paddingRight: "5px", paddingTop: "4%", height: "100%" }}>
               <h4 style={{ textAlign: "center" }}>
                 {goal} {unit}
@@ -133,14 +126,14 @@ const Activity = () => {
 
       <div className="dates">
         <DatePicker
-          className="datePicker"
+          className="datePicker standardBorder"
           dateFormat="dd/MM/yyyy"
           selected={toDate}
           onChange={date => setToDate(date)}
           placeholderText="To - date" />
         <AiOutlineLine />
         <DatePicker
-          className="datePicker"
+          className="datePicker standardBorder"
           dateFormat="dd/MM/yyyy"
           selected={fromDate}
           onChange={date => setFromDate(date)}
@@ -155,7 +148,7 @@ const Activity = () => {
 
         {/* Card containing Activity Graph */}
 
-        <Card>
+        <Card className="standardBorder">
           <Card.Body style={{ paddingLeft: 10, paddingRight: 10, paddingBottom: 10 }}>
             <GraphActivityExtended fromDate={fromDate} toDate={toDate} />
           </Card.Body>

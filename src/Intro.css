@@ -1,0 +1,20 @@
+small {
+    width : 100%;
+}
+
+.saveButton {
+    margin-top: 1rem;
+}
+
+.introDiv {
+    text-align: center;
+    margin : 1rem;
+}
+
+#body {
+    padding: 0.5rem;
+}
+
+.profileImageCard {
+    margin-bottom: 1em;
+}

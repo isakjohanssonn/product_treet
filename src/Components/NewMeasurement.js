@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../Global.css"
 import "./NewMeasurement.css";
 import Form from 'react-bootstrap/Form'
 import {Button, Card} from "react-bootstrap";
@@ -73,7 +74,7 @@ function NewMeasurement(props) {
   return (
     <div className="newMeasurementView" style={{ textAlign: "center" }}>
       Please enter your measurement
-      <Card className="NewMeasurementBox">
+      <Card className="NewMeasurementBox standardBorder">
         <Card.Body className="hehe" >
           <Form.Group>
             <Form.Label >{HeaderTexts[type]}</Form.Label>
@@ -91,14 +92,14 @@ function NewMeasurement(props) {
 
 
       <div style={{ display: 'flex', width: '100%' }}>
-        <Card className="savedMeasurementBox">
+        <Card className="savedMeasurementBox standardBorder">
           Previous
                         <p><pl><GetPreviousMeasurement type={type} /></pl> {UnitTypes[type]} </p>
         </Card>
 
         <div style={{ display: 'flex', width: '5%' }}></div>
 
-        <Card className="savedMeasurementBox">
+        <Card className="savedMeasurementBox standardBorder">
           Goal
                         <p><pl>XX</pl> {UnitTypes[type]}</p>
         </Card>

@@ -5,8 +5,9 @@ import "./ProfilePage.css";
 import "./Global.css";
 import GameSettings from "./Components/GameSettings";
 import { Button, Card } from "react-bootstrap";
-import { ArrowRight, PeopleFill, Controller, ShieldLockFill, Grid3x3GapFill, QuestionCircleFill } from 'react-bootstrap-icons';
+import { ArrowRight, PeopleFill, LockFill, Grid3x3GapFill, QuestionCircleFill } from 'react-bootstrap-icons';
 import { FaUserAlt } from 'react-icons/fa'
+import {IoLogoGameControllerA} from 'react-icons/io';
 import { useHistory } from "react-router-dom";
 import Navigationbar from './Components/Navigationbar'
 import Footer from './Components/Footer'
@@ -63,10 +64,10 @@ const ProfilePage = (props) => {
           icon={<PeopleFill className="profileBoxIcon" />} />
         <button className="button" onClick={() => { SendTo(history) }}>
           <ProfileBox title={"Gamification level"}
-            icon={<Controller className="profileBoxIcon" />} />
+            icon={<IoLogoGameControllerA className="profileBoxIcon" />} />
         </button>
         <ProfileBox title={"Change password"}
-          icon={<ShieldLockFill className="profileBoxIcon" />} />
+          icon={<LockFill className="profileBoxIcon" />} />
         <ProfileBox title={"Third party applications"}
           icon={<Grid3x3GapFill className="profileBoxIcon" />} />
         <ProfileBox title={"Help"}

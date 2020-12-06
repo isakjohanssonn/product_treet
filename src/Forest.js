@@ -7,6 +7,7 @@ import { UpcomingTree } from "./Components/UpcomingTree";
 import { FullyGrownTree } from "./Components/FullyGrownTree";
 import Navigationbar from './Components/Navigationbar';
 import Footer from './Components/Footer';
+import './Global.css';
 import "./Forest.css"
 import "./Components/GrowingTree.css"
 import { Link } from "react-router-dom"
@@ -23,7 +24,7 @@ const FullyGrownTrees = (props) =>
     }
 
     return (
-        <Card className="ForestGrowingCard">
+        <Card className="ForestGrowingCard standardBorder">
             <div className="row">
                 {trees}
             </div>
@@ -42,7 +43,7 @@ const UpcomingTrees = (props) =>
     }
 
     return (
-        <Card className="ForestGrowingCard">
+        <Card className="ForestGrowingCard standardBorder">
             <div className="row">
                 {trees}
             </div>
@@ -80,25 +81,26 @@ const Forest = (props) => {
             {/*This is only to prevent navbar from covering the text*/}
             <br></br><br></br> 
             <br></br><br></br>
-            Growing
-            <Card>
+            <div className = "scrollable">
+            <h4>Growing</h4>
+            <Card className = "standardBorder">
                 <div className="Rtable">
                     <div className="Rtable-cell1 Rtable-cell--alignLeft"><GrowingTree age={current_age} current_tree={tree} is_sick={is_sick} is_animated={true}/></div>
-                    <div className="Rtable-cell2 Rtable-cell--alignMiddle"><h5>{testTreeName}</h5></div>
+                    <div className="Rtable-cell2 Rtable-cell--alignMiddle"><h4>{testTreeName}</h4></div>
                     <div className="Rtable-cell3 Rtable-cell--alignMiddle"><Link to={{pathname: '/tree', state: {tree: tree, age: current_age}}}><ArrowRight viewBox="0 0 16 16" className="pull-right arrowForest" fill="black" /></Link></div>
                 </div>
             </Card>
 
             <br></br>
 
-            Upcoming Trees
+            <h4>Upcoming Trees</h4>
             <UpcomingTrees current_tree={tree}/>
             
             <br></br>
 
-            Your fully grown trees
+            <h4>Your fully grown trees</h4>
             <FullyGrownTrees current_tree={tree}/>
-
+            </div>
             <Footer />
         </div>
     );
