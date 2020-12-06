@@ -10,7 +10,6 @@ export default function GraphActivity(props) {
   const minGoal = 5000;     // The set goal and the reference line in the graph 
   var goalPrecision;  // The float precision of the set goal in the "Goal" card
   var latestValue = 0;  // The latest value shown in the "Latest" card
-  var latestPrecision;   // The float precision of the latest value in the "Latest" card
   var unit = "steps";      // Unit to be shown in the "Goal" and "Latest" cards
 
   // ::: Seed Variables :::
@@ -19,7 +18,6 @@ export default function GraphActivity(props) {
 
   // ::: Arrays :::
   const sortedData = [];
-  const summedData = [];
   const dataReadyForGraph = [];
 
 
@@ -49,6 +47,7 @@ export default function GraphActivity(props) {
 
   sortedData.sort((a, b) => {
     if (a.date < b.date) return -1;
+    return null;
   });
 
 
@@ -108,7 +107,7 @@ export default function GraphActivity(props) {
           <Card className="infoCardsWrapper" style={{ border: "none", marginTop: 10 }}>
             <Card.Body className="infoCardsWrapperBody" style={{ border: "none", padding: "0px" }}>
               <Card className="latestValueCard standardBorder" style={{ width: "48%", height: 50, display: "inline-block" }}>
-                <Card.Body className="latestValueCardBody" style={{ paddingTop: "0px", paddingLeft: "5px", paddingRight: "5px", paddingTop: "4%", height: "100%" }}>
+                <Card.Body className="latestValueCardBody" style={{  paddingLeft: "5px", paddingRight: "5px", paddingTop: "4%", height: "100%" }}>
                   <h4 style={{ textAlign: "center" }}>
                     {latestValue} {unit}
                     <br />
@@ -118,7 +117,7 @@ export default function GraphActivity(props) {
               </Card>
 
               <Card className="goalValueCard standardBorder" style={{ float: "right", width: "48%", height: 50, display: "inline-block" }}>
-                <Card.Body className="goalValueCardBody" style={{ paddingTop: "0px", paddingLeft: "5px", paddingRight: "5px", paddingTop: "4%", height: "100%" }}>
+                <Card.Body className="goalValueCardBody" style={{ paddingLeft: "5px", paddingRight: "5px", paddingTop: "4%", height: "100%" }}>
                   <h4 style={{ textAlign: "center" }}>
                     {minGoal.toPrecision(goalPrecision)} {unit}
                     <br />

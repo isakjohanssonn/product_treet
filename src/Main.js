@@ -69,20 +69,20 @@ const Main = () => {
     CalcTree(treeAge, currentTree, setCurrentTree, setTreeAge);
 
 
-    // const { isAuthenticated, isLoading } = useAuth0();
-    // if (isLoading) {
-    //     return <div>Loading ...</div>;
-    // }
-    // if (!isAuthenticated) {
-    //     return (
-    //         <Router>
-    //             <Switch>
-    //                 <Route path='/' component={Login} />
-    //             </Switch>
-    //         </Router>
-    //     );
-    // }
-    //if (isAuthenticated) {
+    const { isAuthenticated, isLoading } = useAuth0();
+    if (isLoading) {
+        return <div>Loading ...</div>;
+    }
+    if (!isAuthenticated) {
+        return (
+            <Router>
+                <Switch>
+                    <Route path='/' component={Login} />
+                </Switch>
+            </Router>
+        );
+    }
+    if (isAuthenticated) {
         return (
             <>
                 <React.Fragment>
@@ -183,7 +183,7 @@ const Main = () => {
                 </React.Fragment>
             </>
         );
-  //  }
+   }
 }
 
 export default Main;

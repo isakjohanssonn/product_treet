@@ -12,7 +12,7 @@ export const UpcomingTree = (props) => {
       <div>
         <Card className="UpcomingTreeCardMain text-center" >
           <Card.Body className="UpcomingTreeCardBody ">
-              <div><img src={testTree} className="treeimage" /></div>
+              <div><img src={testTree} className="treeimage" alt = {"Tree"} /></div>
           </Card.Body>
         </Card>
       </div>

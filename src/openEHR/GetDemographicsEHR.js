@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {useState} from "react";
 
 
 //To use: in your Component: "const [stateName] = useState(GetDemographicsEHR()), and import component"
