@@ -44,9 +44,11 @@ function getTime (time) {
 // TODO: When the real data is in, make sure to sort data on:
 //  1. Time first,
 //  2. completed measurement second
-function MeasurementList() {
+function MeasurementList(props) {
+    const {treeAge, current_tree, is_sick} = props;
     const history = useHistory();
     const {measurements, setCompleted} = useRemainingMeasurements();
+    const {remainingAmount} = props;
 
     //sorting function that sorts by time
     measurements.sort((a, b) => {
@@ -65,7 +67,7 @@ function MeasurementList() {
                 const ActualIcon = IconTypes[type];
                 const header = getHeader(completed, type);
                 const StatusIcon = completed ? FaCheckCircle : BsPlusCircleFill;
-                const goToAddMedData = () => history.push('/addmeddata', {time, type, id, completed, from: 0});
+                const goToAddMedData = () => history.push('/addmeddata', {time, type, id, completed, from: 0, remainingAmount});
                 const completedStyle = completed ? {backgroundColor: '#bdd8f1'} : null;
                 const unit = completed? value + UnitTypes[type] : null;
                 const text = type===MeasurementsTypes.Activity ? "Go for a walk" : "Blood Sugar";
