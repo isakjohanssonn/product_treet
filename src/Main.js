@@ -47,12 +47,12 @@ const Main = () => {
     CalcStreak(currentStreak, longestStreak, setLongestStreak);
 
     // openEHR
-    GetGameLevel(setLevel);
 
     const didMount = useRef(false);
 
     useEffect(() => {
         if (!didMount.current) {
+            GetGameLevel(setLevel);
             didMount.current = true;
         } else {
             PostGameLevel(level);
