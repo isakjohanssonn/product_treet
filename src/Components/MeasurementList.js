@@ -66,7 +66,7 @@ function MeasurementList() {
                 const header = getHeader(completed, type);
                 const StatusIcon = completed ? FaCheckCircle : BsPlusCircleFill;
                 const goToAddMedData = () => history.push('/addmeddata', {time, type, id, completed, from: 0});
-                const completedStyle = completed ? {backgroundColor: '#bdd8f1'} : null;
+                const completedStyle = completed ? {backgroundColor: 'rgb(201, 228, 255)'} : null;
                 const unit = completed? value + UnitTypes[type] : null;
                 const text = type===MeasurementsTypes.Activity ? "Go for a walk" : "Blood Sugar";
                 const TimeString = getTime(time);
@@ -76,7 +76,8 @@ function MeasurementList() {
                     className="listItem"
                     key={'measurement' + index}
                     style={completedStyle}
-                    onClick={!completed ? goToAddMedData : undefined}
+                    onClick={goToAddMedData}
+                    
                 >
                     <div className="measurementCardContent">
                         <div className="measurementCardContentLeft">

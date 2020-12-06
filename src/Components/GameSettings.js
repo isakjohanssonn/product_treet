@@ -7,6 +7,7 @@ import { Card, Form, Row, Button } from 'react-bootstrap'
 import './GameSettings.css'
 import { useHistory } from 'react-router-dom';
 import GetGameLvl from'../openEHR/GetGameLvl';
+import '../Intro.css';
 
 
 
@@ -30,6 +31,7 @@ const GameSettings = (props) => {
 
   return (
     <div>
+      <div className = "topBlock"/>
       <NavigationBar title={"Gamification Level"}/>
       <div className="profileMain">
         <div className="profileCard">
@@ -40,7 +42,7 @@ const GameSettings = (props) => {
 
         <Card border="secondary" className="gamesettingsCard">
           <Card.Header>Gameification Level</Card.Header>
-          <Card.Body className="body">
+          <Card.Body id = "body">
             <Form.Group className="gameLvlForm" as={Row}>
               <Form.Label as="legend">
               </Form.Label>
@@ -87,7 +89,9 @@ const GameSettings = (props) => {
             </Form.Group>
           </Card.Body>
         </Card>
+        <div className = "introDiv">
         <Button className="saveButton" onClick={() =>  history.goBack()}>Save</Button>
+        </div>
       </div>
       <Footer/>
     </div>

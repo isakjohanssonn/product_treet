@@ -1,6 +1,7 @@
 //The box that renders all existing achievements.
 import React from "react";
 import { Card } from "react-bootstrap";
+import '../Global.css';
 import "./AchievementBox.css";
 import { ArrowRight } from 'react-bootstrap-icons';
 import AllAchievements from "./AllAchievements";
@@ -28,7 +29,7 @@ const AllAchievementBox = () => {
     <div>
       <Card.Header className="achievementBoxCardHeader">All achievements</Card.Header>
       {/* Creating the card/box to contain the achievements */}
-      <Card className="achievementBoxCardMain " >
+      <Card className="achievementBoxCardMain standardBorder" >
         <Card.Body className="achievementBoxCardBody card-columns">
           <div className="row row-cols-md-3">
             {result}

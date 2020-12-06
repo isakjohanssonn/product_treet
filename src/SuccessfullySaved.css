@@ -1,16 +1,16 @@
 .savedMeasurementBox {
     flex: 1;
-    margin-top: 5px;
-    margin-bottom: 20px;
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
     padding-top: 5px;
 }
 
 .measurementButtons{
     background-color: white;
-    color: #585858;
-    border: 4px solid #1D76C5;
+    border-radius: 6px;
+    border: 3px solid rgb(0, 133, 220);
     font-weight: bold;
-    width: 42%;
+    width: 30%;
     height: 6%;
     bottom: 0;
     position: fixed;
@@ -26,4 +26,8 @@ pl{
 .savedMeasurementView{
     color:#585858;
     text-align: center;  
+}
+
+.title {
+    width : 100%;
 }

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import '../Global.css'
 import "./Slider.css";
 import Button from 'react-bootstrap/Button';
 import { Link } from "react-router-dom";
@@ -12,7 +13,7 @@ const Slider = (props) => {
   if (level > 1)
   {
     secondItem = (<Link to="/achievement" className="slider-link">
-    <Button className="slider-button">
+    <Button className="slider-button standardBorder">
       <div className="image-holder">
         <object className="tree-image-slider" type="image/png" data={GoldenStar}/>
       </div>
@@ -23,7 +24,7 @@ const Slider = (props) => {
   if( level === 3)
   {
     firstItem = (<Link to="/forest" className="slider-link">
-    <Button className="slider-button">
+    <Button className="slider-button standardBorder">
       <div className="image-holder">
         <object className="tree-image-slider" type="image/svg+xml" data={getTree(3, 7, false, false)}/>
       </div>

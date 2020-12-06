@@ -4,7 +4,7 @@ import "../Global.css";
 import "./Streak.css"
 import GrowingTree from './GrowingTree'
 import ComingAchievementBox from "./ComingAchievementBox";
-import {forestParameters} from "../Forest";
+import { forestParameters } from "../Forest";
 
 
 // This function prints the streakdiv. Depending on the hook: gamelvl (soon to be imported from EHR, hard coded at the moment)
@@ -12,18 +12,18 @@ import {forestParameters} from "../Forest";
 // Author: O. Olsson & A. Cederblad
 export default function Streak(props) {
 
-  const {level} = props;
-  const {reachedAchievements} = props;
-  const {currentStreak, longestStreak} = props;
-  
+  const { level } = props;
+  const { reachedAchievements } = props;
+  const { currentStreak, longestStreak } = props;
+
   const Game = () => {
     if (level === 1) {
       return (
         <Card border="secondary" className="streakCardWithin standardBorder">
-          <Card.Body className="body">
+          <Card.Body className="body level1">
             <div className="verticalCenter" >
-              <h3> Longest Streak</h3>
-              <h4>{longestStreak} days </h4>
+              <h3>{longestStreak} days </h3>
+              <h4> Longest Streak</h4>
             </div>
           </Card.Body>
         </Card>
@@ -32,9 +32,9 @@ export default function Streak(props) {
       return (
         <Card border="secondary" className="streakCardWithin standardBorder">
           <Card.Body>
-          <ComingAchievementBox lastAchievement=
-          {reachedAchievements[reachedAchievements.length - 1]}
-           showOne = {1} currentStreak = {currentStreak}/>
+            <ComingAchievementBox lastAchievement=
+              {reachedAchievements[reachedAchievements.length - 1]}
+              showOne={1} currentStreak={currentStreak} />
           </Card.Body>
         </Card>
       );
@@ -47,7 +47,7 @@ export default function Streak(props) {
       return (
         <Card className="streakCardWithin standardBorder">
           <Card.Body>
-            <GrowingTree age={current_age} current_tree={tree} is_sick={is_sick} is_animated={false}/>
+            <GrowingTree age={current_age} current_tree={tree} is_sick={is_sick} is_animated={false} />
           </Card.Body>
         </Card>
       );
@@ -61,8 +61,8 @@ export default function Streak(props) {
           <Card border="secondary" className="streakCardWithin" id="middleLine">
             <Card.Body className="body">
               <div className="verticalCenter" >
-                <h3>Current Streak</h3>
-                <h4>{currentStreak} days </h4>
+                <h3>{currentStreak} days </h3>
+                <h4>Current Streak</h4>
               </div>
             </Card.Body>
           </Card>

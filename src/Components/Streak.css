@@ -22,7 +22,7 @@
     text-align: center;
 }
 #middleLine{
-    border-left: solid #000;
+    border-left: solid #8d8d8d5d ;
     border-width: 1px;
     border-radius: 0mm;
 }
@@ -49,4 +49,8 @@
 
 .card-body {
     padding: 0;
+}
+
+.level1 {
+    padding: 1rem;
 }

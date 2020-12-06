@@ -6,6 +6,7 @@ import "./AchievementBox.css";
 import { ArrowRight } from 'react-bootstrap-icons';
 import AllAchievements from "./AllAchievements";
 import UpcomingAchievement from "./Achievement";
+import '../Global.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // If the arrow is not displayed (The one from bootstrap icons)
@@ -27,7 +28,7 @@ const ComingAchievementBox = (props) => {
     <div>
       <Card.Header className="achievementBoxCardHeader">Upcoming achievements</Card.Header>
       {/* Creating the card/box to contain the achievements */}
-      <Card className="achievementBoxCardMain " >
+      <Card className="achievementBoxCardMain standardBorder" >
         <Card.Body className="achievementBoxCardBody card-columns">
 
           {/*This are the achievements displayed */}

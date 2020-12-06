@@ -1,4 +1,5 @@
 import React from "react";
+import '../Global.css';
 import { LineChart, XAxis, YAxis, ReferenceLine, Line, ResponsiveContainer, Tooltip } from 'recharts';
 import { Card } from "react-bootstrap";
 import useMeasurementHistory, {MeasurementsTypes} from "./useMeasurementHistory";
@@ -88,18 +89,18 @@ export default function GraphBloodSugar(props) {
 
   if(from===0) {
   return (
-    <div>
+    <div className = "scrollable">
 
       {/* Start of wrapper card */}
-      <Card className="graphWrapper" style={{ border: "none" }}>
+      <Card className="graphWrapper standardBorder" style={{ border: "none" }}>
         <Card.Body className="graphWrapperBody" style={{ border: "none", padding: "0px" }}>
 
-          <Card id="graphBloodSugarCard">
+          <Card id="graphBloodSugarCard" className= "standardBorder">
             <Card.Body id="graphBloodSugarCardBody" style={{ padding: "0px" }}>
 
               {/*Start of recharts LineChart */}
               <ResponsiveContainer width="100%" height={120}>
-                <LineChart data={dataReadyForGraph} margin={{ top: 10, right: 10, left: 10, bottom: 0 }}>
+                <LineChart data={dataReadyForGraph} margin={{ top: 10, right: 10, left: 10, bottom: 10 }}>
                 <ReferenceLine y={maxGoal} stroke="#d1d1d1" strokeDasharray="5 5" />
                   <ReferenceLine y={minGoal} stroke="#d1d1d1" strokeDasharray="5 5" />
                   <XAxis tick={false} dataKey="printDate" />
@@ -114,10 +115,10 @@ export default function GraphBloodSugar(props) {
           </Card>
 
           {/* Start of box cards below graph, "Latest" and "Goal"*/}
-          <Card className="infoCardsWrapper" style={{ border: "none", marginTop: 10 }}>
+          <Card className="infoCardsWrapper standardBorder" style={{ border: "none", marginTop: 10 }}>
             <Card.Body className="infoCardsWrapperBody" style={{ border: "none", padding: "0px" }}>
 
-              <Card className="latestValueCard" style={{ width: "48%", height: 50, display: "inline-block" }}>
+              <Card className="latestValueCard standardBorder" style={{ width: "48%", height: 50, display: "inline-block" }}>
                 <Card.Body className="latestValueCardBody" style={{ paddingTop: "0px", paddingLeft: "5px", paddingRight: "5px", paddingTop: "4%", height: "100%" }}>
                   <h4 style={{ textAlign: "center" }}>
                     {latestValue} {unit}
@@ -127,7 +128,7 @@ export default function GraphBloodSugar(props) {
                 </Card.Body>
               </Card>
 
-              <Card className="goalValueCard" style={{ float: "right", width: "48%", height: 50, display: "inline-block" }}>
+              <Card className="goalValueCard standardBorder" style={{ float: "right", width: "48%", height: 50, display: "inline-block" }}>
                 <Card.Body className="goalValueCardBody" style={{ paddingTop: "0px", paddingLeft: "5px", paddingRight: "5px", paddingTop: "4%", height: "100%" }}>
                   <h4 style={{ textAlign: "center" }}>
                     {minGoal.toPrecision(goalPrecision)} to {maxGoal.toPrecision(goalPrecision)} {unit}
@@ -150,13 +151,13 @@ export default function GraphBloodSugar(props) {
 }
 else {
   return (
-    <div>
-          <Card id="graphBloodSugarCard">
+    <div className = "scrollable">
+          <Card id="graphBloodSugarCard" className= "standardBorder">
             <Card.Body id="graphBloodSugarCardBody" style={{ padding: "0px" }}>
-            <h4 style={{textAlign: "center", color: "#898989", marginTop: "8px"}}>Weekly graph</h4>
+            <h4 style={{textAlign: "center", marginTop: "8px"}}>Weekly graph</h4>
               {/*Start of recharts LineChart */}
               <ResponsiveContainer width="100%" height={120}>
-                <LineChart data={dataReadyForGraph} margin={{ top: 10, right: 10, left: 10, bottom: 0 }}>
+                <LineChart data={dataReadyForGraph} margin={{ top: 10, right: 10, left: 10, bottom: 10 }}>
                 <ReferenceLine y={maxGoal} stroke="#d1d1d1" strokeDasharray="5 5" />
                   <ReferenceLine y={minGoal} stroke="#d1d1d1" strokeDasharray="5 5" />
                   <XAxis tick={false} dataKey="printDate" />

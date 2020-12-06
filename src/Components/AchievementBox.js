@@ -1,6 +1,7 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 import "./AchievementBox.css";
+import "../Global.css";
 import { ArrowRight } from 'react-bootstrap-icons';
 import AllAchievements from "./AllAchievements";
 import Achievement from "./Achievement";
@@ -19,7 +20,7 @@ const AchievementBox = (props) => {
     <div>
       <Card.Header className="achievementBoxCardHeader ">Your latest achievements</Card.Header>
       {/* Creating the card/box to contain the achievements */}
-      <Card className="achievementBoxCardMain " >
+      <Card className="achievementBoxCardMain standardBorder" >
         <Card.Body className="achievementBoxCardBody card-columns">
 
           {/*This are the achievements displayed */}

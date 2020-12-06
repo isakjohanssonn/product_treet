@@ -66,7 +66,7 @@ function MeasurementData() {
   });
 
   return <div>
-    <Navigationbar title={'History'}/>
+    <Navigationbar title={'All measurements'}/>
     <div className="dates" style={{
       marginTop: "80px",
       marginBottom: "8px"

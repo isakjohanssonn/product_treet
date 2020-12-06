@@ -40,27 +40,28 @@ export default function SuccessfullySaved(props) {
             <Navigationbar title={'Saved Measurement'}/>
             <DateAndCalendar/>
 
-                You have successfully saved a new meausurement!
+                <h4 className = "title">You have successfully </h4>
+                <h4 className = "title">saved a new measurement!</h4>
 
 
 
                 <div style={{display: 'flex', width: '100%'}}>
                 <Card className="savedMeasurementBox standardBorder">
-                        Saved
-                        <p><pl>{value}</pl> unit </p>
+                        <h4>Saved</h4>
+                        <h4><pl>{value}</pl> unit </h4>
                 </Card>
 
                 <div style={{display: 'flex', width: '5%'}}></div>
 
                 <Card className="savedMeasurementBox standardBorder">
-                        Goal
-                        <p><pl>XX</pl> unit</p>
+                       <h4> Goal</h4>
+                        <h4><pl>XX</pl> unit</h4>
                 </Card>
                 </div>
 
-
-                You're not quite there,
-                but getting close every day!
+                <h4 className = "title">
+                Keep up the good work!</h4>
+                
 
                 <Streak {...props} />
 

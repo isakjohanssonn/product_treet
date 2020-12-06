@@ -2,6 +2,7 @@ import React from "react";
 import AchievementBox from "./Components/AchievementBox";
 import ComingAchievementBox from "./Components/ComingAchievementBox";
 import AllAchievementsBox from "./Components/AllAchievementsBox";
+import './Global.css';
 import Navigationbar from './Components/Navigationbar'
 import Footer from './Components/Footer'
 
@@ -14,7 +15,7 @@ const AchievementPage = (props) => {
 
   const {reachedAchievements, currentStreak} = props;
   return (
-    <div>
+    <div className = "scrollable">
       <Navigationbar title={'Achievement'} />
       <br /><br />
       <AchievementBox reachedAchievements={reachedAchievements} />
