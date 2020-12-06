@@ -12,8 +12,11 @@ import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import GrowingTree from "./Components/GrowingTree";
 
 const Home = (props) => {
+    const {setTreeAge, treeAge, setCurrentStreak, currentStreak } = props;
     const { remainingAmount } = useRemainingMeasurements();
     const text = remainingAmount === 0 ? "All done!" : remainingAmount + " remaining";
+
+   
 
     return (
         <div className="homePage">
@@ -33,7 +36,7 @@ const Home = (props) => {
                     </div>
 
                 )}
-                <MeasurementList />
+                <MeasurementList {...props} remainingAmount={remainingAmount}/>
             </div>
             <Footer />
         </div>

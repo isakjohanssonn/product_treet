@@ -35,7 +35,7 @@ function GetPreviousMeasurement(props) {
 
 
 function NewMeasurement(props) {
-  const { type, id, setCompleted, from, time, completed, currentStreak, setCurrentStreak } = props;
+  const { type, id, setCompleted, from, time, completed, currentStreak, setCurrentStreak, treeAge, setTreeAge } = props;
   const [value, setValue] = useState("...");
   const history = useHistory();
   const { addMeasurement } = useMeasurementHistory();
@@ -59,7 +59,8 @@ function NewMeasurement(props) {
         console.log("Remaining amount: " + remainingAmount);
         if (remainingAmount - 1 == 0)
         {
-           setCurrentStreak(currentStreak + 1);
+          setCurrentStreak(currentStreak + 1);
+          setTreeAge(treeAge + 1);
         }
       }
       from === 0 ? history.push('/successfullysaved', { value }) : history.push('/measurements');
