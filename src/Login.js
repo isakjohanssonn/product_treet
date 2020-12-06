@@ -22,7 +22,7 @@ export default function Login() {
         <h3>TREET </h3>
       </div>
       <div className="topMargin">
-        <img src="/static/media/hangingtree-anim.3dd4666e.svg" className="treeimage"></img>
+        <img src="/static/media/hangingtree-anim.3dd4666e.svg" className="treeimage" alt = {"tree"}></img>
         {LoginButton()}
       </div >
     </div >

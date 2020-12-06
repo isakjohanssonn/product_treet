@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import '../Global.css'
 import "./Slider.css";
 import Button from 'react-bootstrap/Button';
@@ -15,7 +15,7 @@ const Slider = (props) => {
     secondItem = (<Link to="/achievement" className="slider-link">
     <Button className="slider-button standardBorder">
       <div className="image-holder">
-        <object className="tree-image-slider" type="image/png" data={GoldenStar}/>
+        <object className="tree-image-slider" type="image/png" data={GoldenStar} />
       </div>
       Achievements
     </Button>
@@ -26,7 +26,7 @@ const Slider = (props) => {
     firstItem = (<Link to="/forest" className="slider-link">
     <Button className="slider-button standardBorder">
       <div className="image-holder">
-        <object className="tree-image-slider" type="image/svg+xml" data={getTree(3, 7, false, false)}/>
+        <object className="tree-image-slider" type="image/svg+xml" data={getTree(3, 7, false, false)} />
       </div>
       Forest
     </Button>

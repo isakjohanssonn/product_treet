@@ -12,7 +12,6 @@ export default function AddMedDataNew(props) {
   let type, id, completed, from, onClick, time;
   const { setCompleted } = useRemainingMeasurements();
   const { setValue } = useMeasurementHistory();
-  const {remainingAmount} = props;
   const { currentStreak, setCurrentStreak } = props;
   const { treeAge, setTreeAge } = props;
 

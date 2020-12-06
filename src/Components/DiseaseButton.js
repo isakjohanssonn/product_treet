@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import Button from 'react-bootstrap/Button';
 import { Card } from "react-bootstrap";
 import "../Global.css";
 import "./DiseaseButton.css";
-import { ArrowRight, Box } from 'react-bootstrap-icons';
+import { ArrowRight } from 'react-bootstrap-icons';
 import GetDemographicsEHR from "../openEHR/GetDemographicsEHR.js";
 import { Link } from 'react-router-dom';
 import GoldenStar from "../img/achievementsimg/golden_star.png";
@@ -14,7 +13,7 @@ import BronzeStar from "../img/achievementsimg/bronze_star.png";
 
 const DiseaseButton = (props) => {
   const [person] = useState(GetDemographicsEHR)
-  if (props.title == 'Diabetes') {
+  if (props.title === 'Diabetes') {
     return (
       <div>
         <Link to='/Diabetes' className="link">
@@ -24,9 +23,9 @@ const DiseaseButton = (props) => {
               <div className="arrowDiv firstArrowDiv" />
 
               <div className="starDiv">
-                <img src={SilverStar} className="star" />
-                <img src={BronzeStar} className="star" />
-                <img src={GoldenStar} className="star" />
+                <img src={SilverStar} className="star" alt = {"badge"}/>
+                <img src={BronzeStar} className="star" alt = {"badge"}/>
+                <img src={GoldenStar} className="star" alt = {"badge"}/>
               </div>
               <div className="arrowDiv">
                 <ArrowRight viewBox="0 0 16 16" className="pull-right arrowAchivement" fill="currentColor" />

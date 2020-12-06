@@ -19,7 +19,7 @@ const Achievement = (props) => {
             }
             return (
                 <div className="upcoming-achievement-card">
-                    <img src={achievement.Icon} className="placeholder" />
+                    <img src={achievement.Icon} className="placeholder" alt = {"achievement"}/>
                     <ProgressBar now={(currentStreak / achievement.Requirement) * 100} className="progressbar" />
                     <div className="achievement-label">{name}</div>
                     {score}
@@ -29,7 +29,7 @@ const Achievement = (props) => {
         else {
             return (
                 <div className="upcoming-achievement-card">
-                    <img src={achievement.Icon} className="placeholder" />
+                    <img src={achievement.Icon} className="placeholder" alt = {"achievement"}/>
                     <div className="achievement-label">{name}</div>
                 </div>);
         }

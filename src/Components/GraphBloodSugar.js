@@ -13,7 +13,6 @@ export default function GraphBloodSugar(props) {
   const maxGoal = 8.0;    // The set max. goal and the top reference line in the graph
   var goalPrecision;  // The float precision of the set goal in the "Goal" card
   var latestValue = 0;  // The latest value shown in the "Latest" card
-  var latestPrecision;   // The float precision of the latest value in the "Latest" card
   var unit = "mmol/L";      // Unit to be shown in the "Goal" and "Latest" cards
 
   // ::: Seed Variables :::
@@ -119,7 +118,7 @@ export default function GraphBloodSugar(props) {
             <Card.Body className="infoCardsWrapperBody" style={{ border: "none", padding: "0px" }}>
 
               <Card className="latestValueCard standardBorder" style={{ width: "48%", height: 50, display: "inline-block" }}>
-                <Card.Body className="latestValueCardBody" style={{ paddingTop: "0px", paddingLeft: "5px", paddingRight: "5px", paddingTop: "4%", height: "100%" }}>
+                <Card.Body className="latestValueCardBody" style={{ paddingLeft: "5px", paddingRight: "5px", paddingTop: "4%", height: "100%" }}>
                   <h4 style={{ textAlign: "center" }}>
                     {latestValue} {unit}
                     <br />
@@ -129,7 +128,7 @@ export default function GraphBloodSugar(props) {
               </Card>
 
               <Card className="goalValueCard standardBorder" style={{ float: "right", width: "48%", height: 50, display: "inline-block" }}>
-                <Card.Body className="goalValueCardBody" style={{ paddingTop: "0px", paddingLeft: "5px", paddingRight: "5px", paddingTop: "4%", height: "100%" }}>
+                <Card.Body className="goalValueCardBody" style={{ paddingLeft: "5px", paddingRight: "5px", paddingTop: "4%", height: "100%" }}>
                   <h4 style={{ textAlign: "center" }}>
                     {minGoal.toPrecision(goalPrecision)} to {maxGoal.toPrecision(goalPrecision)} {unit}
                     <br />
