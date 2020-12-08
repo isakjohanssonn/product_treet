@@ -16,21 +16,7 @@ const GetInfo = (setLevel, setCurrentStreak, setLongestStreak, setCurrentTree, s
     setCurrentTree(parseInt(res[0]["currentTree"]))
     setTreeAge(parseInt(res[0]["treeAge"]))
     setIsSickTree(res[0]["isSick"])
-    setReachedAchievement(() => {
-      let x = [];
-      let val = "";
-      for (let i = 1; i < (res[0]["achivements"]).length - 1; i++) {
-        if (res[0]["achivements"][i] == ',') {
-          x.push(parseInt(val));
-          val = "";
-        }
-        else {
-          val = val.concat(res[0]["achivements"][i]);
-        }
-      }
-      x.push(parseInt(val));
-      return x;
-    })
+    setReachedAchievement(JSON.parse(res[0]["achivements"]))
   });
 }
 
