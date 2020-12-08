@@ -7,7 +7,7 @@ and takes inspiration from [Semantic Versioning](https://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 
-## [2020-12-08]
+## [4.0.1] - 2020-12-08
 
 ### Added
 - Setting gameification mode is now available.
