@@ -43,7 +43,7 @@ const Intro = (props) => {
               checked={level === 2}
             />
             <Form.Text id="lvl2" muted>
-              <h4>Goal related badges and streak counter connected to trees</h4>
+              <h4>Goal related badges and streak counter</h4>
             </Form.Text>
             <Form.Check
               type="radio"

@@ -34,10 +34,10 @@ const AllAchievements = (ID) => {
   }
   var a3 = {
     ID: 3,
-    'Name': "Twenty day streak",
+    'Name': "Twenty five day streak",
     'Icon': BronzeStar,
-    'Info': "Report measurments 20 days in a row",
-    'Requirement': 20,
+    'Info': "Report measurments 25 days in a row",
+    'Requirement': 25,
   }
   var a4 = {
     ID: 4,

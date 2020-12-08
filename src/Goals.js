@@ -15,7 +15,7 @@ const GoalsPage = (props) => {
       <Navigationbar title={'Goals'} />
       <Slider level = {level}/>
         <div className="goals-page-content">
-        <DiseaseButton title={'Diabetes'} link={'/Diabetes'} />
+        <DiseaseButton title={'Diabetes'} link={'/Diabetes'} level = {level}/>
         <DiseaseButton title={'Heartfailure'}/>
         <DiseaseButton title={'COPD (KOL)'}/>
         <DiseaseButton title={'Hypertoni'}/>
