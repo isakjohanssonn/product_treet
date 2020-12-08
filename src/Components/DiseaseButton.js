@@ -12,8 +12,19 @@ import BronzeStar from "../img/achievementsimg/bronze_star.png";
 // Try installing bootstrap icons in the terminal with the command "npm install react-bootstrap-icons --save"
 
 const DiseaseButton = (props) => {
+  const {level} = props;
   const [person] = useState(GetDemographicsEHR)
   if (props.title === 'Diabetes') {
+    let contentIfAchievements;
+    if (level > 1) 
+    {
+      contentIfAchievements = (<div className="starDiv"><img src={SilverStar} className="star" alt = {"badge"}/>
+      <img src={BronzeStar} className="star" alt = {"badge"}/>
+      <img src={GoldenStar} className="star" alt = {"badge"}/> </div>)
+    }
+    else {
+      contentIfAchievements = (<div className="starDiv"> </div>)
+    };
     return (
       <div>
         <Link to='/Diabetes' className="link">
@@ -21,12 +32,7 @@ const DiseaseButton = (props) => {
             <Card.Header className="diseaseButtonCardHeader">{props.title}</Card.Header>
             <Card.Body className="diseaseButtonCardBody card-columns">
               <div className="arrowDiv firstArrowDiv" />
-
-              <div className="starDiv">
-                <img src={SilverStar} className="star" alt = {"badge"}/>
-                <img src={BronzeStar} className="star" alt = {"badge"}/>
-                <img src={GoldenStar} className="star" alt = {"badge"}/>
-              </div>
+                {contentIfAchievements}
               <div className="arrowDiv">
                 <ArrowRight viewBox="0 0 16 16" className="pull-right arrowAchivement" fill="currentColor" />
               </div>

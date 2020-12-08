@@ -42,7 +42,7 @@ const Main = () => {
     const [currentStreak, setCurrentStreak] = useState(24);
     const [longestStreak, setLongestStreak] = useState(24);
     //The achievements that have been reached.
-    const [reachedAchievements, setReachedAchievements] = useState([0, 1]);
+    const [reachedAchievements, setReachedAchievements] = useState([0, 1, 2]);
     //Calculates if another achievement have been gained, then adds it to reachedachievements
     CalcAchievements(currentStreak, reachedAchievements, setReachedAchievements);
     //Calculates if the longest streak has changed
@@ -137,7 +137,9 @@ const Main = () => {
                                     setCurrentStreak = {setCurrentStreak}
                                     is_sick = {isSickTree}
                                     tree = {currentTree}
-                                    treeAge = {treeAge}/>
+                                    treeAge = {treeAge}
+                                    level={level}
+                                    reachedAchievements = {reachedAchievements}/>
                                     )} />
 
                                 <Route path="/Tree" component={Tree} />
