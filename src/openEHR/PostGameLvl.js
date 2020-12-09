@@ -1,9 +1,8 @@
 
-
 const PostGameLevel = (level) => {
     
-    var user = 'cds@lio.se';
-    var pw = 'cds4ehr';
+    var user = 'INSERT USER ACCOUNT WITH WRITE PERMISSIONS';
+    var pw = 'INSERT USER ACCOUNT WITH WRITE PERMISSIONS';
     var url = 'https://rest.ehrscape.com/rest/v1/composition?ehrId=6a0ed4a1-ddd5-47ce-8ffa-ae4a93de5eae&templateId=PUM_COMP4_GameSettings&format=FLAT';
     var headers = new Headers();
     headers.append('Authorization', 'Basic ' + btoa(user + ":" + pw));
